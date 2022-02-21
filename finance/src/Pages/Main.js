@@ -13,11 +13,11 @@ const Main  = () => {
     useEffect(() => {
         const fetchData = async () => {
             if (tickerData.selected === null) {
-                await fetch(`${API_URL}/cache`)
+                await fetch(`${API_URL}cache`)
                 .then(resp => resp.json())
                 .then(r => setTickerData({ 
-                    selected: Object.keys(r.data)[0],
-                    data: r.data
+                    selected: Object.keys(r)[0],
+                    data: r
                 }));
                 setLoading(false);
             }
@@ -35,15 +35,15 @@ const Main  = () => {
         ) :
         (
             <>
+                <Search />
                 <Menu 
                     symbol={tickerData.selected}
                     todaysData={tickerData.data[tickerData.selected].historicalData[tickerData.data[tickerData.selected].historicalData.length - 1]}
                     data={tickerData.data[tickerData.selected]} 
                 />
-
-                {/* <div className="shareTitle">{ shortName }</div>
-                <div className="shareSubtitle">${ close }</div>
-                */}
+                
+                <div className="shareTitle">{ tickerData.data[tickerData.selected].shortName }</div>
+                <div className="shareSubtitle">${ tickerData.data[tickerData.selected].historicalData[tickerData.data[tickerData.selected].historicalData.length - 1].close.toFixed(2) }</div>
 
                 <Chart
                     chartType="LineChart"
@@ -73,10 +73,9 @@ const Main  = () => {
 
                 <div className="tabContainer">
                     {
-                        tickerData.data[tickerData.selected].historicalData.map(name => <div onClick={() => setSelected(name)} className="tabItem">{ name }</div>)
+                       Object.keys(tickerData.data).map(name => <div onClick={() => setSelected(name)} className="tabItem">{ name }</div>)
                     }
                 </div>   
-                <Search />
             </>
         )
     )

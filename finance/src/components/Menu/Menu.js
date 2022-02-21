@@ -24,6 +24,12 @@ const Menu = (props) => {
         marketCap,
     } = data;
 
+    const {
+        open, close, low, high
+    } = todaysData;
+
+    console.log("todaysData", todaysData)
+
     return (
         <nav id="menu">
             <div className="menu-item">
@@ -108,15 +114,15 @@ const Menu = (props) => {
                         <div className="text">
                             <div className="title colourMain">{ symbol } | { industry }</div>
                             <div className="sub-text">{ shortName }</div>
-                            <div className="sub-text ">Market Cap: ${ marketCap.toLocaleString('en-US') }</div>
+                            { marketCap && <div className="sub-text ">Market Cap: ${ marketCap.toLocaleString('en-US') }</div> }
                         </div>
                     </div>
                     <div className="box">
                         <h3 className="colourMain">Today</h3>
-                        <a href="#">Open: { todaysData.open.toFixed(2) }</a>
-                        <a href="#">Close: { todaysData.close.toFixed(2) }</a>
-                        <a href="#">Low: { todaysData.low.toFixed(2) }</a>
-                        <a href="#">High: { todaysData.high.toFixed(2) }</a>
+                        <a href="#">Open: { open.toFixed(2) }</a>
+                        <a href="#">Close: { close.toFixed(2) }</a>
+                        <a href="#">Low: { low.toFixed(2) }</a>
+                        <a href="#">High: { high.toFixed(2) }</a>
                     </div>
                     <div className="box">
                         <h3 className="colourMain">Historical</h3>
@@ -125,26 +131,36 @@ const Menu = (props) => {
                         <a href="#">52 Week Low: { fiftyTwoWeekLow }</a>
                         <a href="#">52 Week High: { fiftyTwoWeekHigh }</a>
                     </div>
-                    <div className="icon-box flat">
-                        <div className="text">
-                            <div className="title">Total Revenue: ${ totalRevenue.toLocaleString('en-US') }</div>
+                    
+                    { totalRevenue &&
+                        <div className="icon-box flat">
+                            <div className="text">
+                                <div className="title">Total Revenue: ${ totalRevenue.toLocaleString('en-US') }</div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="icon-box flat">
-                        <div className="text">
-                            <div className="title">Total Cash: ${ totalCash.toLocaleString('en-US')  } </div>
+                    }
+                    { totalCash && 
+                        <div className="icon-box flat">
+                            <div className="text">
+                                <div className="title">Total Cash: ${ totalCash.toLocaleString('en-US')  } </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="icon-box flat">
-                        <div className="text">
-                            <div className="title">Total Debt: ${ totalDebt.toLocaleString('en-US') }</div>
+                    }
+                    { totalDebt &&
+                        <div className="icon-box flat">
+                            <div className="text">
+                                <div className="title">Total Debt: ${ totalDebt.toLocaleString('en-US') }</div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="icon-box flat">
-                        <div className="text">
-                            <div className="title">Gross Profits: ${ grossProfits.toLocaleString('en-US') }</div>
-                        </div>
-                    </div>
+                    }
+                    {
+                        grossProfits && 
+                            <div className="icon-box flat">
+                                <div className="text">
+                                    <div className="title">Gross Profits: ${ grossProfits.toLocaleString('en-US') }</div>
+                                </div>
+                            </div>
+                    }
                 </div>
             </div>
             <div className="menu-item">

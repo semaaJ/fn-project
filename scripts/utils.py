@@ -10,20 +10,33 @@ from datetime import date
 
 
 def linear_regression(x, y):
-    x = np.array([i for i in range(len(x))]).reshape((-1, 1))
+
+    x = np.array([i for i in range(len(x))])
     y = np.array([i for i in y])
+
+    print("len X", len(x))
+    print("len Y", len(y))
     
-    model = model = LinearRegression().fit(x, y)
-    r_sq = model.score(x, y)
-    print('coefficient of determination:', r_sq)
+    x.reshape(len(x), 1)
+    y.reshape(len(y), 1)
 
-    x_new = np.arange(20).reshape((-1, 1))
-    y_new = model.predict(x_new)
-    print(y[-20:])
-    print(y_new)
+    print("X:", x[0:10])
+    print("Y:", y[0:10])
 
-    plt.plot(x, color = 'magenta')
-    plt.plot(x_new, color = 'green')
+    linreg = LinearRegression().fit(x, y)
+    linreg.score(x, y)
+    predictions = linreg.predict(y)
+    # model = model = LinearRegression().fit(x, y)
+    # r_sq = model.score(x, y)
+    # print('coefficient of determination:', r_sq)
+
+    # y_new = np.arange(20).reshape((-1, 1))
+    # y_new = model.predict(y)
+    # print(y[-20:s
+
+    plt.plot(y, color = 'magenta')
+    # plt.plot(x, color = 'magenta')
+    # plt.plot(x_new, color = 'green')
     plt.show()
     plt.close()
 
@@ -53,5 +66,6 @@ def get_current_price(symbol):
     todays_data = ticker.history(period='1d')
     return todays_data['Close'][0]
 
-
-     
+import sys
+share_info, historical_data = get_historical_data(sys.argv[1])
+linear_regression([item["date"] for item in historical_data], [item["close"] for item in historical_data])
