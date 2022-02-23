@@ -1,6 +1,7 @@
 import os
 import json
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 
 def import_json(json_path):
     """Loads data from a JSON file into a readable JSON object.
@@ -28,6 +29,19 @@ def display_graph(dists):
     # green = mpatches.Patch(color='green', label='leg angles')
     # magenta = mpatches.Patch(color='magenta', label='Spine angles')
     # plt.legend(handles=[green, magenta], bbox_to_anchor=(1, 1), loc='upper left', borderaxespad=0)
+    plt.show()
+    plt.close()
+
+
+def display_graph_two(dists, dists2):
+    # Colouring lines 
+    plt.plot(dists, color = 'magenta')
+    plt.plot(dists2, color = 'green')
+
+    # #plt.savefig(save_path + "/{}.png".format(ref_code))
+    magenta = mpatches.Patch(color='magenta', label='Arg 1')
+    green = mpatches.Patch(color='green', label='Arg 2')
+    plt.legend(handles=[green, magenta], bbox_to_anchor=(1, 1), loc='upper left', borderaxespad=0)
     plt.show()
     plt.close()
 

@@ -1,6 +1,7 @@
 import os 
 import numpy as np 
 import pandas as pd
+import numpy_financial as npf
 
 from helpers import *
 
@@ -56,6 +57,9 @@ def create_df_from_json(json_path):
     for col_name, vals in data_map.items():
         df[col_name] = vals
 
+    # Numpy Financial: https://numpy.org/numpy-financial/
+    # df["internal_rate_of_return"] = npf.irr(np.array(df["close"]))
+
     # df.set_index(["date"], inplace = True)
     stock_name = json_path.split("/")[2].replace(".json", ".csv")
 
@@ -77,7 +81,7 @@ def calculate_inflation_rates(path, name):
 
     inflation_df.columns = col_names
 
-    # inflation_df.set_index(["date"], inplace = True)
+    inflation_df.set_index(["date"], inplace = True)
     create_csv(inflation_df, path, name)
 
     return
@@ -88,8 +92,8 @@ def get_inflation_price_adjustments(df, inflation_df):
     date_vals = list(df["date"])
     inf_date_vals = list(inflation_df["date"])
 
-    # print(inf_date_vals[:30])
     df = pd.merge(df, inflation_df, how='left', on='date')
+    # df["CPI_ADJ_PRICE"] = df["CLOSE"] * df["CPIAUCNS_MULTIPLIER"]
     df["cpi_adj_price"] = df["close"] * df["cpiaucns_multiplier"]
     df = df.ffill()
 
@@ -104,10 +108,19 @@ def calculate_treasury_yield_to_maturity(df):
     return df
 
 
+def calculate_rolling_avg_volume(df):
+    df["20d_vol_avg"] = df['volume'].rolling(20).mean()
+    df["100d_vol_avg"] = df['volume'].rolling(100).mean()
+
+    df['daily_diff'] = df['close'].diff(1)
+
+    return df
+
+
 
 def feature_engineering_main():
     # Only needs to be ran if new Inflation CSV is added 
-    calculate_inflation_rates("data/us_inflation_rates/", "CPIAUCNS.csv")
+    # calculate_inflation_rates("data/us_inflation_rates/", "CPIAUCNS.csv")
     inflation_df = pd.read_csv("data/us_inflation_rates/CPIAUCNS.csv", delimiter=',', sep=r', ')
 
     # Might move this into non-main function for general feature engineering
@@ -117,17 +130,23 @@ def feature_engineering_main():
         csv_path = json_folder_path.replace("json", "csv")
         json_path = json_folder_path + file
         # Convert JSON data to DF format
+        
         df = create_df_from_json(json_path)
         # Apply Inflation rates to get objective price 
         df = get_inflation_price_adjustments(df, inflation_df)
 
-        df = calculate_treasury_yield_to_maturity(df)
-        
+        # df = calculate_treasury_yield_to_maturity(df)
+
+        # calculate the volume and 29 avg vol total
+        df = calculate_rolling_avg_volume(df)
+
         # Next look at volatility scores
         
         print(df)
 
-        create_csv(df, csv_path, file.replace(".json", ".csv"))
+        # display_graph_two(list(df["volume"]), list(df["20d_vol_avg"]))
+
+        # create_csv(df, csv_path, file.replace(".json", ".csv"))
 
 if __name__ == "__main__":
     feature_engineering_main()
