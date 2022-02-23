@@ -3,9 +3,8 @@ import './ShareTileContainer.css';
 const ShareTileContainer = (props) => {
     const {
         data,
-        e1,
-        e2,
-        corr
+        name,
+        type
     } = props;
 
     const {
@@ -50,17 +49,37 @@ const ShareTileContainer = (props) => {
         fiftyTwoWeekChange,
     } = data;
 
-    return (
-        <div className="shareInfoContainer">
-            <div className="shareInfoTile">
-                <div className="shareTitle">{ shortName }</div>
-                <div className="">{ industry }</div>
-                <div className="shareAddress">{ city }, { state }, { country }, { zip }</div>
-                <div className="shareAddress mt-8">Correlation: { corr }</div>
-                <div className="shareAddress">SPY: { e1 }% vs { e2 }%</div>
+    const renderShareInfo = () => {
+        return (
+            <div className="shareInfoContainer">
+                <div className="shareInfoTile">
+                    <div className="shareTitle">{ shortName }</div>
+                    <div className="">{ industry }</div>
+                    <div className="shareAddress">{ city }, { state }, { country }, { zip }</div>
+                    {/* <div className="shareAddress mt-8">SPY Correlation: { 0 }</div>
+                    <div className="shareAddress">BTC Correlation: { 0 }</div>
+                    <div className="shareAddress mt-8">SPY: { 0 }% vs { 0 }%</div> */}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+
+    const renderCryptoInfo = () => {
+        return (
+            <div className="shareInfoContainer">
+                <div className="shareInfoTile">
+                    <div className="shareTitle">{ name }</div>
+                    {/* <div className="shareAddress mt-8">SPY Correlation: { 0 }</div>
+                    <div className="shareAddress">BTC Correlation: { 0 }</div>
+                    <div className="shareAddress mt-8">BTC: { 0 }% vs { 0 }%</div> */}
+                </div>
+            </div>
+        )
+    }
+
+    console.log(data, type);
+    if (type === "equities") return renderShareInfo();
+    return renderCryptoInfo();
 }
 
 export default ShareTileContainer;

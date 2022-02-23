@@ -2,28 +2,40 @@ import json
 import os
 
 from flask import Flask, jsonify, request
-from utils import  get_current_price, get_historical_data
+from utils import  get_current_price, get_historical_data, get_crypto_data
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 cors = CORS(app)
+
+
+def file_exists(file, dir):
+    return f"{file}.json" in os.listdir(f"{os.path.dirname(os.path.abspath(__file__))}\data\{dir}")
+
+def return_all_files_in_dir(dir):
+    return [f for f in os.listdir(f"{os.path.dirname(os.path.abspath(__file__))}\data\{dir}")]
   
 @app.route('/cache', methods=['GET'])
 def get_cached_data():
-    data = {}
-    for f in os.listdir(f"{os.path.dirname(os.path.abspath(__file__))}\data"):
-        with open(f"data/{f}", "r") as fil:
-            data[f.split(".")[0]] = json.load(fil)
+    data = {"equities": {}, "crypto": {}}
+    for f in return_all_files_in_dir("share"):
+        with open(f"data/share/{f}", "r") as fil:
+            data["equities"][f.split(".")[0]] = json.load(fil)
+
+    for f in return_all_files_in_dir("crypto"):
+        print("filename", f)
+        with open(f"data/crypto/{f}", "r") as fil:
+            data["crypto"][f.split(".")[0]] = json.load(fil)
 
     return jsonify(data)
 
-@app.route('/share/<string:ticker>', methods = ['GET'])
+@app.route('/share/<string:ticker>', methods=['GET'])
 def share_data(ticker):
-    if (f"{ticker}.json" not in os.listdir(f"{os.path.dirname(os.path.abspath(__file__))}\data")):
-        with open(f"data/{ticker}.json", "w+") as f:
+    if (not file_exists(ticker, "share")):
+        with open(f"data/share/{ticker}.json", "w+") as f:
             json.dump({}, f)
     
-    with open(f"data/{ticker}.json", "r+") as f:
+    with open(f"data/share/{ticker}.json", "r+") as f:
         all_data = json.load(f)
         share_info, historical_data = get_historical_data(ticker)
 
@@ -89,6 +101,22 @@ def share_data(ticker):
             json.dump(all_data, f, indent=4)
             return jsonify(all_data)
     
-  
+@app.route('/crypto/<string:id>', methods=['GET'])
+def crypto_data(id):
+    if (not file_exists(id, "crypto")):
+        with open(f"data/crypto/{id}.json", "w+") as f:
+            json.dump({}, f)
+
+    data = get_crypto_data(id)
+    with open(f"data/crypto/{id}.json", "r+") as f:
+        json.dump({ "historicalData": data }, f, indent=4)
+        return jsonify({ id: {
+            "historicalData": data
+        } })
+
+    
+
+
+
 if __name__ == '__main__':
     app.run(debug = True)

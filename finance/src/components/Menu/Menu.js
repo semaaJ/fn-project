@@ -115,10 +115,10 @@ const Menu = (props) => {
                     </div>
                     <div className="box">
                         <h3 className="colourMain">Today</h3>
-                        <a href="#">Open: { open.toFixed(2) }</a>
-                        <a href="#">Close: { close.toFixed(2) }</a>
-                        <a href="#">Low: { low.toFixed(2) }</a>
-                        <a href="#">High: { high.toFixed(2) }</a>
+                        <a href="#">Open: { (open || 0).toFixed(2) }</a>
+                        <a href="#">Close: { (close || 0).toFixed(2) }</a>
+                        <a href="#">Low: { (low || 0).toFixed(2) }</a>
+                        <a href="#">High: { (high || 0).toFixed(2) }</a>
                     </div>
                     <div className="box">
                         <h3 className="colourMain">Historical</h3>
