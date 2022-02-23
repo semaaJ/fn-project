@@ -1,6 +1,7 @@
 import json
 import math
 import datetime
+import time
 
 import numpy as np
 import pandas as pd
@@ -13,11 +14,21 @@ from sklearn.svm import SVR
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_log_error
 
+def convert_to_timestamp(x):
+    """Convert date objects to integers"""
+    return time.mktime(x.to_pydatetime().timetuple())
+
+
 with open("data/share/SPY.json", "r") as f:
     data = json.load(f)
 
     df = pd.DataFrame.from_dict(data["historicalData"], orient='columns')
-    df["date"] = pd.to_datetime(df['date'])
+    base_df = pd.DataFrame.from_dict(data["historicalData"], orient='columns')
+
+
+    df['date'] = pd.to_datetime(df['date'])
+    # Convert to UNIX
+    df['date'] = df['date'].apply(convert_to_timestamp)
     df["open"].fillna(method="ffill", inplace=True)
     df["close"].fillna(method="ffill", inplace=True)
     df["low"].fillna(method="ffill", inplace=True)
@@ -26,16 +37,11 @@ with open("data/share/SPY.json", "r") as f:
     df['HL_PCT'] = (df['high'] - df['low']) / df['low'] * 100.0
     df['PCT_change'] = (df['close'] - df['open']) / df['open'] * 100.0
     
-    print(df.head())
-
-    # df = df[['HL_PCT', 'PCT_change', 'close', 'volume', 'open', 'high', 'low']]
-    print(df.dtypes)
-    forecast_out = int(math.ceil(0.05 * len(df)))
+    forecast_out = int(math.ceil(0.005 * len(df)))
     df['label'] = df['close'].shift(-forecast_out)
 
     scaler = StandardScaler()
     X = np.array(df.drop(['label'], 1))
-    print(X)
     scaler.fit(X)
     X = scaler.transform(X)
 
@@ -45,7 +51,7 @@ with open("data/share/SPY.json", "r") as f:
     df.dropna(inplace=True)
     y = np.array(df['label'])
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=123)
 
     lr = LinearRegression()
     lr.fit(X_train, y_train)
@@ -63,16 +69,17 @@ with open("data/share/SPY.json", "r") as f:
     svr.fit(X_train, y_train)
     print("SVR", svr.score(X_test, y_test))
     
-    forecast_set = rf.predict(X_Predictions) 
+    forecast_set = rg.predict(X_Predictions) 
+    print(forecast_set)
     df['forecast'] = np.nan
 
-    for i in forecast_set:
-        n
-        df.loc[df.index[-1] + i] = [np.nan for _ in range(len(df.columns) - 1)] + [i]
+    for (i, val) in enumerate(forecast_set):
+        df.loc[df.index[-1] + i] = [np.nan for _ in range(len(df.columns) - 1)] + [val]
 
     plt.figure(figsize=(18, 8))
+    df['date']
     df['close'].plot()
-    df['forecast'].plot(color='yellow')
+    df['forecast'].plot(color='green')
     plt.legend(loc=4)
     plt.xlabel('Date')
     plt.ylabel('Price')
