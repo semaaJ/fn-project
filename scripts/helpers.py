@@ -1,3 +1,4 @@
+import os
 import json
 import matplotlib.pyplot as plt
 
@@ -29,3 +30,12 @@ def display_graph(dists):
     # plt.legend(handles=[green, magenta], bbox_to_anchor=(1, 1), loc='upper left', borderaxespad=0)
     plt.show()
     plt.close()
+
+
+def create_csv(df, path, name):
+    print("Creating ", name)
+    file_path = path + name
+    if os.path.exists(file_path):
+        os.remove(file_path)
+    df.to_csv(file_path)
+    return

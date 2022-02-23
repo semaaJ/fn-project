@@ -24,56 +24,97 @@ def SortinoRatio(df, T):
     return(sortino_ratio)
 
 
-def create_df_from_json(path):
+def create_df_from_json(json_path):
     """ Used to extract all neccessary data from the stock JSON files and say them to a DataFrame
     Args:
         json_path (String) : A string representing the file path to the JSON file to be mutated
     """
-    json_files = os.listdir(path)
-    for file in json_files:
-        json_path = path + file
-        data = import_json(json_path)
-        historical_data = data["historicalData"]
+    data = import_json(json_path)
+    historical_data = data["historicalData"]
 
-        data_map = {}
+    data_map = {}
         
-        # Collect col_names for DF
-        keys_list = list(historical_data[0].keys())
-        for col_name in keys_list:
-            data_map[col_name] = []
+    # Collect col_names for DF
+    keys_list = list(historical_data[0].keys())
+    for col_name in keys_list:
+        data_map[col_name] = []
 
-        # Iterate through JSOn and collect data
-        df = pd.DataFrame(columns = keys_list)
-        for day_results in historical_data:
+    # Iterate through JSOn and collect data
+    df = pd.DataFrame(columns = keys_list)
+    for day_results in historical_data:
             # Extract info and save to the appropriate list in data_map
-            for key_name in keys_list:
-                    key_result = day_results[key_name]
-                    data_map[key_name].append(key_result)
+        for key_name in keys_list:
+            if key_name == "date":
+                data_map[key_name].append(day_results[key_name].split(" ")[0])
+            else:
+                data_map[key_name].append(day_results[key_name])
 
         # Populate DF with values
-        for col_name, vals in data_map.items():
-            df[col_name] = vals
+        print
+    for col_name, vals in data_map.items():
+        df[col_name] = vals
 
-        stock_name = json_path.split("/")[2].replace(".json", ".csv")
-        create_csv(df, stock_name)
+    # df.set_index(["date"], inplace = True)
+    stock_name = json_path.split("/")[2].replace(".json", ".csv")
+
+    return df
+
+def calculate_inflation_rates(csv_folder_path):
+
+
+    csv_name = "CPIAUCNS.csv"
+    csv_path = csv_folder_path + csv_name
+    inflation_df = pd.read_csv(csv_path, delimiter=',', sep=r', ')
+    # create index multiplier
+    inflation_df["cpiaucns_multiplier"] = inflation_df["cpiaucns"].iloc[-1] / inflation_df["cpiaucns"]
+
+    # Rename column names to lowercase to keep consistency
+    col_names = [i.lower() for i in inflation_df.columns]
+
+    inflation_df.columns = col_names
+
+    # inflation_df.set_index(["date"], inplace = True)
+    create_csv(inflation_df, csv_folder_path, csv_name)
 
     return
 
 
-def create_csv(df, name):
-    print("Creating ", name)
-    file_path = "data/csv/" + name
-    df.to_csv(file_path)
-    return
+def get_inflation_price_adjustments(df, inflation_df):
+
+    date_vals = list(df["date"])
+    inf_date_vals = list(inflation_df["date"])
+
+    # print(inf_date_vals[:30])
+    df = pd.merge(df, inflation_df, how='left', on='date')
+    df["cpi_adj_price"] = df["close"] * df["cpiaucns_multiplier"]
+    df = df.ffill()
+
+    return df
+
 
 
 
 def feature_engineering_main():
+    # Only needs to be ran if new Inflation CSV is added 
+    # calculate_inflation_rates("data/us_inflation_rates/")
+    inflation_df = pd.read_csv("data/us_inflation_rates/CPIAUCNS.csv", delimiter=',', sep=r', ')
 
-    # display_graph(close_list)
-    create_df_from_json("data/json/")
+    # Might move this into non-main function for general feature engineering
+    json_folder_path = "data/json/"
+    json_files = os.listdir(json_folder_path)
+    for file in json_files:
+        csv_path = json_folder_path.replace("json", "csv")
+        json_path = json_folder_path + file
+        # Convert JSON data to DF format
+        df = create_df_from_json(json_path)
+        # Apply Inflation rates to get objective price 
+        df = get_inflation_price_adjustments(df, inflation_df)
+        
+        # Next look at volatility scores
+        
 
-    linear_regression(date_list, close_list)
+
+        create_csv(df, csv_path, file.replace(".json", ".csv"))
 
 if __name__ == "__main__":
     feature_engineering_main()
