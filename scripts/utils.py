@@ -1,7 +1,9 @@
 import sys
+import os
 import yfinance as yf  
 import json
 import math
+import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -96,18 +98,44 @@ def display_graph(dists):
     plt.close()
 
 
+def create_csv(df, path, name):
+    print("Creating ", name, ".csv")
+    file_path = path + name 
+    print("HERE", file_path)
+    df.to_csv(file_path)
+    return
+
+
+def create_folder(folder_name):
+    if not os.path.exists(folder_name):
+        os.mkdir(folder_name)
+
+    return
+
+
 def utils_main():
 
     data = import_json("data/AMD.json")
 
-    historical_data = data["historicalData"]
-    date_list = []
-    close_list = []
-    for day in historical_data:
-        date_list.append(day["date"])
-        close_list.append(day["close"])
+    # historical_data = data["historicalData"]
+    # date_list = []
+    # close_list = []
+    # for day in historical_data:
+    #     date_list.append(day["date"])
+    #     close_list.append(day["close"])
 
-    # display_graph(close_list)
+    # # display_graph(close_list)
+    # stock_df = pd.DataFrame(columns = ["date", "close_price"])
+    # stock_df["date"] = date_list
+    # stock_df["close_price"] = close_list
+
+    # path = "data/csv/"
+    # create_folder(path)
+    # create_csv(stock_df, path, "amd.csv")
+
+    stock_df = pd.read_csv("data/csv/amp.csv", delimiter=',', sep=r', ') 
+
+    print(stock_df)
 
     linear_regression(date_list, close_list)
 
