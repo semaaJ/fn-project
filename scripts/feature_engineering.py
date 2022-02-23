@@ -26,8 +26,10 @@ def SortinoRatio(df, T):
 
 def create_df_from_json(json_path):
     """ Used to extract all neccessary data from the stock JSON files and say them to a DataFrame
+    
     Args:
         json_path (String) : A string representing the file path to the JSON file to be mutated
+
     """
     data = import_json(json_path)
     historical_data = data["historicalData"]
@@ -59,12 +61,14 @@ def create_df_from_json(json_path):
 
     return df
 
-def calculate_inflation_rates(csv_folder_path):
+def calculate_inflation_rates(path, name):
+    """ Used to calculate the percentage agreement for each row in the agreement_df 
+    Args: 
+        csv_folder_path (String) : A string file path to the folder containing the inflation CSV's 
 
-
-    csv_name = "CPIAUCNS.csv"
-    csv_path = csv_folder_path + csv_name
-    inflation_df = pd.read_csv(csv_path, delimiter=',', sep=r', ')
+    """
+    name 
+    inflation_df = pd.read_csv(path + name, delimiter=',', sep=r', ')
     # create index multiplier
     inflation_df["cpiaucns_multiplier"] = inflation_df["cpiaucns"].iloc[-1] / inflation_df["cpiaucns"]
 
@@ -74,7 +78,7 @@ def calculate_inflation_rates(csv_folder_path):
     inflation_df.columns = col_names
 
     # inflation_df.set_index(["date"], inplace = True)
-    create_csv(inflation_df, csv_folder_path, csv_name)
+    create_csv(inflation_df, path, name)
 
     return
 
@@ -91,12 +95,19 @@ def get_inflation_price_adjustments(df, inflation_df):
 
     return df
 
+def calculate_treasury_yield_to_maturity(df):
+    """
+        create row of 6mo, 1year, 2year etc whatever treasury bond lengths are
+
+    """
+
+    return df
 
 
 
 def feature_engineering_main():
     # Only needs to be ran if new Inflation CSV is added 
-    # calculate_inflation_rates("data/us_inflation_rates/")
+    calculate_inflation_rates("data/us_inflation_rates/", "CPIAUCNS.csv")
     inflation_df = pd.read_csv("data/us_inflation_rates/CPIAUCNS.csv", delimiter=',', sep=r', ')
 
     # Might move this into non-main function for general feature engineering
@@ -109,10 +120,12 @@ def feature_engineering_main():
         df = create_df_from_json(json_path)
         # Apply Inflation rates to get objective price 
         df = get_inflation_price_adjustments(df, inflation_df)
+
+        df = calculate_treasury_yield_to_maturity(df)
         
         # Next look at volatility scores
         
-
+        print(df)
 
         create_csv(df, csv_path, file.replace(".json", ".csv"))
 
