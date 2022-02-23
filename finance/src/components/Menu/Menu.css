@@ -22,7 +22,7 @@ nav .menu-item {
     justify-content: center;
     perspective: 200px;
     letter-spacing: 0.5px;
-    min-height: 7.5em;
+    /* min-height: 7.5em; */
 }
 
 nav .menu-text, nav .menu-text a {
@@ -62,7 +62,6 @@ nav .menu-text a:hover {
     position: absolute;
     z-index: -1;
     min-width: 100%;
-    top: 2.5em;
     width: 100%;
 }
 
@@ -100,7 +99,7 @@ nav .menu-item:nth-of-type(4):hover ~ #sub-menu-container #sub-menu-holder {
 
 .menu-item .sub-menu {
     position: absolute;
-    top: 7em;
+    top: 5em;
     color: rgba(0,0,0,0.5);
     border-radius: 10px;
     min-width: 27.5em;
@@ -144,6 +143,7 @@ nav .menu-item:nth-of-type(4):hover ~ #sub-menu-container #sub-menu-holder {
     border-color: transparent transparent white transparent;
     border-width: 10px;
     border-style: solid;
+    transform: translateY(30px);
 }
 .menu-item:hover .menu-text:after {
     bottom: 0.5em;

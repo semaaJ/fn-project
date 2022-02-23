@@ -24,17 +24,13 @@ const Menu = (props) => {
         marketCap,
     } = data;
 
-    const {
-        open, close, low, high
-    } = todaysData;
-
-    console.log("todaysData", todaysData)
+    const { open, close, low, high } = todaysData;
 
     return (
         <nav id="menu">
             <div className="menu-item">
                 <div className="menu-text">
-                    <a href="#">Astra</a>
+                    <a href="#">Back Test</a>
                 </div>
                 <div className="sub-menu">
                     <div className="icon-box">

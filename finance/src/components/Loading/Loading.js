@@ -1,8 +1,9 @@
 import './Loading.css';
 
-const Loading = () => {
+const Loading = (props) => {
+    const { className } = props;
     return (
-        <div class="load">
+        <div className={`load ${className}`}>
             <hr/><hr/><hr/><hr/>
         </div>
     )

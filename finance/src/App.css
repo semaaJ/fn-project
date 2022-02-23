@@ -4,11 +4,26 @@
     --item-width: calc(var(--menu-width) / var(--items));
     --background-color: #11182f;
     --main-color: #0099ff;
-    --main-highlight-color:#10929e;
+    --main-highlight-color:#14b4c3;
+}
+
+.chartSelector {
+  display: flex;
+  z-index: 1;
+}
+
+.selected {
+  background: var(--main-highlight-color) !important;
 }
 
 .colourMain {
     color: var(--main-color) !important;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App {
@@ -19,26 +34,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
 
-.shareTitle {
-    font-size: 48px;
-    font-weight: 600;
-    letter-spacing: -3px;
-    color: var(--main-color);
-    z-index: 1;
-}
-
-.shareSubtitle {
-    color: white;
-    font-weight: 600;
-    font-size: 18px;
-    letter-spacing: -1.5px;
-    margin-bottom: -50px;
-    z-index: 1;
-}
 
 .tabContainer {
   display: flex;
@@ -46,12 +44,11 @@
   color: white;
   font-size: 14px;
   font-weight: 600;
-  margin-top: 60px;
 }
 
 .tabItem {
-  padding: 4px 17px 4px 17px;
-  width: 70px;
+  padding: 4px;
+  width: 40px;
   margin: 4px;
   text-align: center;
   box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.6);
@@ -59,6 +56,9 @@
   border-radius: 4px;
   cursor: pointer;
   background: var(--main-color);
+  font-size: 10px;
+  color: white;
+  text-transform: capitalize;
 }
 
 .tabItem:hover {
@@ -91,6 +91,8 @@
 
 .pos {
   color: #48eb12;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .neg {

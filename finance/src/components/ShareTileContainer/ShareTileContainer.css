@@ -1,0 +1,40 @@
+.shareTitle {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -3px;
+    color: var(--main-color);
+    z-index: 1;
+    margin-right: 12px;
+}
+
+.shareSubtitle {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -1.5px;
+    margin-bottom: -50px;
+    z-index: 1;
+}
+
+.shareInfoContainer {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.shareInfoTile {
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+}
+
+.shareItem {
+    margin-bottom: 2px;
+}
+
+.mt-8 {
+    margin-top: 8px;
+}
