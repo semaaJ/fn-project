@@ -114,8 +114,36 @@ def calculate_rolling_avg_volume(df):
 
     df['daily_diff'] = df['close'].diff(1)
 
+    # Calculate Avg. Gains/Losses
+    df['gain'] = df['daily_diff'].clip(lower=0).round(2)
+    df['loss'] = df['daily_diff'].clip(upper=0).abs().round(2)
+    
+    # Calculate average gain losse for a period of time 
+    df = calculate_average_gain_loss(df,7)
+    df = calculate_average_gain_loss(df, 14)
+    
+
     return df
 
+
+def calculate_average_gain_loss(df, window_length):
+
+    df['{}d_avg_gain'.format(window_length)] = df['gain'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
+    df['{}d_avg_loss'.format(window_length)] = df['loss'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
+
+    for i, row in enumerate(df['{}d_avg_gain'.format(window_length)].iloc[window_length+1:]):
+        df['{}d_avg_gain'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_gain'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['gain'].iloc[i + window_length + 1]) / window_length
+
+    # Average Losses
+    for i, row in enumerate(df['{}d_avg_loss'.format(window_length)].iloc[window_length+1:]):
+        df['{}d_avg_loss'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_loss'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['loss'].iloc[i + window_length + 1]) / window_length
+
+    # Calculate RS Values
+    df['{}d_rs'.format(window_length)] = df['{}d_avg_gain'.format(window_length)] / df['{}d_avg_loss'.format(window_length)]
+    # Calculate RSI
+    df['{}d_rsi'.format(window_length)] = 100 - (100 / (1.0 + df['{}d_rs'.format(window_length)]))
+
+    return df
 
 
 def feature_engineering_main():
@@ -146,7 +174,7 @@ def feature_engineering_main():
 
         # display_graph_two(list(df["volume"]), list(df["20d_vol_avg"]))
 
-        # create_csv(df, csv_path, file.replace(".json", ".csv"))
+        create_csv(df, csv_path, file.replace(".json", ".csv"))
 
 if __name__ == "__main__":
     feature_engineering_main()
