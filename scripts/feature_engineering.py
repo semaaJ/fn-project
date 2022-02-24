@@ -108,7 +108,7 @@ def calculate_treasury_yield_to_maturity(df):
     return df
 
 
-def calculate_rolling_avg_volume(df):
+def calc_volume_and_gain_loss_avgs(df):
     df["20d_vol_avg"] = df['volume'].rolling(20).mean()
     df["100d_vol_avg"] = df['volume'].rolling(100).mean()
 
@@ -145,6 +145,27 @@ def calculate_average_gain_loss(df, window_length):
 
     return df
 
+def get_volatility_scores(df):
+
+    N = 255 #255 trading days in a year
+    rf =0.01 #1% risk free rate
+    dates = list(df["date"])
+    for d in dates:
+        print(d)
+    # df["sharpe_ratio"] = df.apply(sharpe_ratio, args=(N,rf,),axis=0)
+
+    # sharpes.plot.bar()
+
+    return df
+
+
+def sharpe_ratio(return_series, N, rf):
+
+    mean = return_series.mean() * N -rf
+    sigma = return_series.std() * np.sqrt(N)
+
+    return mean / sigma
+
 
 def feature_engineering_main():
     # Only needs to be ran if new Inflation CSV is added 
@@ -166,15 +187,19 @@ def feature_engineering_main():
         # df = calculate_treasury_yield_to_maturity(df)
 
         # calculate the volume and 29 avg vol total
-        df = calculate_rolling_avg_volume(df)
+        df = calc_volume_and_gain_loss_avgs(df)
+
+        # Calculate Sharpe ratio
+
 
         # Next look at volatility scores
+        df = get_volatility_scores(df)
         
         print(df)
 
         # display_graph_two(list(df["volume"]), list(df["20d_vol_avg"]))
 
-        create_csv(df, csv_path, file.replace(".json", ".csv"))
+        # create_csv(df, csv_path, file.replace(".json", ".csv"))
 
 if __name__ == "__main__":
     feature_engineering_main()
