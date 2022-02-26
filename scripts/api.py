@@ -14,7 +14,17 @@ def file_exists(file, dir):
 
 def return_all_files_in_dir(dir):
     return [f for f in os.listdir(f"{os.path.dirname(os.path.abspath(__file__))}\data\{dir}")]
-  
+
+@app.route('/map', methods=['GET'])
+def get_map_data():
+    data = {}
+    for f in return_all_files_in_dir("countries"):
+        with open(f'data/countries/{f}', "r") as fil:
+            data[f.split(".")[0]] = json.load(fil)
+    
+    return jsonify(data)
+    
+
 @app.route('/cache', methods=['GET'])
 def get_cached_data():
     data = {"equities": {}, "crypto": {}}
@@ -107,12 +117,24 @@ def crypto_data(id):
         with open(f"data/crypto/{id}.json", "w+") as f:
             json.dump({}, f)
 
-    data = get_crypto_data(id)
+    current_data, data = get_crypto_data(id)
     with open(f"data/crypto/{id}.json", "r+") as f:
-        json.dump({ "historicalData": data }, f, indent=4)
+        json.dump({ 
+            "historicalData": data,
+            "currentPrice": current_data['usd'],
+            "marketCap": current_data["usd_market_cap"],
+            "24hVol": current_data["usd_24h_vol"],
+            "24hChange": current_data["usd_24h_change"],     
+        }, f, indent=4)
+
         return jsonify({ id: {
+            "currentPrice": current_data['usd'],
+            "marketCap": current_data["usd_market_cap"],
+            "24hVol": current_data["usd_24h_vol"],
+            "24hChange": current_data["usd_24h_change"],     
             "historicalData": data
-        } })
+        } 
+    })
 
     
 

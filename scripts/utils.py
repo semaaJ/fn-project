@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 import json
 import yfinance as yf  
 from pycoingecko import CoinGeckoAPI
 from datetime import date, datetime
-=======
 import sys
 import os
 import yfinance as yf  
@@ -75,14 +73,16 @@ def from_epoch(epochtime):
 
 def get_crypto_data(id):
     cg = CoinGeckoAPI()
+    
     data = cg.get_coin_market_chart_by_id(id, 'usd', 'max')
+    current_data = cg.get_price(ids=id, vs_currencies='usd', include_market_cap='true', include_24hr_vol='true', include_24hr_change='true', include_last_updated_at='true')
 
     dates = [from_epoch(i[0]) for i in data["prices"]]
     prices = [i[1] for i in data["prices"]]
     total_volume = [i[1] for i in data["total_volumes"]]
     market_cap = [i[1] for i in data["market_caps"]]
 
-    return [{"date": str(dates[i]), "price": prices[i], "volume": total_volume[i], "marketCap": market_cap[i]} for i in range(len(dates))]
+    return current_data[id], [{"date": str(dates[i]), "price": prices[i], "volume": total_volume[i], "marketCap": market_cap[i]} for i in range(len(dates))]
 
 def import_json(json_path):
     """Loads data from a JSON file into a readable JSON object.

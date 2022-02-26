@@ -1,0 +1,132 @@
+.mapContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.mapDataContainer {
+    width: 100%;
+}
+
+.mapFlex {
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+}
+
+.mapFlexItem {
+    padding: 25px;
+    color: #fff;
+    width: 400px;
+    text-align: left;
+    font-size: 12px;    
+    
+}
+
+.al-i-e {
+    align-items: end;
+}
+
+.mapFlexItemFour {
+    width: 300px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.mapTitle {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    color: var(--main-color);
+    padding-top: 20px;
+}
+
+.mapText {
+    color: #fff;
+    text-align: left;
+    font-size: 10px;
+    margin-right: 8px;
+}
+
+.mapContent {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mapRow {
+    display: flex;
+}
+
+.rowItem {
+    width: 30%;
+}
+
+svg {
+    width: 800px;
+}
+
+path {
+    fill: white;
+    cursor: pointer;
+}
+
+path:hover {
+    fill: #0099ff;
+}
+
+.mapSelected {
+    fill: #0099ff;
+}
+
+.mapHighlight {
+        fill: #0099ff;
+}
+
+.hightlight {        
+    fill: #0099ff;
+}
+
+.highlight2 {
+    fill: #57bbfd;
+}
+
+.highlight3 {
+    fill: #95d5ff;
+}
+
+
+.exportContainer {
+    text-align: left;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.exportTitle {
+    font-size: 10px;
+    margin-right: 8px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.strip {
+    background: var(--main-color);
+}
+
+.white {
+    color: white !important;
+}

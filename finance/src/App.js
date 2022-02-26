@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import MapPage from './Pages/MapPage';
 import Main from './Pages/Main';
 import './App.css';
 
@@ -6,7 +9,13 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-        <Main />
+       <BrowserRouter>
+        <Routes>
+            <Route path="map" element={<MapPage />} />
+            <Route path="/" element={<Main />}>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -145,6 +145,10 @@ const Main  = () => {
             )
     }
 
+    const refresh = () => {
+        return 0;
+    }
+
     if (loading) {
         return <Loading />
     };

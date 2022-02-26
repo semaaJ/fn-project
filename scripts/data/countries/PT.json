@@ -1,0 +1,5711 @@
+{
+    "2019 Economic Complexity": " 0.54",
+    "2019 Product Exports | Imports": "$66.8B | $89.3B",
+    "2019 Per Capita Product Exports | Imports": "$6.5k | $8.69k",
+    "2019 Service Exports | Imports": "$36.9B | $19.2B",
+    "titles": [
+        "2019 Economic Complexity",
+        "2019 Product Exports | Imports",
+        "2019 Per Capita Product Exports | Imports",
+        "2019 Service Exports | Imports"
+    ],
+    "Overview": "In November 2021 Portugal exported \u20ac6.01B and imported \u20ac8.11B, resulting in a negative trade balance of \u20ac2.1B. Between November 2020 and November 2021 the exports of Portugal have increased by \u20ac815M (15.7%) from \u20ac5.19B to \u20ac6.01B, while imports increased by \u20ac1.99B (32.6%) from \u20ac6.11B to \u20ac8.11B.",
+    "Exports": "The top exports of Portugal are Cars ($4.73B), Vehicle Parts ($3.29B), Refined Petroleum ($2.23B), Leather Footwear ($1.84B), and Uncoated Paper ($1.26B), exporting mostly to Spain ($15.4B), France ($8.49B), Germany ($8.06B), United Kingdom ($4.33B), and United States ($3.58B).",
+    "In": "2019, Portugal was the world's biggest importer of Raw Cork ($131M)and Debacked Cork ($21.1M)",
+    "Imports": "The top imports of Portugal are Cars ($5.11B), Crude Petroleum ($4.71B), Planes, Helicopters, and/or Spacecraft ($3.34B), Vehicle Parts ($3.03B), and Packaged Medicaments ($2.15B), importing mostly from Spain ($25.8B), Germany ($11.7B), France ($8.3B), Italy ($4.8B), and Netherlands ($4.26B).",
+    "Location": "Portugal borders Spain by land and Morocco by sea.",
+    "Trade": "In November 2021, the top exports of Portugal were Vehicles; other than railway or tramway... (\u20ac876M), Electrical machinery and equipment and parts... (\u20ac471M), Nuclear reactors, boilers, machinery and mechanical... (\u20ac379M), Plastics and articles thereof (\u20ac343M), and Mineral fuels, mineral oils and products... (\u20ac228M). In November 2021 the top imports of Portugal were Mineral fuels, mineral oils and products... (\u20ac1.02B), Electrical machinery and equipment and parts... (\u20ac831M), Vehicles; other than railway or tramway... (\u20ac818M), Nuclear reactors, boilers, machinery and mechanical... (\u20ac736M), and Plastics and articles thereof (\u20ac399M).",
+    "Destinations": "In November 2021, Portugal exported mostly to Spain (\u20ac1.66B), France (\u20ac768M), Germany (\u20ac721M), United States (\u20ac304M), and United Kingdom (\u20ac303M), and imported mostly from Spain (\u20ac2.68B), Germany (\u20ac954M), France (\u20ac546M), China (\u20ac502M), and Netherlands (\u20ac422M).",
+    "Growth": "In November 2021, the increase in Portugal's year-by-year exports was explained primarily by an increase in exports to Spain (\u20ac312M or 23.2%), Germany (\u20ac137M or 23.4%), and France (\u20ac98.4M or 14.7%), and product exports increase in Plastics and articles thereof (\u20ac88.1M or 34.6%), Iron or steel articles (\u20ac55.8M or 39.9%), and Iron and steel (\u20ac52.8M or 48.1%). In November 2021, the increase in Portugal's year-by-year imports was explained primarily by an increase in imports from Spain (\u20ac581M or 27.7%), China (\u20ac276M or 123%), and Brazil (\u20ac159M or 243%), and product imports increase in Mineral fuels, mineral oils and products... (\u20ac660M or 184%), Iron and steel (\u20ac168M or 91.6%), and Electrical machinery and equipment and parts... (\u20ac139M or 20%).",
+    "exports": [
+        [
+            "Horses",
+            4778868
+        ],
+        [
+            "Bovine",
+            100112453
+        ],
+        [
+            "Pigs",
+            43660550
+        ],
+        [
+            "Sheep and Goats",
+            57159891
+        ],
+        [
+            "Poultry",
+            19333436
+        ],
+        [
+            "Other Animals",
+            8344083.999999999
+        ],
+        [
+            "Bovine Meat",
+            38556966
+        ],
+        [
+            "Frozen Bovine Meat",
+            12975591
+        ],
+        [
+            "Pig Meat",
+            94520957
+        ],
+        [
+            "Sheep and Goat Meat",
+            4142598
+        ],
+        [
+            "Horse Meat",
+            302365
+        ],
+        [
+            "Edible Offal",
+            8378641
+        ],
+        [
+            "Poultry Meat",
+            38282147
+        ],
+        [
+            "Other Meat",
+            4495787
+        ],
+        [
+            "Animal Fat",
+            1702792
+        ],
+        [
+            "Preserved Meat",
+            13408351
+        ],
+        [
+            "Live Fish",
+            4380015
+        ],
+        [
+            "Non-fillet Fresh Fish",
+            163242887
+        ],
+        [
+            "Non-fillet Frozen Fish",
+            271735455
+        ],
+        [
+            "Fish Fillets",
+            78416814
+        ],
+        [
+            "Processed Fish",
+            85878779
+        ],
+        [
+            "Crustaceans",
+            74469417
+        ],
+        [
+            "Molluscs",
+            129817792
+        ],
+        [
+            "Milk",
+            58149722
+        ],
+        [
+            "Concentrated Milk",
+            81894609
+        ],
+        [
+            "Fermented Milk Products",
+            44169339
+        ],
+        [
+            "Whey",
+            25536225
+        ],
+        [
+            "Butter",
+            58560418
+        ],
+        [
+            "Cheese",
+            42847592
+        ],
+        [
+            "Eggs",
+            46761099
+        ],
+        [
+            "Processed Egg Products",
+            16441899.999999998
+        ],
+        [
+            "Honey",
+            11684374
+        ],
+        [
+            "Other Edible Animal Products",
+            10951
+        ],
+        [
+            "Human Hair",
+            278
+        ],
+        [
+            "Pig Hair",
+            51
+        ],
+        [
+            "Animal Organs",
+            101654434
+        ],
+        [
+            "Bird Feathers and Skins",
+            2050959
+        ],
+        [
+            "Processed Bones",
+            362824
+        ],
+        [
+            "Raw Bones",
+            7864
+        ],
+        [
+            "Coral and Shells",
+            30200
+        ],
+        [
+            "Pharmaceutical Animal Products",
+            709645
+        ],
+        [
+            "Other Inedible Animal Products",
+            13850506
+        ],
+        [
+            "Bulbs and Roots",
+            7320056
+        ],
+        [
+            "Other Live Plants",
+            70002147
+        ],
+        [
+            "Cut Flowers",
+            15464676
+        ],
+        [
+            "Foliage",
+            25760187
+        ],
+        [
+            "Potatoes",
+            32181907
+        ],
+        [
+            "Tomatoes",
+            62559267
+        ],
+        [
+            "Onions",
+            12696988
+        ],
+        [
+            "Cabbages",
+            29960267
+        ],
+        [
+            "Lettuce",
+            12670656
+        ],
+        [
+            "Root Vegetables",
+            19984313
+        ],
+        [
+            "Cucumbers",
+            365482
+        ],
+        [
+            "Legumes",
+            1611599
+        ],
+        [
+            "Other Vegetables",
+            68842299
+        ],
+        [
+            "Frozen Vegetables",
+            90620754
+        ],
+        [
+            "Preserved Vegetables",
+            4015663
+        ],
+        [
+            "Dried Vegetables",
+            12580204
+        ],
+        [
+            "Dried Legumes",
+            18774204
+        ],
+        [
+            "Cassava",
+            11988228
+        ],
+        [
+            "Coconuts, Brazil Nuts, and Cashews",
+            1602162
+        ],
+        [
+            "Other Nuts",
+            108782148
+        ],
+        [
+            "Bananas",
+            14038922
+        ],
+        [
+            "Tropical Fruits",
+            58794063
+        ],
+        [
+            "Citrus",
+            118383956
+        ],
+        [
+            "Grapes",
+            8519470
+        ],
+        [
+            "Melons",
+            14208465
+        ],
+        [
+            "Apples and Pears",
+            140258644
+        ],
+        [
+            "Pitted Fruits",
+            16406199
+        ],
+        [
+            "Other Fruits",
+            312548524
+        ],
+        [
+            "Frozen Fruits and Nuts",
+            51943092
+        ],
+        [
+            "Preserved Fruits and Nuts",
+            504917
+        ],
+        [
+            "Dried Fruits",
+            2669388
+        ],
+        [
+            "Citrus and Melon Peels",
+            60543
+        ],
+        [
+            "Coffee",
+            92267751
+        ],
+        [
+            "Tea",
+            2233338
+        ],
+        [
+            "Mat\u00e9",
+            186715
+        ],
+        [
+            "Pepper",
+            1992286
+        ],
+        [
+            "Vanilla",
+            170873
+        ],
+        [
+            "Cinnamon",
+            1007924
+        ],
+        [
+            "Cloves",
+            58687
+        ],
+        [
+            "Nutmeg, mace and cardamons",
+            374192
+        ],
+        [
+            "Spice Seeds",
+            244757
+        ],
+        [
+            "Spices",
+            5434094
+        ],
+        [
+            "Wheat",
+            5763379
+        ],
+        [
+            "Rye",
+            7655
+        ],
+        [
+            "Barley",
+            5246793
+        ],
+        [
+            "Oats",
+            1490561
+        ],
+        [
+            "Corn",
+            30808714
+        ],
+        [
+            "Rice",
+            56397347
+        ],
+        [
+            "Sorghum",
+            91843
+        ],
+        [
+            "Buckwheat",
+            973927
+        ],
+        [
+            "Wheat Flours",
+            33241486
+        ],
+        [
+            "Cereal Flours",
+            13110262
+        ],
+        [
+            "Cereal Meal and Pellets",
+            3935378
+        ],
+        [
+            "Processed Cereals",
+            3824213
+        ],
+        [
+            "Potato Flours",
+            755484
+        ],
+        [
+            "Legume Flours",
+            1141602
+        ],
+        [
+            "Malt",
+            10377214
+        ],
+        [
+            "Starches",
+            9297715
+        ],
+        [
+            "Wheat Gluten",
+            26211
+        ],
+        [
+            "Soybeans",
+            2384133.0000000005
+        ],
+        [
+            "Ground Nuts",
+            1821741
+        ],
+        [
+            "Linseed",
+            72424
+        ],
+        [
+            "Rapeseed",
+            187974
+        ],
+        [
+            "Sunflower Seeds",
+            7559361
+        ],
+        [
+            "Other Oily Seeds",
+            2573678
+        ],
+        [
+            "Oil Seed Flower",
+            13998865
+        ],
+        [
+            "Sowing Seeds",
+            16828895
+        ],
+        [
+            "Hops",
+            176718
+        ],
+        [
+            "Perfume Plants",
+            6035402
+        ],
+        [
+            "Locust beans, seaweed, sugar beet, cane, for food",
+            24368651.000000004
+        ],
+        [
+            "Cereal Straws",
+            1545482
+        ],
+        [
+            "Forage Crops",
+            900072
+        ],
+        [
+            "Insect Resins",
+            427015
+        ],
+        [
+            "Vegetable Saps",
+            6496785
+        ],
+        [
+            "Vegetable Plaiting Materials",
+            702282
+        ],
+        [
+            "Other Vegetable Products",
+            3717957
+        ],
+        [
+            "Pig and Poultry Fat",
+            2061689
+        ],
+        [
+            "Bovine, Sheep, and Goat Fat",
+            3068441
+        ],
+        [
+            "Lard",
+            87508.99999999999
+        ],
+        [
+            "Fish Oil",
+            2120130
+        ],
+        [
+            "Wool Grease",
+            2877
+        ],
+        [
+            "Other Animal Fats",
+            820225.9999999999
+        ],
+        [
+            "Soybean Oil",
+            89365650
+        ],
+        [
+            "Ground Nut Oil",
+            84042
+        ],
+        [
+            "Pure Olive Oil",
+            603698571
+        ],
+        [
+            "Olive Oil",
+            16375162
+        ],
+        [
+            "Palm Oil",
+            889552
+        ],
+        [
+            "Seed Oils",
+            27974478
+        ],
+        [
+            "Coconut Oil",
+            421213
+        ],
+        [
+            "Rapeseed Oil",
+            68982
+        ],
+        [
+            "Other Pure Vegetable Oils",
+            19838687
+        ],
+        [
+            "Other Vegetable Oils",
+            9860151
+        ],
+        [
+            "Margarine",
+            47993219
+        ],
+        [
+            "Inedible Fats and Oils",
+            15428123.999999998
+        ],
+        [
+            "Stearic Acid",
+            23996033
+        ],
+        [
+            "Glycerol",
+            7724938
+        ],
+        [
+            "Waxes",
+            311133
+        ],
+        [
+            "Fat and Oil Residues",
+            3414726
+        ],
+        [
+            "Sausages",
+            47898608
+        ],
+        [
+            "Other Prepared Meat",
+            24046787
+        ],
+        [
+            "Animal Extracts",
+            96114
+        ],
+        [
+            "Processed Fish",
+            239601641
+        ],
+        [
+            "Processed Crustaceans",
+            89685857
+        ],
+        [
+            "Raw Sugar",
+            69477857
+        ],
+        [
+            "Other Sugars",
+            2253546
+        ],
+        [
+            "Molasses",
+            1089068
+        ],
+        [
+            "Confectionery Sugar",
+            11032026
+        ],
+        [
+            "Cocoa Beans",
+            90030.00000000001
+        ],
+        [
+            "Cocoa Shells",
+            5438
+        ],
+        [
+            "Cocoa Paste",
+            17791
+        ],
+        [
+            "Cocoa Butter",
+            106794
+        ],
+        [
+            "Cocoa Powder",
+            2363915
+        ],
+        [
+            "Chocolate",
+            31466427
+        ],
+        [
+            "Malt Extract",
+            88805513
+        ],
+        [
+            "Pasta",
+            17766482
+        ],
+        [
+            "Tapioca",
+            211188
+        ],
+        [
+            "Prepared Cereals",
+            30203465
+        ],
+        [
+            "Baked Goods",
+            274962311
+        ],
+        [
+            "Pickled Foods",
+            2332276
+        ],
+        [
+            "Processed Tomatoes",
+            216115562
+        ],
+        [
+            "Processed Mushrooms",
+            1341569
+        ],
+        [
+            "Other Frozen Vegetables",
+            36611440
+        ],
+        [
+            "Other Processed Vegetables",
+            114925103
+        ],
+        [
+            "Sugar Preserved Foods",
+            807061
+        ],
+        [
+            "Jams",
+            7059806
+        ],
+        [
+            "Other Processed Fruits and Nuts",
+            62261439
+        ],
+        [
+            "Fruit Juice",
+            43816512
+        ],
+        [
+            "Coffee and Tea Extracts",
+            15960159
+        ],
+        [
+            "Yeast",
+            19575313
+        ],
+        [
+            "Sauces and Seasonings",
+            57612645
+        ],
+        [
+            "Soups and Broths",
+            30502500
+        ],
+        [
+            "Ice Cream",
+            45263036
+        ],
+        [
+            "Other Edible Preparations",
+            66559617
+        ],
+        [
+            "Water",
+            14206925
+        ],
+        [
+            "Flavored Water",
+            116104251
+        ],
+        [
+            "Beer",
+            149673259
+        ],
+        [
+            "Wine",
+            909195514
+        ],
+        [
+            "Vermouth",
+            2643531
+        ],
+        [
+            "Other Fermented Beverages",
+            2594911
+        ],
+        [
+            "Alcohol > 80% ABV",
+            2199713
+        ],
+        [
+            "Hard Liquor",
+            48027202
+        ],
+        [
+            "Vinegar",
+            6442797
+        ],
+        [
+            "Animal Meal and Pellets",
+            33387492
+        ],
+        [
+            "Bran",
+            9941623
+        ],
+        [
+            "Starch Residue",
+            4498328
+        ],
+        [
+            "Soybean Meal",
+            15885334
+        ],
+        [
+            "Ground Nut Meal",
+            727
+        ],
+        [
+            "Other Vegetable Residues",
+            13450952
+        ],
+        [
+            "Wine Lees",
+            353235.00000000006
+        ],
+        [
+            "Other Vegetable Residues and Waste",
+            1945301
+        ],
+        [
+            "Animal Food",
+            87870718
+        ],
+        [
+            "Raw Tobacco",
+            7881130
+        ],
+        [
+            "Rolled Tobacco",
+            640245063
+        ],
+        [
+            "Processed Tobacco",
+            26617543
+        ],
+        [
+            "Salt",
+            5394881
+        ],
+        [
+            "Iron Pyrites",
+            2705
+        ],
+        [
+            "Sulphur",
+            7890834
+        ],
+        [
+            "Graphite",
+            252885
+        ],
+        [
+            "Sand",
+            23441262
+        ],
+        [
+            "Quartz",
+            2255624
+        ],
+        [
+            "Kaolin",
+            7479944
+        ],
+        [
+            "Clays",
+            11686013
+        ],
+        [
+            "Chalk",
+            114203
+        ],
+        [
+            "Calcium Phosphates",
+            111965
+        ],
+        [
+            "Barium Sulphate",
+            323876.00000000006
+        ],
+        [
+            "Siliceous Fossil Meals",
+            2173517
+        ],
+        [
+            "Pumice",
+            48333
+        ],
+        [
+            "Slate",
+            3854628
+        ],
+        [
+            "Marble, Travertine and Alabaster",
+            59843111
+        ],
+        [
+            "Granite",
+            52629692
+        ],
+        [
+            "Gravel and Crushed Stone",
+            5111308
+        ],
+        [
+            "Dolomite",
+            683986
+        ],
+        [
+            "Magnesium Carbonate",
+            479432
+        ],
+        [
+            "Gypsum",
+            5449468
+        ],
+        [
+            "Limestone",
+            470402
+        ],
+        [
+            "Quicklime",
+            14773133
+        ],
+        [
+            "Cement",
+            122156095
+        ],
+        [
+            "Asbestos",
+            1071
+        ],
+        [
+            "Mica",
+            29107
+        ],
+        [
+            "Soapstone",
+            1014856
+        ],
+        [
+            "Borax",
+            502
+        ],
+        [
+            "Feldspar",
+            1711029
+        ],
+        [
+            "Other Mineral",
+            1338089
+        ],
+        [
+            "Iron Ore",
+            5427
+        ],
+        [
+            "Manganese Ore",
+            7282.999999999999
+        ],
+        [
+            "Copper Ore",
+            205737844
+        ],
+        [
+            "Nickel Ore",
+            10061
+        ],
+        [
+            "Lead Ore",
+            33237033
+        ],
+        [
+            "Zinc Ore",
+            255370814
+        ],
+        [
+            "Tin Ores",
+            1968251
+        ],
+        [
+            "Chromium Ore",
+            8381
+        ],
+        [
+            "Tungsten Ore",
+            20231128
+        ],
+        [
+            "Titanium Ore",
+            4
+        ],
+        [
+            "Niobium, Tantalum, Vanadium and Zirconium Ore",
+            40060
+        ],
+        [
+            "Precious Metal Ore",
+            20195702
+        ],
+        [
+            "Other Ores",
+            242.99999999999997
+        ],
+        [
+            "Granulated Slag",
+            1231524
+        ],
+        [
+            "Slag Dross",
+            1255345
+        ],
+        [
+            "Non-Iron and Steel Slag, Ash and Residues",
+            46185128
+        ],
+        [
+            "Other Slag and Ash",
+            814629.0000000001
+        ],
+        [
+            "Coal Briquettes",
+            333300
+        ],
+        [
+            "Peat",
+            1117797
+        ],
+        [
+            "Coke",
+            229638
+        ],
+        [
+            "Non-Petroleum Gas",
+            9055
+        ],
+        [
+            "Tar",
+            1338
+        ],
+        [
+            "Coal Tar Oil",
+            180701506
+        ],
+        [
+            "Pitch Coke",
+            17494
+        ],
+        [
+            "Crude Petroleum",
+            8325658.000000001
+        ],
+        [
+            "Refined Petroleum",
+            2225907172
+        ],
+        [
+            "Petroleum Gas",
+            157258510
+        ],
+        [
+            "Petroleum Jelly",
+            4320751
+        ],
+        [
+            "Petroleum Coke",
+            34821341
+        ],
+        [
+            "Asphalt",
+            3713808
+        ],
+        [
+            "Asphalt Mixtures",
+            1094724
+        ],
+        [
+            "Electricity",
+            227144367
+        ],
+        [
+            "Halogens",
+            1574043
+        ],
+        [
+            "Sulfur",
+            209808
+        ],
+        [
+            "Carbon",
+            1609135
+        ],
+        [
+            "Hydrogen",
+            18237520
+        ],
+        [
+            "Alkaline Metals",
+            25644
+        ],
+        [
+            "Hydrochloric Acid",
+            1315382
+        ],
+        [
+            "Sulfuric Acid",
+            277545
+        ],
+        [
+            "Nitric Acids",
+            7090107
+        ],
+        [
+            "Phosphoric Acid",
+            262686
+        ],
+        [
+            "Boron",
+            24884
+        ],
+        [
+            "Other Inorganic Acids",
+            2299511
+        ],
+        [
+            "Halides",
+            98678
+        ],
+        [
+            "Nonmetal Sulfides",
+            16297.000000000002
+        ],
+        [
+            "Ammonia",
+            150334
+        ],
+        [
+            "Sodium or Potassium Peroxides",
+            12051186
+        ],
+        [
+            "Magnesium Hydroxide and Peroxide",
+            1232849
+        ],
+        [
+            "Zinc Oxide and Peroxide",
+            493620
+        ],
+        [
+            "Aluminium Oxide",
+            453398
+        ],
+        [
+            "Chromium Oxides and Hydroxides",
+            54677.00000000001
+        ],
+        [
+            "Manganese Oxides",
+            14646
+        ],
+        [
+            "Iron Oxides and Hydroxides",
+            189822
+        ],
+        [
+            "Cobalt Oxides and Hydroxides",
+            15916
+        ],
+        [
+            "Titanium Oxides",
+            66801
+        ],
+        [
+            "Lead Oxides",
+            1923
+        ],
+        [
+            "Inorganic Salts",
+            2725811
+        ],
+        [
+            "Fluorides",
+            1573
+        ],
+        [
+            "Chlorides",
+            2941782
+        ],
+        [
+            "Hypochlorites",
+            13467556.999999998
+        ],
+        [
+            "Chlorates and Perchlorates",
+            65605
+        ],
+        [
+            "Sulfides",
+            339807
+        ],
+        [
+            "Dithionites and Sulfoxylates",
+            4452
+        ],
+        [
+            "Sulfites",
+            464780
+        ],
+        [
+            "Sulfates",
+            2588264
+        ],
+        [
+            "Nitrites and Nitrates",
+            2064619
+        ],
+        [
+            "Phosphinates and Phosphonates",
+            3886217
+        ],
+        [
+            "Carbonates",
+            14416569
+        ],
+        [
+            "Cyanides",
+            20570
+        ],
+        [
+            "Silicates",
+            2369681
+        ],
+        [
+            "Borates",
+            18444
+        ],
+        [
+            "Oxometallic or Peroxometallic Acid Salts",
+            55433
+        ],
+        [
+            "Other Inorganic Acids Salts",
+            197013
+        ],
+        [
+            "Precious Metal Compounds",
+            8319206
+        ],
+        [
+            "Radioactive Chemicals",
+            42968
+        ],
+        [
+            "Other Isotopes",
+            8045032.000000001
+        ],
+        [
+            "Rare-Earth Metal Compounds",
+            8949
+        ],
+        [
+            "Hydrogen peroxide",
+            1235821
+        ],
+        [
+            "Carbides",
+            209381
+        ],
+        [
+            "Hydrides and other anions",
+            432
+        ],
+        [
+            "Inorganic Compounds",
+            401264
+        ],
+        [
+            "Acyclic Hydrocarbons",
+            382658248
+        ],
+        [
+            "Cyclic Hydrocarbons",
+            183540295
+        ],
+        [
+            "Halogenated Hydrocarbons",
+            3535430
+        ],
+        [
+            "Sulfonated, Nitrated or Nitrosated Hydrocarbons",
+            20249358
+        ],
+        [
+            "Acyclic Alcohols",
+            7130093
+        ],
+        [
+            "Cyclic Alcohols",
+            477368
+        ],
+        [
+            "Phenols",
+            405385
+        ],
+        [
+            "Phenol Derivatives",
+            446
+        ],
+        [
+            "Ethers",
+            979589
+        ],
+        [
+            "Epoxides",
+            5074
+        ],
+        [
+            "Acetals and Hemiacetals",
+            2352
+        ],
+        [
+            "Aldehydes",
+            470206
+        ],
+        [
+            "Aldehyde Derivatives",
+            13.000000000000002
+        ],
+        [
+            "Ketones and Quinones",
+            458199
+        ],
+        [
+            "Saturated Acyclic Monocarboxylic Acids",
+            3301979
+        ],
+        [
+            "Unsaturated Acyclic Monocarboxylic Acids",
+            947378
+        ],
+        [
+            "Polycarboxylic Acids",
+            445883544
+        ],
+        [
+            "Carboxylic Acids",
+            1714972
+        ],
+        [
+            "Phosphoric Esters and Salts",
+            37082
+        ],
+        [
+            "Other Esters",
+            2982979.9999999995
+        ],
+        [
+            "Amine Compounds",
+            73938804
+        ],
+        [
+            "Oxygen Amino Compounds",
+            7600331
+        ],
+        [
+            "Quaternary Ammonium Salts and Hydroxides",
+            443953
+        ],
+        [
+            "Carboxyamide Compounds",
+            1626366
+        ],
+        [
+            "Carboxyimide Compounds",
+            457226.00000000006
+        ],
+        [
+            "Nitrile Compounds",
+            710441
+        ],
+        [
+            "Diazo, Azo or Aoxy Compounds",
+            1753
+        ],
+        [
+            "Hydrazine or Hydroxylamine Derivatives",
+            9367
+        ],
+        [
+            "Other Nitrogen Compounds",
+            3107731
+        ],
+        [
+            "Organo-Sulfur Compounds",
+            1107911
+        ],
+        [
+            "Other Organo-Inorganic Compounds",
+            1770013
+        ],
+        [
+            "Oxygen Heterocyclic Compounds",
+            2309576
+        ],
+        [
+            "Nitrogen Heterocyclic Compounds",
+            21603979
+        ],
+        [
+            "Nucleic Acids",
+            40196034
+        ],
+        [
+            "Sulfonamides",
+            3993805.9999999995
+        ],
+        [
+            "Vitamins",
+            20675735
+        ],
+        [
+            "Hormones",
+            76425797
+        ],
+        [
+            "Glycosides",
+            48186
+        ],
+        [
+            "Vegetable Alkaloids",
+            704778
+        ],
+        [
+            "Chemically Pure Sugars",
+            12700470
+        ],
+        [
+            "Antibiotics",
+            42356538
+        ],
+        [
+            "Other Organic Compounds",
+            6075459
+        ],
+        [
+            "Glands and Other Organs",
+            25828648
+        ],
+        [
+            "Blood, antisera, vaccines, toxins and cultures",
+            29422872
+        ],
+        [
+            "Unpackaged Medicaments",
+            214843184
+        ],
+        [
+            "Packaged Medicaments",
+            990911428
+        ],
+        [
+            "Bandages",
+            21968641
+        ],
+        [
+            "Special Pharmaceuticals",
+            15654664
+        ],
+        [
+            "Animal or Vegetable Fertilizers",
+            1707416
+        ],
+        [
+            "Nitrogenous Fertilizers",
+            47772981
+        ],
+        [
+            "Phosphatic Fertilizers",
+            5076929
+        ],
+        [
+            "Potassic Fertilizers",
+            3905606
+        ],
+        [
+            "Mixed Mineral or Chemical Fertilizers",
+            69125536
+        ],
+        [
+            "Vegetable Tanning Extracts",
+            916351
+        ],
+        [
+            "Synthetic Tanning Extracts",
+            858415
+        ],
+        [
+            "Vegetable or Animal Dyes",
+            598900
+        ],
+        [
+            "Synthetic Coloring Matter",
+            26794182
+        ],
+        [
+            "Lake Pigments",
+            238999
+        ],
+        [
+            "Other Coloring Matter",
+            33604509
+        ],
+        [
+            "Prepared Pigments",
+            4376739
+        ],
+        [
+            "Nonaqueous Paints",
+            100448611
+        ],
+        [
+            "Aqueous Paints",
+            22068185
+        ],
+        [
+            "Other Paints",
+            3014830
+        ],
+        [
+            "Prepared Paint Driers",
+            276141
+        ],
+        [
+            "Nonaqueous Pigments",
+            4456720
+        ],
+        [
+            "Artistry Paints",
+            147337
+        ],
+        [
+            "Glaziers Putty",
+            10717435
+        ],
+        [
+            "Ink",
+            13248052
+        ],
+        [
+            "Essential Oils",
+            2181145
+        ],
+        [
+            "Scented Mixtures",
+            13861457
+        ],
+        [
+            "Perfumes",
+            24117189
+        ],
+        [
+            "Beauty Products",
+            45268013
+        ],
+        [
+            "Hair Products",
+            40393130
+        ],
+        [
+            "Dental Products",
+            5654034
+        ],
+        [
+            "Shaving Products",
+            66393014
+        ],
+        [
+            "Soap",
+            29964999
+        ],
+        [
+            "Cleaning Products",
+            103484326
+        ],
+        [
+            "Lubricating Products",
+            7794186
+        ],
+        [
+            "Waxes",
+            2717706
+        ],
+        [
+            "Polishes and Creams",
+            10725656
+        ],
+        [
+            "Candles",
+            25123716
+        ],
+        [
+            "Pastes and Waxes",
+            7590104.000000001
+        ],
+        [
+            "Casein",
+            3892435
+        ],
+        [
+            "Water Soluble Proteins",
+            2885244
+        ],
+        [
+            "Gelatin",
+            1090240
+        ],
+        [
+            "Peptones",
+            114281
+        ],
+        [
+            "Dextrins",
+            2392111
+        ],
+        [
+            "Glues",
+            88894428
+        ],
+        [
+            "Enzymes",
+            3420903
+        ],
+        [
+            "Propellant Powders",
+            38132
+        ],
+        [
+            "Prepared Explosives",
+            3655814
+        ],
+        [
+            "Detonating Fuses",
+            1025005
+        ],
+        [
+            "Fireworks",
+            1106610
+        ],
+        [
+            "Matches",
+            147703
+        ],
+        [
+            "Pyrophoric Alloys",
+            128889
+        ],
+        [
+            "Photographic Plates",
+            1560912
+        ],
+        [
+            "Photographic Film",
+            109695
+        ],
+        [
+            "Photographic Paper",
+            466289
+        ],
+        [
+            "Undeveloped Exposed Photographic Material",
+            1049883
+        ],
+        [
+            "Developed Exposed Photographic Material",
+            740203
+        ],
+        [
+            "Motion-picture film, exposed and developed",
+            6512
+        ],
+        [
+            "Photographic Chemicals",
+            5022607
+        ],
+        [
+            "Artificial Graphite",
+            196079
+        ],
+        [
+            "Activated Carbon",
+            426641
+        ],
+        [
+            "Tall Oil",
+            16993
+        ],
+        [
+            "Wood Pulp Lyes",
+            4150021
+        ],
+        [
+            "Turpentine",
+            23031795
+        ],
+        [
+            "Rosin",
+            97264340
+        ],
+        [
+            "Wood Tar, Oils and Pitch",
+            131843
+        ],
+        [
+            "Pesticides",
+            143205486
+        ],
+        [
+            "Dyeing Finishing Agents",
+            7433481
+        ],
+        [
+            "Metal Pickling Preparations",
+            403176
+        ],
+        [
+            "Antiknock",
+            1468651
+        ],
+        [
+            "Prepared Rubber Accelerators",
+            2896777
+        ],
+        [
+            "Fire Extinguishers Preparations",
+            447720
+        ],
+        [
+            "Organic Composite Solvents",
+            7373892
+        ],
+        [
+            "Reaction and Catalytic Products",
+            12254418
+        ],
+        [
+            "Refractory Cements",
+            2686255
+        ],
+        [
+            "Alkylbenzenes and Alkylnaphthalenes",
+            48741
+        ],
+        [
+            "Disc Chemicals for Electronics",
+            481827.99999999994
+        ],
+        [
+            "Hydraulic Brake Fluid",
+            611813
+        ],
+        [
+            "Antifreeze",
+            663025
+        ],
+        [
+            "Micro-Organism Culture Preparations",
+            264078
+        ],
+        [
+            "Laboratory Reagents",
+            32607015
+        ],
+        [
+            "Industrial Fatty Acids, Oils and Alcohols",
+            109579887
+        ],
+        [
+            "Ethylene Polymers",
+            314392695
+        ],
+        [
+            "Propylene Polymers",
+            53734457
+        ],
+        [
+            "Styrene Polymers",
+            22550748
+        ],
+        [
+            "Vinyl Chloride Polymers",
+            169736784
+        ],
+        [
+            "Other Vinyl Polymers",
+            9253550
+        ],
+        [
+            "Acrylic Polymers",
+            15573568
+        ],
+        [
+            "Polyacetals",
+            88680948
+        ],
+        [
+            "Polyamides",
+            4076907
+        ],
+        [
+            "Amino-resins",
+            322313715
+        ],
+        [
+            "Silicone",
+            4833541
+        ],
+        [
+            "Petroleum Resins",
+            18847225
+        ],
+        [
+            "Cellulose",
+            1338371
+        ],
+        [
+            "Natural Polymers",
+            2898963
+        ],
+        [
+            "Polymer Ion-Exchangers",
+            245224.00000000003
+        ],
+        [
+            "Scrap Plastic",
+            21500799
+        ],
+        [
+            "Monofilament",
+            18229909
+        ],
+        [
+            "Plastic Pipes",
+            113892467
+        ],
+        [
+            "Plastic Floor Coverings",
+            24641572
+        ],
+        [
+            "Self-adhesive Plastics",
+            18299522
+        ],
+        [
+            "Raw Plastic Sheeting",
+            791582448
+        ],
+        [
+            "Other Plastic Sheetings",
+            244736133
+        ],
+        [
+            "Plastic Wash Basins",
+            60257443
+        ],
+        [
+            "Plastic Lids",
+            264618412
+        ],
+        [
+            "Plastic Housewares",
+            147548956
+        ],
+        [
+            "Plastic Building Materials",
+            56495017
+        ],
+        [
+            "Other Plastic Products",
+            434572856
+        ],
+        [
+            "Rubber",
+            2089629
+        ],
+        [
+            "Synthetic Rubber",
+            15521487
+        ],
+        [
+            "Reclaimed Rubber",
+            1580716
+        ],
+        [
+            "Scrap Rubber",
+            1436023
+        ],
+        [
+            "Compounded Unvulcanised Rubber",
+            11924797
+        ],
+        [
+            "Unvulcanised Rubber Products",
+            6573167
+        ],
+        [
+            "Rubber Thread",
+            649308
+        ],
+        [
+            "Rubber Sheets",
+            8959095
+        ],
+        [
+            "Rubber Pipes",
+            62592730
+        ],
+        [
+            "Rubber Belting",
+            2632217
+        ],
+        [
+            "Rubber Tires",
+            1075805288
+        ],
+        [
+            "Used Rubber Tires",
+            13485276
+        ],
+        [
+            "Rubber Inner Tubes",
+            399235
+        ],
+        [
+            "Pharmaceutical Rubber Products",
+            718415
+        ],
+        [
+            "Rubber Apparel",
+            4184750
+        ],
+        [
+            "Other Rubber Products",
+            162394005
+        ],
+        [
+            "Hard Rubber",
+            387426
+        ],
+        [
+            "Equine and Bovine Hides",
+            2293500
+        ],
+        [
+            "Sheep Hides",
+            1546264
+        ],
+        [
+            "Other Hides and Skins",
+            1171483
+        ],
+        [
+            "Tanned Equine and Bovine Hides",
+            85452654
+        ],
+        [
+            "Tanned Sheep Hides",
+            14758950
+        ],
+        [
+            "Tanned Goat Hides",
+            2006895
+        ],
+        [
+            "Leather of Other Animals",
+            1783147
+        ],
+        [
+            "Chamois Leather",
+            3263284
+        ],
+        [
+            "Patent Leather",
+            5812721
+        ],
+        [
+            "Leather Waste",
+            269972
+        ],
+        [
+            "Leather Sheets",
+            881709
+        ],
+        [
+            "Saddlery",
+            548611
+        ],
+        [
+            "Trunks and Cases",
+            141073144
+        ],
+        [
+            "Leather Apparel",
+            16699277
+        ],
+        [
+            "Other Leather Articles",
+            67500021
+        ],
+        [
+            "Articles of Gut",
+            27464.000000000004
+        ],
+        [
+            "Raw Furskins",
+            2009657
+        ],
+        [
+            "Tanned Furskins",
+            9372081
+        ],
+        [
+            "Furskin Apparel",
+            610144
+        ],
+        [
+            "Artificial Fur",
+            98672
+        ],
+        [
+            "Fuel Wood",
+            141549281
+        ],
+        [
+            "Wood Charcoal",
+            5908061
+        ],
+        [
+            "Rough Wood",
+            40647006
+        ],
+        [
+            "Wood Stakes",
+            4555307
+        ],
+        [
+            "Wood Wool",
+            29263
+        ],
+        [
+            "Railroad Ties",
+            1260875
+        ],
+        [
+            "Sawn Wood",
+            66268467
+        ],
+        [
+            "Veneer Sheets",
+            35813203
+        ],
+        [
+            "Shaped Wood",
+            14280032
+        ],
+        [
+            "Particle Board",
+            118951418
+        ],
+        [
+            "Wood Fiberboard",
+            112374857
+        ],
+        [
+            "Plywood",
+            13473666
+        ],
+        [
+            "Densified Wood",
+            2871891
+        ],
+        [
+            "Wood Frames",
+            1470845
+        ],
+        [
+            "Wood Crates",
+            44600192
+        ],
+        [
+            "Wood Barrels",
+            10282137
+        ],
+        [
+            "Wooden Tool Handles",
+            6575320
+        ],
+        [
+            "Wood Carpentry",
+            126487559
+        ],
+        [
+            "Wood Kitchenware",
+            5712848
+        ],
+        [
+            "Wood Ornaments",
+            6122857
+        ],
+        [
+            "Other Wood Articles",
+            21957335
+        ],
+        [
+            "Raw Cork",
+            104953058
+        ],
+        [
+            "Debacked Cork",
+            7167089
+        ],
+        [
+            "Natural Cork Articles",
+            514146936
+        ],
+        [
+            "Agglomerated Cork",
+            534307424
+        ],
+        [
+            "Plaiting Products",
+            576147
+        ],
+        [
+            "Basketwork",
+            558035
+        ],
+        [
+            "Mechanical Wood Pulp",
+            13742
+        ],
+        [
+            "Dissolving Grades Chemical Woodpulp",
+            65743089
+        ],
+        [
+            "Sulfate Chemical Woodpulp",
+            678805294
+        ],
+        [
+            "Sulfite Chemical Woodpulp",
+            19578835
+        ],
+        [
+            "Semi chemical Woodpulp",
+            6794961
+        ],
+        [
+            "Recovered Paper Pulp",
+            4167169
+        ],
+        [
+            "Recovered Paper",
+            44449270
+        ],
+        [
+            "Newsprint",
+            11636872
+        ],
+        [
+            "Uncoated Paper",
+            1255139401
+        ],
+        [
+            "Facial Tissue",
+            64292973
+        ],
+        [
+            "Uncoated Kraft Paper",
+            195015661
+        ],
+        [
+            "Other Uncoated Paper",
+            69194778
+        ],
+        [
+            "Vegetable Parchment",
+            4974931
+        ],
+        [
+            "Composite Paper",
+            2239832
+        ],
+        [
+            "Corrugated Paper",
+            4901726
+        ],
+        [
+            "Carbon Paper",
+            3398176
+        ],
+        [
+            "Kaolin Coated Paper",
+            32093978
+        ],
+        [
+            "Cellulose Fibers Paper",
+            44096013
+        ],
+        [
+            "Paper Pulp Filter Blocks",
+            42139
+        ],
+        [
+            "Cigarette Paper",
+            2736899
+        ],
+        [
+            "Wallpaper",
+            1775942
+        ],
+        [
+            "Other Carbon Paper",
+            375410
+        ],
+        [
+            "Letter Stock",
+            4428192
+        ],
+        [
+            "Toilet Paper",
+            213560158
+        ],
+        [
+            "Paper Containers",
+            176654231
+        ],
+        [
+            "Paper Notebooks",
+            28374019
+        ],
+        [
+            "Paper Labels",
+            23535730
+        ],
+        [
+            "Paper Spools",
+            8063732
+        ],
+        [
+            "Shaped Paper",
+            66446613
+        ],
+        [
+            "Brochures",
+            30536793
+        ],
+        [
+            "Newspapers",
+            4311151
+        ],
+        [
+            "Children's Picture Books",
+            827516
+        ],
+        [
+            "Sheet Music",
+            17145
+        ],
+        [
+            "Maps",
+            439463
+        ],
+        [
+            "Architectural Plans",
+            848031
+        ],
+        [
+            "Postage Stamps",
+            4637965
+        ],
+        [
+            "Decals",
+            2892546
+        ],
+        [
+            "Postcards",
+            247598
+        ],
+        [
+            "Calendars",
+            350994
+        ],
+        [
+            "Other Printed Material",
+            23831852
+        ],
+        [
+            "Silkworm Cocoons",
+            1548
+        ],
+        [
+            "Raw Silk",
+            244418
+        ],
+        [
+            "Silk Waste",
+            4034.0000000000005
+        ],
+        [
+            "Non-Retail Silk Yarn",
+            308656
+        ],
+        [
+            "Silk Waste Yarn",
+            14775.000000000002
+        ],
+        [
+            "Retail Silk Yarn",
+            5823
+        ],
+        [
+            "Silk Fabrics",
+            1612617
+        ],
+        [
+            "Wool",
+            7868742
+        ],
+        [
+            "Animal Hair",
+            4261263
+        ],
+        [
+            "Wool or Animal Hair Waste",
+            665372
+        ],
+        [
+            "Garnetted Wool or Animal Hair",
+            6892
+        ],
+        [
+            "Prepared Wool or Animal Hair",
+            1198770
+        ],
+        [
+            "Non-Retail Carded Wool Yarn",
+            10495251
+        ],
+        [
+            "Non-Retail Combed Wool Yarn",
+            10159060
+        ],
+        [
+            "Non-Retail Animal Hair Yarn",
+            227979
+        ],
+        [
+            "Retail Wool or Animal Hair Yarn",
+            562508
+        ],
+        [
+            "Horsehair Yarn",
+            17124
+        ],
+        [
+            "Carded Wool or Animal Hair Fabric",
+            6972173
+        ],
+        [
+            "Combed Wool or Animal Hair Fabric",
+            31756189
+        ],
+        [
+            "Horsehair Fabric",
+            61370
+        ],
+        [
+            "Raw Cotton",
+            3014145
+        ],
+        [
+            "Cotton Waste",
+            5858914
+        ],
+        [
+            "Prepared Cotton",
+            1168634
+        ],
+        [
+            "Cotton Sewing Thread",
+            927855
+        ],
+        [
+            "Non-Retail Pure Cotton Yarn",
+            35496667
+        ],
+        [
+            "Non-Retail Mixed Cotton Yarn",
+            4090620
+        ],
+        [
+            "Retail Cotton Yarn",
+            1743833
+        ],
+        [
+            "Light Pure Woven Cotton",
+            85931277
+        ],
+        [
+            "Heavy Pure Woven Cotton",
+            22717603
+        ],
+        [
+            "Light Mixed Woven Cotton",
+            12373171
+        ],
+        [
+            "Heavy Mixed Woven Cotton",
+            13390933
+        ],
+        [
+            "Other Cotton Fabrics",
+            5756105
+        ],
+        [
+            "Flax Fibers",
+            159399
+        ],
+        [
+            "Hemp Fibers",
+            1659
+        ],
+        [
+            "Jute and Other Textile Fibers",
+            144396
+        ],
+        [
+            "Coconut and Other Vegetable Fibers",
+            438865
+        ],
+        [
+            "Flax Yarn",
+            1702850
+        ],
+        [
+            "Jute Yarn",
+            98821
+        ],
+        [
+            "Other Vegetable Fibers Yarn",
+            189165
+        ],
+        [
+            "Flax Woven Fabric",
+            6715466
+        ],
+        [
+            "Jute Woven Fabric",
+            512990
+        ],
+        [
+            "Other Vegetable Fibers Fabric",
+            155727
+        ],
+        [
+            "Artificial Filament Sewing Thread",
+            3778286
+        ],
+        [
+            "Non-Retail Synthetic Filament Yarn",
+            17510122
+        ],
+        [
+            "Non-Retail Artificial Filament Yarn",
+            538222
+        ],
+        [
+            "Synthetic Monofilament",
+            26319916
+        ],
+        [
+            "Artificial Monofilament",
+            566307
+        ],
+        [
+            "Retail Artificial Filament Yarn",
+            153133
+        ],
+        [
+            "Synthetic Filament Yarn Woven Fabric",
+            40995843
+        ],
+        [
+            "Artificial Filament Yarn Woven Fabric",
+            9288264
+        ],
+        [
+            "Synthetic Filament Tow",
+            70571240
+        ],
+        [
+            "Artificial Filament Tow",
+            501066.99999999994
+        ],
+        [
+            "Unprocessed Synthetic Staple Fibers",
+            36186521
+        ],
+        [
+            "Unprocessed Artificial Staple Fibers",
+            530247
+        ],
+        [
+            "Artificial Fibers Waste",
+            2070795
+        ],
+        [
+            "Processed Synthetic Staple Fibers",
+            11234071
+        ],
+        [
+            "Processed Artificial Staple Fibers",
+            21155
+        ],
+        [
+            "Non-Retail Artificial Staple Fibers Sewing Thread",
+            1432821
+        ],
+        [
+            "Non-Retail Synthetic Staple Fibers Yarn",
+            27974862
+        ],
+        [
+            "Non-Retail Artificial Staple Fibers Yarn",
+            5773858
+        ],
+        [
+            "Retail Artificial Staple Fibers Yarn",
+            234403
+        ],
+        [
+            "Synthetic Fabrics",
+            10772092
+        ],
+        [
+            "Light Synthetic Cotton Fabrics",
+            7391233
+        ],
+        [
+            "Heavy Synthetic Cotton Fabrics",
+            31400305
+        ],
+        [
+            "Other Synthetic Fabrics",
+            97007525
+        ],
+        [
+            "Woven Fabric of Synthetic Staple Fibers",
+            36312463
+        ],
+        [
+            "Wadding",
+            7055346
+        ],
+        [
+            "Felt",
+            11721470
+        ],
+        [
+            "Non-woven Textiles",
+            25897359
+        ],
+        [
+            "Rubber Textiles",
+            1585181.9999999998
+        ],
+        [
+            "Metallic Yarn",
+            1397445
+        ],
+        [
+            "Gimp Yarn",
+            1541778
+        ],
+        [
+            "Twine and Rope",
+            205858360
+        ],
+        [
+            "Netting",
+            33259224
+        ],
+        [
+            "Other Articles of Twine and Rope",
+            7404212.000000001
+        ],
+        [
+            "Knotted Carpets",
+            5210313
+        ],
+        [
+            "Hand-Woven Rugs",
+            40728037
+        ],
+        [
+            "Tufted Carpets",
+            35140129
+        ],
+        [
+            "Felt Carpets",
+            224807
+        ],
+        [
+            "Other Carpets",
+            6415514
+        ],
+        [
+            "Woven Fabrics",
+            71210664
+        ],
+        [
+            "Terry Fabric",
+            2631874
+        ],
+        [
+            "Gauze",
+            117718.00000000001
+        ],
+        [
+            "Tulles and Net Fabric",
+            762653
+        ],
+        [
+            "Hand-Woven Tapestries",
+            31147
+        ],
+        [
+            "Narrow Woven Fabric",
+            20423651
+        ],
+        [
+            "Labels",
+            15273186
+        ],
+        [
+            "Ornamental Trimmings",
+            1020382
+        ],
+        [
+            "Metallic Fabric",
+            77604
+        ],
+        [
+            "Embroidery",
+            1121554
+        ],
+        [
+            "Quilted Textiles",
+            654425
+        ],
+        [
+            "Gum Coated Textile Fabric",
+            1432446
+        ],
+        [
+            "Polyamide Fabric",
+            57076278
+        ],
+        [
+            "Plastic Coated Textile Fabric",
+            181813712
+        ],
+        [
+            "Linoleum",
+            165112
+        ],
+        [
+            "Textile Wall Coverings",
+            123252
+        ],
+        [
+            "Rubber Textile Fabric",
+            24007574
+        ],
+        [
+            "Coated Textile Fabric",
+            2305598
+        ],
+        [
+            "Textile Wicks",
+            18822
+        ],
+        [
+            "Hose Piping Textiles",
+            571486
+        ],
+        [
+            "Conveyor Belt Textiles",
+            463164
+        ],
+        [
+            "Technical Use Textiles",
+            50711891
+        ],
+        [
+            "Pile Fabric",
+            21720562
+        ],
+        [
+            "Light Rubberized Knitted Fabric",
+            143147778
+        ],
+        [
+            "Knit Men's Coats",
+            13706233
+        ],
+        [
+            "Knit Women's Coats",
+            12973709
+        ],
+        [
+            "Knit Men's Suits",
+            90719433
+        ],
+        [
+            "Knit Women's Suits",
+            229462181
+        ],
+        [
+            "Knit Men's Shirts",
+            95848177
+        ],
+        [
+            "Knit Women's Shirts",
+            50268455
+        ],
+        [
+            "Knit Men's Undergarments",
+            46186718
+        ],
+        [
+            "Knit Women's Undergarments",
+            44595534
+        ],
+        [
+            "Knit T-shirts",
+            923997497
+        ],
+        [
+            "Knit Sweaters",
+            510851268
+        ],
+        [
+            "Knit Babies' Garments",
+            74630235
+        ],
+        [
+            "Knit Active Wear",
+            24290256
+        ],
+        [
+            "Garments of Impregnated Fabric",
+            5483745
+        ],
+        [
+            "Other Knit Garments",
+            41024469
+        ],
+        [
+            "Knit Socks and Hosiery",
+            147050951
+        ],
+        [
+            "Knit Gloves",
+            31153759
+        ],
+        [
+            "Other Knit Clothing Accessories",
+            20552683
+        ],
+        [
+            "Non-Knit Men's Coats",
+            41478423
+        ],
+        [
+            "Non-Knit Women's Coats",
+            49829737
+        ],
+        [
+            "Non-Knit Men's Suits",
+            306658307
+        ],
+        [
+            "Non-Knit Women's Suits",
+            349702797
+        ],
+        [
+            "Non-Knit Men's Shirts",
+            113097999
+        ],
+        [
+            "Non-Knit Women's Shirts",
+            115251329
+        ],
+        [
+            "Non-Knit Men's Undergarments",
+            10648937
+        ],
+        [
+            "Non-Knit Women's Undergarments",
+            15651200
+        ],
+        [
+            "Non-Knit Babies' Garments",
+            18614269
+        ],
+        [
+            "Felt or Coated Fabric Garments",
+            19906515
+        ],
+        [
+            "Non-Knit Active Wear",
+            71909249
+        ],
+        [
+            "Other Women's Undergarments",
+            21737663
+        ],
+        [
+            "Handkerchiefs",
+            439351
+        ],
+        [
+            "Scarves",
+            14198505
+        ],
+        [
+            "Neck Ties",
+            1201234
+        ],
+        [
+            "Non-Knit Gloves",
+            511157
+        ],
+        [
+            "Other Non-Knit Clothing Accessories",
+            10291104
+        ],
+        [
+            "Blankets",
+            31737217
+        ],
+        [
+            "House Linens",
+            540951495
+        ],
+        [
+            "Window Dressings",
+            18192860
+        ],
+        [
+            "Bedspreads",
+            43590283
+        ],
+        [
+            "Packing Bags",
+            9819927
+        ],
+        [
+            "Awnings, Tents, and Sails",
+            14657465
+        ],
+        [
+            "Other Cloth Articles",
+            34158640
+        ],
+        [
+            "Packaged Sewing Sets",
+            1940005.9999999998
+        ],
+        [
+            "Used Clothing",
+            11084760
+        ],
+        [
+            "Textile Scraps",
+            4284024
+        ],
+        [
+            "Waterproof Footwear",
+            39718944
+        ],
+        [
+            "Rubber Footwear",
+            95830358
+        ],
+        [
+            "Leather Footwear",
+            1836453859
+        ],
+        [
+            "Textile Footwear",
+            75776270
+        ],
+        [
+            "Other Footwear",
+            49113934
+        ],
+        [
+            "Footwear Parts",
+            64410363
+        ],
+        [
+            "Hat Forms",
+            18610921
+        ],
+        [
+            "Hat Shapes",
+            1355233
+        ],
+        [
+            "Hats",
+            612087
+        ],
+        [
+            "Knitted Hats",
+            9666643
+        ],
+        [
+            "Other Headwear",
+            30005588
+        ],
+        [
+            "Headbands and Linings",
+            514332
+        ],
+        [
+            "Umbrellas",
+            7780958
+        ],
+        [
+            "Walking Sticks",
+            15484
+        ],
+        [
+            "Umbrella and Walking Stick Accessories",
+            1320021
+        ],
+        [
+            "Bird Skins and Feathers",
+            1009508
+        ],
+        [
+            "Artificial Vegetation",
+            3234469
+        ],
+        [
+            "Processed Hair",
+            287265
+        ],
+        [
+            "Fake Hair",
+            128644
+        ],
+        [
+            "Curbstones",
+            62877512
+        ],
+        [
+            "Building Stone",
+            234238532
+        ],
+        [
+            "Slate",
+            5070590
+        ],
+        [
+            "Milling Stones",
+            18672140
+        ],
+        [
+            "Abrasive Powder",
+            60736038
+        ],
+        [
+            "Rock Wool",
+            34513979
+        ],
+        [
+            "Asphalt",
+            10501026
+        ],
+        [
+            "Vegetable Fiber",
+            8460328
+        ],
+        [
+            "Plaster Articles",
+            22109379
+        ],
+        [
+            "Cement Articles",
+            92162204
+        ],
+        [
+            "Asbestos Cement Articles",
+            1007414
+        ],
+        [
+            "Asbestos Fibres",
+            1488364
+        ],
+        [
+            "Friction Material",
+            3550802
+        ],
+        [
+            "Mica",
+            64092
+        ],
+        [
+            "Other Stone Articles",
+            12505596
+        ],
+        [
+            "Bricks",
+            4010270
+        ],
+        [
+            "Refractory Bricks",
+            11029834
+        ],
+        [
+            "Refractory Ceramics",
+            401865
+        ],
+        [
+            "Ceramic Bricks",
+            2789550
+        ],
+        [
+            "Roofing Tiles",
+            17204025
+        ],
+        [
+            "Ceramic Pipes",
+            132258
+        ],
+        [
+            "Unglazed Ceramics",
+            251261824
+        ],
+        [
+            "Glazed Ceramics",
+            802984
+        ],
+        [
+            "Laboratory Ceramic Ware",
+            781168
+        ],
+        [
+            "Bathroom Ceramics",
+            152239475
+        ],
+        [
+            "Porcelain Tableware",
+            60732512
+        ],
+        [
+            "Ceramic Tableware",
+            202952072
+        ],
+        [
+            "Ornamental Ceramics",
+            60150157
+        ],
+        [
+            "Other Ceramic Articles",
+            18256523
+        ],
+        [
+            "Glass Scraps",
+            13849157
+        ],
+        [
+            "Glass Balls",
+            66269
+        ],
+        [
+            "Cast or Rolled Glass",
+            3563519
+        ],
+        [
+            "Blown Glass",
+            59586
+        ],
+        [
+            "Float Glass",
+            3473081
+        ],
+        [
+            "Glass with Edge Workings",
+            1137713
+        ],
+        [
+            "Safety Glass",
+            29260000
+        ],
+        [
+            "Insulating Glass",
+            7172012
+        ],
+        [
+            "Glass Mirrors",
+            13173406
+        ],
+        [
+            "Glass Bottles",
+            350330507
+        ],
+        [
+            "Glass Bulbs",
+            489576.00000000006
+        ],
+        [
+            "Interior Decorative Glassware",
+            103456329
+        ],
+        [
+            "Signaling Glassware",
+            123702
+        ],
+        [
+            "Eyewear and Clock Glass",
+            16146
+        ],
+        [
+            "Glass Bricks",
+            1185262
+        ],
+        [
+            "Laboratory Glassware",
+            3052813
+        ],
+        [
+            "Glass Beads",
+            1697450
+        ],
+        [
+            "Glass Fibers",
+            9606473
+        ],
+        [
+            "Other Glass Articles",
+            24588410
+        ],
+        [
+            "Pearls",
+            224
+        ],
+        [
+            "Diamonds",
+            437977
+        ],
+        [
+            "Precious Stones",
+            136330
+        ],
+        [
+            "Synthetic Reconstructed Jewellery Stones",
+            1144731
+        ],
+        [
+            "Precious Stone Dust",
+            188032.00000000003
+        ],
+        [
+            "Silver",
+            1851723
+        ],
+        [
+            "Silver Clad Metals",
+            207633
+        ],
+        [
+            "Gold",
+            255234019
+        ],
+        [
+            "Gold Clad Metals",
+            15520
+        ],
+        [
+            "Platinum",
+            5755617
+        ],
+        [
+            "Platinum Clad Metals",
+            790612
+        ],
+        [
+            "Precious Metal Scraps",
+            21718893
+        ],
+        [
+            "Jewellery",
+            54311985
+        ],
+        [
+            "Metal-Clad Products",
+            6562626
+        ],
+        [
+            "Other Precious Metal Products",
+            1194618
+        ],
+        [
+            "Pearl Products",
+            2392962
+        ],
+        [
+            "Imitation Jewellery",
+            39187598
+        ],
+        [
+            "Coin",
+            288291
+        ],
+        [
+            "Pig Iron",
+            3717119
+        ],
+        [
+            "Ferroalloys",
+            5023384
+        ],
+        [
+            "Iron Reductions",
+            34301
+        ],
+        [
+            "Scrap Iron",
+            143108399
+        ],
+        [
+            "Iron Powder",
+            500785
+        ],
+        [
+            "Iron Ingots",
+            795965
+        ],
+        [
+            "Semi-Finished Iron",
+            90975615
+        ],
+        [
+            "Hot-Rolled Iron",
+            69625762
+        ],
+        [
+            "Cold-Rolled Iron",
+            18929385
+        ],
+        [
+            "Coated Flat-Rolled Iron",
+            186403825
+        ],
+        [
+            "Large Flat-Rolled Iron",
+            22042835
+        ],
+        [
+            "Large Coated Flat-Rolled Iron",
+            65317542
+        ],
+        [
+            "Hot-Rolled Iron Bars",
+            260478783
+        ],
+        [
+            "Raw Iron Bars",
+            375823270
+        ],
+        [
+            "Other Iron Bars",
+            7637911
+        ],
+        [
+            "Iron Blocks",
+            46448292
+        ],
+        [
+            "Iron Wire",
+            68967014
+        ],
+        [
+            "Stainless Steel Ingots",
+            6992464
+        ],
+        [
+            "Large Flat-Rolled Stainless Steel",
+            8406403
+        ],
+        [
+            "Flat-Rolled Stainless Steel",
+            4595358
+        ],
+        [
+            "Hot-Rolled Stainless Steel Bars",
+            4280
+        ],
+        [
+            "Other Stainless Steel Bars",
+            77391807
+        ],
+        [
+            "Stainless Steel Wire",
+            1458453
+        ],
+        [
+            "Steel Ingots",
+            1837478
+        ],
+        [
+            "Flat Flat-Rolled Steel",
+            6123986
+        ],
+        [
+            "Flat-Rolled Iron",
+            4143426.0000000005
+        ],
+        [
+            "Steel Bars",
+            338792
+        ],
+        [
+            "Other Steel Bars",
+            3832037
+        ],
+        [
+            "Steel Wire",
+            559933
+        ],
+        [
+            "Iron Sheet Piling",
+            7316711
+        ],
+        [
+            "Iron Railway Products",
+            5264518
+        ],
+        [
+            "Cast Iron Pipes",
+            2098914
+        ],
+        [
+            "Iron Pipes",
+            27392275
+        ],
+        [
+            "Other Large Iron Pipes",
+            3426473
+        ],
+        [
+            "Other Small Iron Pipes",
+            193904952
+        ],
+        [
+            "Iron Pipe Fittings",
+            19004586
+        ],
+        [
+            "Iron Structures",
+            488386135
+        ],
+        [
+            "Large Iron Containers",
+            35040939
+        ],
+        [
+            "Small Iron Containers",
+            99830184
+        ],
+        [
+            "Iron Gas Containers",
+            92983803
+        ],
+        [
+            "Stranded Iron Wire",
+            107165066
+        ],
+        [
+            "Barbed Wire",
+            3024844
+        ],
+        [
+            "Iron Cloth",
+            115125072
+        ],
+        [
+            "Iron Chains",
+            27327623
+        ],
+        [
+            "Iron Anchors",
+            169462
+        ],
+        [
+            "Iron Nails",
+            3015939
+        ],
+        [
+            "Iron Fasteners",
+            58012345
+        ],
+        [
+            "Iron Sewing Needles",
+            3230941
+        ],
+        [
+            "Iron Springs",
+            25083752
+        ],
+        [
+            "Iron Stovetops",
+            34222526
+        ],
+        [
+            "Iron Radiators",
+            997966
+        ],
+        [
+            "Iron Housewares",
+            51919864
+        ],
+        [
+            "Iron Toiletry",
+            53380893
+        ],
+        [
+            "Other Cast Iron Products",
+            26654295
+        ],
+        [
+            "Other Iron Products",
+            280282578
+        ],
+        [
+            "Precipitated Copper",
+            56193.00000000001
+        ],
+        [
+            "Raw Copper",
+            492890
+        ],
+        [
+            "Refined Copper",
+            21311635
+        ],
+        [
+            "Scrap Copper",
+            144841177
+        ],
+        [
+            "Copper Alloys",
+            852348.9999999999
+        ],
+        [
+            "Copper Powder",
+            709010
+        ],
+        [
+            "Copper Bars",
+            26810881
+        ],
+        [
+            "Copper Wire",
+            9818206
+        ],
+        [
+            "Copper Plating",
+            6873322
+        ],
+        [
+            "Copper Foil",
+            50046
+        ],
+        [
+            "Copper Pipes",
+            29189852
+        ],
+        [
+            "Copper Pipe Fittings",
+            4287181
+        ],
+        [
+            "Stranded Copper Wire",
+            3177554
+        ],
+        [
+            "Copper Fasteners",
+            2762216
+        ],
+        [
+            "Copper Housewares",
+            6130602
+        ],
+        [
+            "Other Copper Products",
+            12435125
+        ],
+        [
+            "Nickel Mattes",
+            1144
+        ],
+        [
+            "Raw Nickel",
+            9879
+        ],
+        [
+            "Scrap Nickel",
+            1175474
+        ],
+        [
+            "Nickel Powder",
+            180304
+        ],
+        [
+            "Nickel Bars",
+            178547
+        ],
+        [
+            "Nickel Sheets",
+            300531.99999999994
+        ],
+        [
+            "Nickel Pipes",
+            22686
+        ],
+        [
+            "Other Nickel Products",
+            413977
+        ],
+        [
+            "Raw Aluminium",
+            18018178
+        ],
+        [
+            "Scrap Aluminium",
+            63048152.99999999
+        ],
+        [
+            "Aluminium Powder",
+            36115
+        ],
+        [
+            "Aluminium Bars",
+            160465699
+        ],
+        [
+            "Aluminium Wire",
+            2772115
+        ],
+        [
+            "Aluminium Plating",
+            24743587
+        ],
+        [
+            "Aluminium Foil",
+            4053812
+        ],
+        [
+            "Aluminium Pipes",
+            5669662
+        ],
+        [
+            "Aluminium Pipe Fittings",
+            1359332
+        ],
+        [
+            "Aluminium Structures",
+            258989822.99999997
+        ],
+        [
+            "Large Aluminium Containers",
+            196084
+        ],
+        [
+            "Aluminium Cans",
+            19551886
+        ],
+        [
+            "Aluminium Gas Containers",
+            885004
+        ],
+        [
+            "Stranded Aluminium Wire",
+            8519828
+        ],
+        [
+            "Aluminium Housewares",
+            9308643
+        ],
+        [
+            "Other Aluminium Products",
+            140067556
+        ],
+        [
+            "Raw Lead",
+            27826491
+        ],
+        [
+            "Scrap Lead",
+            3514259.0000000005
+        ],
+        [
+            "Lead Sheets",
+            77217
+        ],
+        [
+            "Other Lead Products",
+            1198836
+        ],
+        [
+            "Raw Zinc",
+            1468799
+        ],
+        [
+            "Scrap Waste",
+            2915933.0000000005
+        ],
+        [
+            "Zinc Powder",
+            538012
+        ],
+        [
+            "Zinc Bars",
+            705433
+        ],
+        [
+            "Zinc Sheets",
+            580267
+        ],
+        [
+            "Other Zinc Products",
+            6386881
+        ],
+        [
+            "Raw Tin",
+            6619156
+        ],
+        [
+            "Scrap Tin",
+            344331.00000000006
+        ],
+        [
+            "Tin Bars",
+            3151885
+        ],
+        [
+            "Other Tin Products",
+            7373968
+        ],
+        [
+            "Tungsten",
+            346064
+        ],
+        [
+            "Molybdenum",
+            36174
+        ],
+        [
+            "Tantalum",
+            12284
+        ],
+        [
+            "Magnesium",
+            499561
+        ],
+        [
+            "Cobalt",
+            62757
+        ],
+        [
+            "Bismuth",
+            1317.0000000000002
+        ],
+        [
+            "Titanium",
+            2317784
+        ],
+        [
+            "Zirconium",
+            68025
+        ],
+        [
+            "Antimony",
+            56847.00000000001
+        ],
+        [
+            "Manganese",
+            45960
+        ],
+        [
+            "Other Metals",
+            510798
+        ],
+        [
+            "Cermets",
+            872494
+        ],
+        [
+            "Garden Tools",
+            3778573
+        ],
+        [
+            "Hand Saws",
+            12582144
+        ],
+        [
+            "Hand Tools",
+            20195227
+        ],
+        [
+            "Wrenches",
+            1596551
+        ],
+        [
+            "Other Hand Tools",
+            10812948
+        ],
+        [
+            "Tool Sets",
+            3554336
+        ],
+        [
+            "Interchangeable Tool Parts",
+            90928059
+        ],
+        [
+            "Cutting Blades",
+            6967821
+        ],
+        [
+            "Tool Plates",
+            12787485
+        ],
+        [
+            "Cooking Hand Tools",
+            13327742
+        ],
+        [
+            "Knives",
+            22046289
+        ],
+        [
+            "Razor Blades",
+            4002723
+        ],
+        [
+            "Scissors",
+            603389
+        ],
+        [
+            "Other Cutlery",
+            1554719
+        ],
+        [
+            "Cutlery Sets",
+            25816827
+        ],
+        [
+            "Padlocks",
+            187502548
+        ],
+        [
+            "Metal Mountings",
+            105368908
+        ],
+        [
+            "Safes",
+            23999188
+        ],
+        [
+            "Filing Cabinets",
+            501828
+        ],
+        [
+            "Metal Office Supplies",
+            1357756
+        ],
+        [
+            "Bells and Other Metal Ornaments",
+            3032198
+        ],
+        [
+            "Flexible Metal Tubing",
+            5266567
+        ],
+        [
+            "Other Metal Fasteners",
+            60853022
+        ],
+        [
+            "Metal Stoppers",
+            17833330
+        ],
+        [
+            "Metal Signs",
+            2916756
+        ],
+        [
+            "Coated Metal Soldering Products",
+            15636003
+        ],
+        [
+            "Nuclear Reactors",
+            3598395
+        ],
+        [
+            "Steam Boilers",
+            4689609
+        ],
+        [
+            "Central Heating Boilers",
+            36576583
+        ],
+        [
+            "Boiler Plants",
+            8498799
+        ],
+        [
+            "Water and Gas Generators",
+            4817653
+        ],
+        [
+            "Steam Turbines",
+            968162
+        ],
+        [
+            "Spark-Ignition Engines",
+            6418671
+        ],
+        [
+            "Combustion Engines",
+            4483015
+        ],
+        [
+            "Engine Parts",
+            277186398
+        ],
+        [
+            "Hydraulic Turbines",
+            4639697
+        ],
+        [
+            "Gas Turbines",
+            91356213
+        ],
+        [
+            "Other Engines",
+            45437702
+        ],
+        [
+            "Liquid Pumps",
+            95855248
+        ],
+        [
+            "Air Pumps",
+            195077844
+        ],
+        [
+            "Air Conditioners",
+            55301292
+        ],
+        [
+            "Liquid Fuel Furnaces",
+            4621123
+        ],
+        [
+            "Industrial Furnaces",
+            19219694
+        ],
+        [
+            "Refrigerators",
+            199624026
+        ],
+        [
+            "Other Heating Machinery",
+            227579609
+        ],
+        [
+            "Rolling Machines",
+            2217384
+        ],
+        [
+            "Centrifuges",
+            501089461
+        ],
+        [
+            "Washing and Bottling Machines",
+            32060803
+        ],
+        [
+            "Scales",
+            10518340
+        ],
+        [
+            "Liquid Dispersing Machines",
+            30869634
+        ],
+        [
+            "Pulley Systems",
+            6563837
+        ],
+        [
+            "Cranes",
+            71699154
+        ],
+        [
+            "Fork-Lifts",
+            13898527
+        ],
+        [
+            "Lifting Machinery",
+            83358322
+        ],
+        [
+            "Large Construction Vehicles",
+            16873928
+        ],
+        [
+            "Other Construction Vehicles",
+            13660020
+        ],
+        [
+            "Excavation Machinery",
+            89932113
+        ],
+        [
+            "Soil Preparation Machinery",
+            17300074
+        ],
+        [
+            "Harvesting Machinery",
+            9396837
+        ],
+        [
+            "Dairy Machinery",
+            6438875
+        ],
+        [
+            "Fruit Pressing Machinery",
+            958829
+        ],
+        [
+            "Other Agricultural Machinery",
+            15091474
+        ],
+        [
+            "Mill Machinery",
+            1719371
+        ],
+        [
+            "Industrial Food Preperation Machinery",
+            34822536
+        ],
+        [
+            "Papermaking Machines",
+            1914580
+        ],
+        [
+            "Book-binding Machines",
+            22537910
+        ],
+        [
+            "Other Paper Machinery",
+            12464582
+        ],
+        [
+            "Print Production Machinery",
+            9719580
+        ],
+        [
+            "Industrial Printers",
+            75003504
+        ],
+        [
+            "Artificial Textile Machinery",
+            360409.99999999994
+        ],
+        [
+            "Textile Fiber Machinery",
+            2384346
+        ],
+        [
+            "Looms",
+            2493646
+        ],
+        [
+            "Knitting Machines",
+            2108362
+        ],
+        [
+            "Knitting Machine Accessories",
+            93196481
+        ],
+        [
+            "Felt Machinery",
+            61502615
+        ],
+        [
+            "Household Washing Machines",
+            3530620
+        ],
+        [
+            "Textile Processing Machines",
+            37129382
+        ],
+        [
+            "Sewing Machines",
+            4581487
+        ],
+        [
+            "Leather Machinery",
+            1425004
+        ],
+        [
+            "Casting Machines",
+            3031070
+        ],
+        [
+            "Metal-Rolling Mills",
+            579656
+        ],
+        [
+            "Non-Mechanical Removal Machinery",
+            4682611
+        ],
+        [
+            "Metalworking Transfer Machines",
+            4500009
+        ],
+        [
+            "Metal Lathes",
+            1559280
+        ],
+        [
+            "Drilling Machines",
+            11498511
+        ],
+        [
+            "Metal Finishing Machines",
+            11052995
+        ],
+        [
+            "Metalworking Machines",
+            4258936
+        ],
+        [
+            "Forging Machines",
+            37218610
+        ],
+        [
+            "Other Non-Metal Removal Machinery",
+            3601273
+        ],
+        [
+            "Stone Working Machines",
+            16686923.999999998
+        ],
+        [
+            "Woodworking machines",
+            16869301
+        ],
+        [
+            "Metalworking Machine Parts",
+            37178477
+        ],
+        [
+            "Motor-working Tools",
+            5896002
+        ],
+        [
+            "Soldering and Welding Machinery",
+            2024173
+        ],
+        [
+            "Typewriters",
+            5232
+        ],
+        [
+            "Calculators",
+            23073911
+        ],
+        [
+            "Computers",
+            85981190
+        ],
+        [
+            "Other Office Machines",
+            5418010
+        ],
+        [
+            "Office Machine Parts",
+            98906604
+        ],
+        [
+            "Stone Processing Machines",
+            70492163
+        ],
+        [
+            "Glass Working Machines",
+            22112218
+        ],
+        [
+            "Vending Machines",
+            2413506
+        ],
+        [
+            "Rubberworking Machinery",
+            45853788
+        ],
+        [
+            "Tobacco Processing Machines",
+            1413288
+        ],
+        [
+            "Machinery Having Individual Functions",
+            192649331
+        ],
+        [
+            "Metal Molds",
+            595248242
+        ],
+        [
+            "Valves",
+            353559495
+        ],
+        [
+            "Ball Bearings",
+            87618024
+        ],
+        [
+            "Transmissions",
+            37423377
+        ],
+        [
+            "Gaskets",
+            6480194
+        ],
+        [
+            "Boat Propellers",
+            39760327
+        ],
+        [
+            "Electric Motors",
+            108602895
+        ],
+        [
+            "Electric Generating Sets",
+            67103403
+        ],
+        [
+            "Electric Motor Parts",
+            94981621
+        ],
+        [
+            "Electrical Transformers",
+            175485152
+        ],
+        [
+            "Electromagnets",
+            3010982
+        ],
+        [
+            "Batteries",
+            6868615
+        ],
+        [
+            "Electric Batteries",
+            142882731
+        ],
+        [
+            "Vacuum Cleaners",
+            14860673
+        ],
+        [
+            "Other Domestic Electric Housewares",
+            11403690
+        ],
+        [
+            "Hair Trimmers",
+            366671
+        ],
+        [
+            "Electrical Ignitions",
+            108477062
+        ],
+        [
+            "Electrical Lighting and Signalling Equipment",
+            102236396
+        ],
+        [
+            "Portable Lighting",
+            843306
+        ],
+        [
+            "Electric Furnaces",
+            14361272
+        ],
+        [
+            "Electric Soldering Equipment",
+            17880289
+        ],
+        [
+            "Electric Heaters",
+            267080109
+        ],
+        [
+            "Telephones",
+            47491805
+        ],
+        [
+            "Microphones and Headphones",
+            29805576
+        ],
+        [
+            "Sound Recording Equipment",
+            369778
+        ],
+        [
+            "Dictation Machines",
+            968722
+        ],
+        [
+            "Video Recording Equipment",
+            102487208
+        ],
+        [
+            "Audio and Video Recording Accessories",
+            4501036
+        ],
+        [
+            "Blank Audio Media",
+            26726641
+        ],
+        [
+            "Sound Recordings",
+            26523845
+        ],
+        [
+            "Broadcasting Equipment",
+            252906413
+        ],
+        [
+            "Navigation Equipment",
+            251236321
+        ],
+        [
+            "Radio Receivers",
+            841516947
+        ],
+        [
+            "Video Displays",
+            187973112
+        ],
+        [
+            "Broadcasting Accessories",
+            129270125
+        ],
+        [
+            "Traffic Signals",
+            15241626
+        ],
+        [
+            "Audio Alarms",
+            122013300
+        ],
+        [
+            "Electrical Capacitors",
+            81369610
+        ],
+        [
+            "Electrical Resistors",
+            10252827
+        ],
+        [
+            "Printed Circuit Boards",
+            5228425
+        ],
+        [
+            "High-voltage Protection Equipment",
+            17665665
+        ],
+        [
+            "Low-voltage Protection Equipment",
+            312916911
+        ],
+        [
+            "Electrical Control Boards",
+            547148924
+        ],
+        [
+            "Electrical Power Accessories",
+            57789930
+        ],
+        [
+            "Electric Filament",
+            12115477
+        ],
+        [
+            "Cathode Tubes",
+            391164
+        ],
+        [
+            "Semiconductor Devices",
+            226015068
+        ],
+        [
+            "Integrated Circuits",
+            364161025
+        ],
+        [
+            "Other Electrical Machinery",
+            122266996
+        ],
+        [
+            "Insulated Wire",
+            713621683
+        ],
+        [
+            "Carbon-based Electronics",
+            1609064
+        ],
+        [
+            "Electrical Insulators",
+            37672911
+        ],
+        [
+            "Metal Insulating Fittings",
+            26638696
+        ],
+        [
+            "Electrical Parts",
+            5888639
+        ],
+        [
+            "Other Locomotives",
+            521281
+        ],
+        [
+            "Self-Propelled Rail Transport",
+            681632
+        ],
+        [
+            "Railway Maintenance Vehicles",
+            66118
+        ],
+        [
+            "Railway Passenger Cars",
+            2100
+        ],
+        [
+            "Railway Freight Cars",
+            139780
+        ],
+        [
+            "Locomotive Parts",
+            4506953
+        ],
+        [
+            "Railway Track Fixtures",
+            295053.99999999994
+        ],
+        [
+            "Shipping containers",
+            7039810
+        ],
+        [
+            "Tractors",
+            32799774
+        ],
+        [
+            "Buses",
+            148731596
+        ],
+        [
+            "Cars",
+            4729477362
+        ],
+        [
+            "Delivery Trucks",
+            1043054484
+        ],
+        [
+            "Specialized Vehicles",
+            37283135
+        ],
+        [
+            "Vehicle Chassis",
+            4208236
+        ],
+        [
+            "Vehicle Bodies",
+            28008249
+        ],
+        [
+            "Vehicle Parts",
+            3293316899
+        ],
+        [
+            "Work Trucks",
+            3386423
+        ],
+        [
+            "Armored vehicles",
+            798249
+        ],
+        [
+            "Motorcycles",
+            72781132
+        ],
+        [
+            "Bicycles",
+            294832616
+        ],
+        [
+            "Wheelchairs",
+            4058086
+        ],
+        [
+            "Bi-Wheel Vehicle Parts",
+            130302057
+        ],
+        [
+            "Baby Carriages",
+            14515458
+        ],
+        [
+            "Trailers",
+            67211308
+        ],
+        [
+            "Non-powered Aircraft",
+            25007
+        ],
+        [
+            "Planes, Helicopters, and/or Spacecraft",
+            519080846.99999994
+        ],
+        [
+            "Aircraft Parts",
+            219046863
+        ],
+        [
+            "Parachutes",
+            83085
+        ],
+        [
+            "Aircraft Launch Gear",
+            2119444
+        ],
+        [
+            "Passenger and Cargo Ships",
+            45968625
+        ],
+        [
+            "Fishing Ships",
+            2211437
+        ],
+        [
+            "Recreational Boats",
+            53871951
+        ],
+        [
+            "Tug Boats",
+            8844037
+        ],
+        [
+            "Special Purpose Ships",
+            4663048
+        ],
+        [
+            "Other Sea Vessels",
+            2501612
+        ],
+        [
+            "Other Floating Structures",
+            2642069
+        ],
+        [
+            "Scrap Vessels",
+            4121481
+        ],
+        [
+            "Optical Fibers",
+            118117461
+        ],
+        [
+            "Mirrors and Lenses",
+            7329661
+        ],
+        [
+            "Eyewear Frames",
+            14074891
+        ],
+        [
+            "Eyewear",
+            10054395
+        ],
+        [
+            "Binoculars and Telescopes",
+            12704814
+        ],
+        [
+            "Cameras",
+            4956768
+        ],
+        [
+            "Video Cameras",
+            1035493
+        ],
+        [
+            "Image Projectors",
+            9804276
+        ],
+        [
+            "Photocopiers",
+            3997220
+        ],
+        [
+            "Photo Lab Equipment",
+            1163535
+        ],
+        [
+            "Microscopes",
+            338522
+        ],
+        [
+            "Non-optical Microscopes",
+            684462
+        ],
+        [
+            "LCDs",
+            7642046
+        ],
+        [
+            "Compasses",
+            5506061
+        ],
+        [
+            "Surveying Equipment",
+            11252091
+        ],
+        [
+            "Balances",
+            454667
+        ],
+        [
+            "Drafting Tools",
+            1334110
+        ],
+        [
+            "Medical Instruments",
+            145126439
+        ],
+        [
+            "Therapeutic Appliances",
+            6244377
+        ],
+        [
+            "Breathing Appliances",
+            7172878
+        ],
+        [
+            "Orthopedic Appliances",
+            60319490
+        ],
+        [
+            "X-Ray Equipment",
+            10947463
+        ],
+        [
+            "Instructional Models",
+            4051899
+        ],
+        [
+            "Tensile Testing Machines",
+            3766551
+        ],
+        [
+            "Hydrometers",
+            2047850
+        ],
+        [
+            "Gas and Liquid Flow Measuring Instruments",
+            16002952
+        ],
+        [
+            "Chemical Analysis Instruments",
+            19163047
+        ],
+        [
+            "Utility Meters",
+            16772593
+        ],
+        [
+            "Revolution Counters",
+            1034278052
+        ],
+        [
+            "Oscilloscopes",
+            5118376
+        ],
+        [
+            "Other Measuring Instruments",
+            224287307
+        ],
+        [
+            "Thermostats",
+            61349869
+        ],
+        [
+            "Opto-Electric Instrument Parts",
+            3656615
+        ],
+        [
+            "Precious Metal Watches",
+            61168025
+        ],
+        [
+            "Base Metal Watches",
+            77604147
+        ],
+        [
+            "Clocks with Watch Movements",
+            125676
+        ],
+        [
+            "Dashboard Clocks",
+            492895
+        ],
+        [
+            "Other Clocks",
+            731880
+        ],
+        [
+            "Time Recording Instruments",
+            698441
+        ],
+        [
+            "Time Switches",
+            219887
+        ],
+        [
+            "Watch Movements",
+            52858
+        ],
+        [
+            "Clock Movements",
+            596691
+        ],
+        [
+            "Incomplete Movement Sets",
+            2008
+        ],
+        [
+            "Watch Cases and Parts",
+            23529887
+        ],
+        [
+            "Clock Cases and Parts",
+            102321
+        ],
+        [
+            "Watch Straps",
+            24413254
+        ],
+        [
+            "Other Clocks and Watches",
+            4679483
+        ],
+        [
+            "Pianos",
+            188310
+        ],
+        [
+            "String Instruments",
+            1346539
+        ],
+        [
+            "Wind Instruments",
+            1537425
+        ],
+        [
+            "Percussion",
+            886105
+        ],
+        [
+            "Electric Musical Instruments",
+            1089518
+        ],
+        [
+            "Other Musical Instruments",
+            56161
+        ],
+        [
+            "Musical Instrument Parts",
+            7096982
+        ],
+        [
+            "Military Weapons",
+            834.0000000000001
+        ],
+        [
+            "Handguns",
+            60554
+        ],
+        [
+            "Other Firearms",
+            36967249
+        ],
+        [
+            "Spring, Air, and Gas Guns",
+            227141
+        ],
+        [
+            "Weapons Parts and Accessories",
+            23265187.999999996
+        ],
+        [
+            "Explosive Ammunition",
+            1605184
+        ],
+        [
+            "Bladed Weapons and Accessories",
+            14084
+        ],
+        [
+            "Seats",
+            1023879144
+        ],
+        [
+            "Medical Furniture",
+            20728442
+        ],
+        [
+            "Other Furniture",
+            800800088
+        ],
+        [
+            "Mattresses",
+            168023454
+        ],
+        [
+            "Light Fixtures",
+            108577039
+        ],
+        [
+            "Prefabricated Buildings",
+            63751212
+        ],
+        [
+            "Models and Stuffed Animals",
+            23392529
+        ],
+        [
+            "Video and Card Games",
+            17767174
+        ],
+        [
+            "Party Decorations",
+            2877536
+        ],
+        [
+            "Sports Equipment",
+            40455639
+        ],
+        [
+            "Fishing and Hunting Equipment",
+            2367458
+        ],
+        [
+            "Fairground Amusements",
+            1326594
+        ],
+        [
+            "Worked Ivory and Bone",
+            163840
+        ],
+        [
+            "Vegetable and Mineral Carvings",
+            102476
+        ],
+        [
+            "Brooms",
+            13830818
+        ],
+        [
+            "Hand Sifters",
+            113107
+        ],
+        [
+            "Travel Kits",
+            122050
+        ],
+        [
+            "Buttons",
+            18588634
+        ],
+        [
+            "Zippers",
+            7981343
+        ],
+        [
+            "Pens",
+            5832835
+        ],
+        [
+            "Pencils and Crayons",
+            1462256
+        ],
+        [
+            "Chalkboards",
+            43438034
+        ],
+        [
+            "Rubber Stamps",
+            380008
+        ],
+        [
+            "Ink Ribbons",
+            1541446
+        ],
+        [
+            "Lighters",
+            796868
+        ],
+        [
+            "Smoking Pipes",
+            25366
+        ],
+        [
+            "Combs",
+            2892315
+        ],
+        [
+            "Scent Sprays",
+            666290
+        ],
+        [
+            "Vacuum Flask",
+            10004880
+        ],
+        [
+            "Mannequins",
+            951219
+        ],
+        [
+            "Paintings",
+            6601072
+        ],
+        [
+            "Prints",
+            435172
+        ],
+        [
+            "Sculptures",
+            3085494
+        ],
+        [
+            "Revenue Stamps",
+            19028
+        ],
+        [
+            "Collector's Items",
+            329257
+        ],
+        [
+            "Antiques",
+            1945177
+        ]
+    ],
+    "exportCountries": [
+        [
+            "Angola",
+            1386915823
+        ],
+        [
+            "Burundi",
+            1088174
+        ],
+        [
+            "Benin",
+            5152791
+        ],
+        [
+            "Burkina Faso",
+            19837729
+        ],
+        [
+            "Botswana",
+            4486159
+        ],
+        [
+            "Central African Republic",
+            206025
+        ],
+        [
+            "Cote d'Ivoire",
+            49570507
+        ],
+        [
+            "Cameroon",
+            38015947
+        ],
+        [
+            "Democratic Republic of the Congo",
+            7985604
+        ],
+        [
+            "Republic of the Congo",
+            10910047
+        ],
+        [
+            "Comoros",
+            855550
+        ],
+        [
+            "Cape Verde",
+            337756008
+        ],
+        [
+            "Djibouti",
+            392611
+        ],
+        [
+            "Algeria",
+            239636605
+        ],
+        [
+            "Egypt",
+            280300638
+        ],
+        [
+            "Ethiopia",
+            10428898
+        ],
+        [
+            "Gabon",
+            12965802
+        ],
+        [
+            "Ghana",
+            25998402
+        ],
+        [
+            "Guinea",
+            14483660
+        ],
+        [
+            "Gambia",
+            2009884
+        ],
+        [
+            "Guinea-Bissau",
+            102222587
+        ],
+        [
+            "Equatorial Guinea",
+            10677938
+        ],
+        [
+            "Kenya",
+            15193736
+        ],
+        [
+            "Liberia",
+            716853
+        ],
+        [
+            "Libya",
+            31651677
+        ],
+        [
+            "Lesotho",
+            464898
+        ],
+        [
+            "Morocco",
+            973028425
+        ],
+        [
+            "Madagascar",
+            6865055
+        ],
+        [
+            "Mali",
+            5664267
+        ],
+        [
+            "Mozambique",
+            227470422
+        ],
+        [
+            "Mauritania",
+            18010480
+        ],
+        [
+            "Mauritius",
+            13792362
+        ],
+        [
+            "Malawi",
+            4829975
+        ],
+        [
+            "Namibia",
+            3221524
+        ],
+        [
+            "Niger",
+            10988024
+        ],
+        [
+            "Nigeria",
+            44974972
+        ],
+        [
+            "Rwanda",
+            17836912
+        ],
+        [
+            "Sudan",
+            12193155
+        ],
+        [
+            "Senegal",
+            41116720
+        ],
+        [
+            "Sierra Leone",
+            1392052
+        ],
+        [
+            "Somalia",
+            633766
+        ],
+        [
+            "South Sudan",
+            96
+        ],
+        [
+            "Sao Tome and Principe",
+            67607536
+        ],
+        [
+            "Eswatini",
+            2523941
+        ],
+        [
+            "Seychelles",
+            5322092
+        ],
+        [
+            "Chad",
+            39534
+        ],
+        [
+            "Togo",
+            32112166.999999996
+        ],
+        [
+            "Tunisia",
+            151856606
+        ],
+        [
+            "Tanzania",
+            2095485
+        ],
+        [
+            "Uganda",
+            7630476
+        ],
+        [
+            "South Africa",
+            232153046
+        ],
+        [
+            "Zambia",
+            1792134
+        ],
+        [
+            "Zimbabwe",
+            1245831
+        ],
+        [
+            "French South Antarctic Territory",
+            351
+        ],
+        [
+            "Afghanistan",
+            392386.00000000006
+        ],
+        [
+            "United Arab Emirates",
+            239204842
+        ],
+        [
+            "Armenia",
+            6587626
+        ],
+        [
+            "Azerbaijan",
+            11591164
+        ],
+        [
+            "Bangladesh",
+            17943000
+        ],
+        [
+            "Bahrain",
+            8270539
+        ],
+        [
+            "Brunei",
+            851446
+        ],
+        [
+            "Bhutan",
+            1110
+        ],
+        [
+            "China",
+            740744444
+        ],
+        [
+            "Cyprus",
+            108599182
+        ],
+        [
+            "Georgia",
+            13707126
+        ],
+        [
+            "Hong Kong",
+            154134302
+        ],
+        [
+            "Indonesia",
+            43211697
+        ],
+        [
+            "India",
+            148205827
+        ],
+        [
+            "Iran",
+            13612702
+        ],
+        [
+            "Iraq",
+            27542290
+        ],
+        [
+            "Israel",
+            286916409
+        ],
+        [
+            "Jordan",
+            45329356
+        ],
+        [
+            "Japan",
+            237838626
+        ],
+        [
+            "Kazakhstan",
+            11719475
+        ],
+        [
+            "Kyrgyzstan",
+            466727
+        ],
+        [
+            "Cambodia",
+            6806217
+        ],
+        [
+            "South Korea",
+            165834488
+        ],
+        [
+            "Kuwait",
+            53493582
+        ],
+        [
+            "Laos",
+            385988
+        ],
+        [
+            "Lebanon",
+            33944759
+        ],
+        [
+            "Sri Lanka",
+            6811117
+        ],
+        [
+            "Macau",
+            34127350
+        ],
+        [
+            "Maldives",
+            5352317
+        ],
+        [
+            "Myanmar",
+            2957392
+        ],
+        [
+            "Mongolia",
+            1201287
+        ],
+        [
+            "Malaysia",
+            49591257
+        ],
+        [
+            "Nepal",
+            1597300
+        ],
+        [
+            "Oman",
+            16450769
+        ],
+        [
+            "Pakistan",
+            26181336
+        ],
+        [
+            "Philippines",
+            15447384
+        ],
+        [
+            "Palestine",
+            14155964
+        ],
+        [
+            "Qatar",
+            52038787
+        ],
+        [
+            "Saudi Arabia",
+            151456582
+        ],
+        [
+            "Singapore",
+            196991635
+        ],
+        [
+            "Syria",
+            21425778
+        ],
+        [
+            "Thailand",
+            53178242
+        ],
+        [
+            "Turkmenistan",
+            1232971
+        ],
+        [
+            "Timor-Leste",
+            4840596
+        ],
+        [
+            "Turkey",
+            748547620
+        ],
+        [
+            "Uzbekistan",
+            2644607
+        ],
+        [
+            "Vietnam",
+            92259486
+        ],
+        [
+            "Chinese Taipei",
+            225285817
+        ],
+        [
+            "Yemen",
+            3636358
+        ],
+        [
+            "Albania",
+            8523985
+        ],
+        [
+            "Andorra",
+            6289670
+        ],
+        [
+            "Austria",
+            712193356
+        ],
+        [
+            "Belgium",
+            1579540284
+        ],
+        [
+            "Bulgaria",
+            130428112
+        ],
+        [
+            "Bosnia and Herzegovina",
+            14935258
+        ],
+        [
+            "Belarus",
+            28017450
+        ],
+        [
+            "Switzerland",
+            1003072343
+        ],
+        [
+            "Czechia",
+            497458833
+        ],
+        [
+            "Germany",
+            8055705699
+        ],
+        [
+            "Denmark",
+            500072984
+        ],
+        [
+            "Spain",
+            15392060107
+        ],
+        [
+            "Estonia",
+            36929185
+        ],
+        [
+            "Finland",
+            387793974
+        ],
+        [
+            "France",
+            8489392157
+        ],
+        [
+            "United Kingdom",
+            4333976651
+        ],
+        [
+            "Gibraltar",
+            101614554
+        ],
+        [
+            "Greece",
+            248746500
+        ],
+        [
+            "Croatia",
+            66962254
+        ],
+        [
+            "Hungary",
+            303653932
+        ],
+        [
+            "Ireland",
+            468961458
+        ],
+        [
+            "Iceland",
+            16444757
+        ],
+        [
+            "Italy",
+            2781413684
+        ],
+        [
+            "Lithuania",
+            94870629
+        ],
+        [
+            "Luxembourg",
+            129653688
+        ],
+        [
+            "Latvia",
+            57770581
+        ],
+        [
+            "Moldova",
+            20788481
+        ],
+        [
+            "North Macedonia",
+            38861097
+        ],
+        [
+            "Malta",
+            75478558
+        ],
+        [
+            "Montenegro",
+            2307101
+        ],
+        [
+            "Netherlands",
+            2707017905
+        ],
+        [
+            "Norway",
+            281623258
+        ],
+        [
+            "Poland",
+            946195083
+        ],
+        [
+            "Romania",
+            517209056
+        ],
+        [
+            "Russia",
+            291578568
+        ],
+        [
+            "San Marino",
+            897639.9999999999
+        ],
+        [
+            "Serbia",
+            44313953
+        ],
+        [
+            "Slovakia",
+            490268634
+        ],
+        [
+            "Slovenia",
+            184623035
+        ],
+        [
+            "Sweden",
+            696352603
+        ],
+        [
+            "Ukraine",
+            28603065
+        ],
+        [
+            "Aruba",
+            1136791
+        ],
+        [
+            "Anguilla",
+            59812
+        ],
+        [
+            "Antigua and Barbuda",
+            1397201
+        ],
+        [
+            "Bonaire",
+            1970136
+        ],
+        [
+            "Bahamas",
+            2731450
+        ],
+        [
+            "Saint Barth\u00e9lemy",
+            7499850
+        ],
+        [
+            "Belize",
+            37352
+        ],
+        [
+            "Bermuda",
+            3820962
+        ],
+        [
+            "Barbados",
+            1368911
+        ],
+        [
+            "Canada",
+            728772971
+        ],
+        [
+            "Costa Rica",
+            12094868
+        ],
+        [
+            "Cuba",
+            42029933
+        ],
+        [
+            "Cura\u00e7ao",
+            4649940
+        ],
+        [
+            "Cayman Islands",
+            267327
+        ],
+        [
+            "Dominica",
+            164824
+        ],
+        [
+            "Dominican Republic",
+            36128654
+        ],
+        [
+            "Grenada",
+            22181
+        ],
+        [
+            "Greenland",
+            551283
+        ],
+        [
+            "Guatemala",
+            18448489
+        ],
+        [
+            "Honduras",
+            8857978
+        ],
+        [
+            "Haiti",
+            3734619
+        ],
+        [
+            "Jamaica",
+            4863431
+        ],
+        [
+            "Saint Lucia",
+            377586
+        ],
+        [
+            "Saint Martin",
+            1652975
+        ],
+        [
+            "Mexico",
+            433798165
+        ],
+        [
+            "Nicaragua",
+            10129483
+        ],
+        [
+            "Panama",
+            16722763
+        ],
+        [
+            "El Salvador",
+            13284932
+        ],
+        [
+            "Saint Pierre and Miquelon",
+            59079.00000000001
+        ],
+        [
+            "Turks and Caicos Islands",
+            1023661
+        ],
+        [
+            "Trinidad and Tobago",
+            5901254
+        ],
+        [
+            "United States",
+            3577219927
+        ],
+        [
+            "Saint Vincent and the Grenadines",
+            85688
+        ],
+        [
+            "British Virgin Islands",
+            5426
+        ],
+        [
+            "Australia",
+            179052005
+        ],
+        [
+            "Fiji",
+            2906528
+        ],
+        [
+            "Guam",
+            24617
+        ],
+        [
+            "Kiribati",
+            132012
+        ],
+        [
+            "Marshall Islands",
+            286093
+        ],
+        [
+            "Northern Mariana Islands",
+            16490
+        ],
+        [
+            "New Caledonia",
+            1808865
+        ],
+        [
+            "Niue",
+            4
+        ],
+        [
+            "New Zealand",
+            38294106
+        ],
+        [
+            "Papua New Guinea",
+            60232.99999999999
+        ],
+        [
+            "French Polynesia",
+            2884394
+        ],
+        [
+            "Solomon Islands",
+            401
+        ],
+        [
+            "Tokelau",
+            111
+        ],
+        [
+            "Tonga",
+            3350
+        ],
+        [
+            "Vanuatu",
+            50
+        ],
+        [
+            "Wallis and Futuna",
+            17143
+        ],
+        [
+            "Samoa",
+            19838
+        ],
+        [
+            "Argentina",
+            66915966
+        ],
+        [
+            "Bolivia",
+            9696184
+        ],
+        [
+            "Brazil",
+            835553850
+        ],
+        [
+            "Chile",
+            143888845
+        ],
+        [
+            "Colombia",
+            68560137
+        ],
+        [
+            "Ecuador",
+            26209735
+        ],
+        [
+            "Falkland Islands",
+            21679.000000000004
+        ],
+        [
+            "Guyana",
+            3109784
+        ],
+        [
+            "Peru",
+            49674614
+        ],
+        [
+            "Paraguay",
+            11845881
+        ],
+        [
+            "Suriname",
+            1139803
+        ],
+        [
+            "Uruguay",
+            11922585
+        ],
+        [
+            "Venezuela",
+            8451082
+        ]
+    ],
+    "exportsByType": {
+        "Animal Products": 1762819626.0,
+        "Vegetable Products": 1716377226.0,
+        "Animal and Vegetable Bi-Products": 875605533.0,
+        "Foodstuffs": 3745090445.0,
+        "Mineral Products": 3762017267.0,
+        "Chemical Products": 4082945724.0,
+        "Plastics and Rubbers": 4596185794.0,
+        "Animal Hides": 357179650.0,
+        "Wood Products": 1942901109,
+        "Paper Goods": 3101470820,
+        "Textiles": 5932259875.0,
+        "Footwear and Headwear": 2235844881,
+        "Stone And Glass": 1917003924.0,
+        "Precious Metals": 391419391.0,
+        "Metals": 4957897989.0,
+        "Machines": 10122048826.0,
+        "Transportation": 10783197298.0,
+        "Instruments": 2037374724,
+        "Weapons": 62140234.0,
+        "Miscellaneous": 2382840094,
+        "Arts and Antiques": 12415200
+    }
+}

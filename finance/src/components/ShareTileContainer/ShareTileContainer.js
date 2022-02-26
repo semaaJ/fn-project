@@ -47,6 +47,9 @@ const ShareTileContainer = (props) => {
         fiftyDayAverage,
         twoHundredDayAverage,
         fiftyTwoWeekChange,
+
+        marketCap,
+        volume,
     } = data;
 
     const renderShareInfo = () => {
@@ -54,6 +57,7 @@ const ShareTileContainer = (props) => {
             <div className="shareInfoContainer">
                 <div className="shareInfoTile">
                     <div className="shareTitle">{ shortName }</div>
+                    <div className="shareSubtitle">${ currentPrice.toFixed(2) }</div>
                     <div className="">{ industry }</div>
                     <div className="shareAddress">{ city }, { state }, { country }, { zip }</div>
                     {/* <div className="shareAddress mt-8">SPY Correlation: { 0 }</div>
@@ -69,6 +73,10 @@ const ShareTileContainer = (props) => {
             <div className="shareInfoContainer">
                 <div className="shareInfoTile">
                     <div className="shareTitle">{ name }</div>
+                    <div className="shareSubtitle">${ currentPrice.toFixed(2) }</div>
+                    <div className="shareAddress">${ currentPrice } - %{ data['24hchange'] }</div>
+                    <div className="shareAddress">${ marketCap.toFixed(2) } ${ volume }</div>
+
                     {/* <div className="shareAddress mt-8">SPY Correlation: { 0 }</div>
                     <div className="shareAddress">BTC Correlation: { 0 }</div>
                     <div className="shareAddress mt-8">BTC: { 0 }% vs { 0 }%</div> */}
