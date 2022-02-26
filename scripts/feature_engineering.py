@@ -53,14 +53,18 @@ def create_df_from_json(json_path):
                 data_map[key_name].append(day_results[key_name])
 
         # Populate DF with values
-        print
     for col_name, vals in data_map.items():
         df[col_name] = vals
 
     # Numpy Financial: https://numpy.org/numpy-financial/
     # df["internal_rate_of_return"] = npf.irr(np.array(df["close"]))
 
-    # df.set_index(["date"], inplace = True)
+    col_names = df.columns
+
+    new_col_names = [i if i != "price" else i.replace("price", "close") for i in col_names]
+    df.columns = new_col_names
+
+    df.set_index(["date"], inplace = True)
     stock_name = json_path.split("/")[2].replace(".json", ".csv")
 
     return df
@@ -71,7 +75,6 @@ def calculate_inflation_rates(path, name):
         csv_folder_path (String) : A string file path to the folder containing the inflation CSV's 
 
     """
-    name 
     inflation_df = pd.read_csv(path + name, delimiter=',', sep=r', ')
     # create index multiplier
     inflation_df["cpiaucns_multiplier"] = inflation_df["cpiaucns"].iloc[-1] / inflation_df["cpiaucns"]
@@ -82,6 +85,10 @@ def calculate_inflation_rates(path, name):
     inflation_df.columns = col_names
 
     inflation_df.set_index(["date"], inplace = True)
+    # print(inflation_df)
+    print(inflation_df)
+    print(path)
+    print(name)
     create_csv(inflation_df, path, name)
 
     return
@@ -89,14 +96,14 @@ def calculate_inflation_rates(path, name):
 
 def get_inflation_price_adjustments(df, inflation_df):
 
-    date_vals = list(df["date"])
-    inf_date_vals = list(inflation_df["date"])
-
+    date_vals = list(df.index)
+    inf_date_vals = list(inflation_df.index)
+    # print(inflation_df)
     df = pd.merge(df, inflation_df, how='left', on='date')
     # df["CPI_ADJ_PRICE"] = df["CLOSE"] * df["CPIAUCNS_MULTIPLIER"]
     df["cpi_adj_price"] = df["close"] * df["cpiaucns_multiplier"]
     df = df.ffill()
-
+    # print(df)
     return df
 
 def calculate_treasury_yield_to_maturity(df):
@@ -126,6 +133,13 @@ def calc_volume_and_gain_loss_avgs(df):
     return df
 
 
+def my_rolling_sharpe(y):
+    
+    return np.sqrt(126) * (y.mean() / y.std()) # 21 days per month X 6 months = 126
+
+
+
+
 def calculate_average_gain_loss(df, window_length):
 
     df['{}d_avg_gain'.format(window_length)] = df['gain'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
@@ -145,33 +159,29 @@ def calculate_average_gain_loss(df, window_length):
 
     return df
 
-def get_volatility_scores(df):
 
-    N = 255 #255 trading days in a year
-    rf =0.01 #1% risk free rate
-    dates = list(df["date"])
-    for d in dates:
-        print(d)
-    # df["sharpe_ratio"] = df.apply(sharpe_ratio, args=(N,rf,),axis=0)
+def sharpe_ratio(df, time_period):
+    """ Calculates daily Sharpe Ratio. That is, the average return of the investment. And divided by the standard deviation
 
-    # sharpes.plot.bar()
+    """
+    df['{}d_sharpe_ratio'.format(time_period)] = df['close'].rolling(time_period).apply(my_rolling_sharpe)
 
     return df
 
 
-def sharpe_ratio(return_series, N, rf):
+def get_volatility_scores(df):
 
-    mean = return_series.mean() * N -rf
-    sigma = return_series.std() * np.sqrt(N)
+    df = sharpe_ratio(df, 7)
+    df = sharpe_ratio(df, 14)
 
-    return mean / sigma
+    return df
 
 
 def feature_engineering_main():
     # Only needs to be ran if new Inflation CSV is added 
     # calculate_inflation_rates("data/us_inflation_rates/", "CPIAUCNS.csv")
     inflation_df = pd.read_csv("data/us_inflation_rates/CPIAUCNS.csv", delimiter=',', sep=r', ')
-
+    inflation_df.set_index(["date"], inplace = True)
     # Might move this into non-main function for general feature engineering
     json_folder_path = "data/json/"
     json_files = os.listdir(json_folder_path)
@@ -185,12 +195,9 @@ def feature_engineering_main():
         df = get_inflation_price_adjustments(df, inflation_df)
 
         # df = calculate_treasury_yield_to_maturity(df)
-
+    
         # calculate the volume and 29 avg vol total
         df = calc_volume_and_gain_loss_avgs(df)
-
-        # Calculate Sharpe ratio
-
 
         # Next look at volatility scores
         df = get_volatility_scores(df)
@@ -199,7 +206,7 @@ def feature_engineering_main():
 
         # display_graph_two(list(df["volume"]), list(df["20d_vol_avg"]))
 
-        # create_csv(df, csv_path, file.replace(".json", ".csv"))
+        create_csv(df, csv_path, file.replace(".json", ".csv"))
 
 if __name__ == "__main__":
     feature_engineering_main()
