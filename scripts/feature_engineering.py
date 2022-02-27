@@ -59,10 +59,7 @@ def create_df_from_json(json_path):
     # Numpy Financial: https://numpy.org/numpy-financial/
     # df["internal_rate_of_return"] = npf.irr(np.array(df["close"]))
 
-    col_names = df.columns
-
-    new_col_names = [i if i != "price" else i.replace("price", "close") for i in col_names]
-    df.columns = new_col_names
+    df.columns = [i if i != "price" else i.replace("price", "close") for i in df.columns]
 
     df.set_index(["date"], inplace = True)
     stock_name = json_path.split("/")[2].replace(".json", ".csv")
@@ -142,20 +139,20 @@ def my_rolling_sharpe(y):
 
 def calculate_average_gain_loss(df, window_length):
 
-    df['{}d_avg_gain'.format(window_length)] = df['gain'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
-    df['{}d_avg_loss'.format(window_length)] = df['loss'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
+    df[f'{window_length}d_avg_gain'] = df['gain'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
+    df[f'{window_length}d_avg_loss'] = df['loss'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
 
-    for i, row in enumerate(df['{}d_avg_gain'.format(window_length)].iloc[window_length+1:]):
-        df['{}d_avg_gain'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_gain'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['gain'].iloc[i + window_length + 1]) / window_length
+    for i, row in enumerate(df[f'{window_length}d_avg_gain'].iloc[window_length+1:]):
+        df[f'{window_length}d_avg_gain'].iloc[i + window_length + 1] = (df[f'{window_length}d_avg_gain'].iloc[i + window_length] * (window_length - 1) + df['gain'].iloc[i + window_length + 1]) / window_length
 
     # Average Losses
-    for i, row in enumerate(df['{}d_avg_loss'.format(window_length)].iloc[window_length+1:]):
-        df['{}d_avg_loss'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_loss'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['loss'].iloc[i + window_length + 1]) / window_length
+    for i, row in enumerate(df['{window_length}d_avg_loss'].iloc[window_length+1:]):
+        df[f'{window_length}d_avg_loss'].iloc[i + window_length + 1] = (df[f'{window_length}d_avg_loss'].iloc[i + window_length] * (window_length - 1) + df['loss'].iloc[i + window_length + 1]) / window_length
 
     # Calculate RS Values
-    df['{}d_rs'.format(window_length)] = df['{}d_avg_gain'.format(window_length)] / df['{}d_avg_loss'.format(window_length)]
+    df[f'{window_length}d_rs'] = df[f'{window_length}d_avg_gain'] / df[f'{window_length}d_avg_loss']
     # Calculate RSI
-    df['{}d_rsi'.format(window_length)] = 100 - (100 / (1.0 + df['{}d_rs'.format(window_length)]))
+    df[f'{window_length}d_rsi'] = 100 - (100 / (1.0 + df[f'{window_length}d_rs']))
 
     return df
 
@@ -164,13 +161,12 @@ def sharpe_ratio(df, time_period):
     """ Calculates daily Sharpe Ratio. That is, the average return of the investment. And divided by the standard deviation
 
     """
-    df['{}d_sharpe_ratio'.format(time_period)] = df['close'].rolling(time_period).apply(my_rolling_sharpe)
+    df[f'{time_period}d_sharpe_ratio'] = df['close'].rolling(time_period).apply(my_rolling_sharpe)
 
     return df
 
 
 def get_volatility_scores(df):
-
     df = sharpe_ratio(df, 7)
     df = sharpe_ratio(df, 14)
 
