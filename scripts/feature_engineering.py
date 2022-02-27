@@ -8,7 +8,6 @@ from helpers import *
 def SortinoRatio(df, T):
     """Calculates the Sortino ratio from univariate excess returns.
 
-
     Args:
         df ([float]): The dataframe or pandas series of univariate excess returns.
         T ([integer]): The targeted return. 
@@ -67,10 +66,11 @@ def create_df_from_json(json_path):
     return df
 
 def calculate_inflation_rates(path, name):
-    """ Used to calculate the percentage agreement for each row in the agreement_df 
+    """ Calculate the CPI multiplier for each row in the CSV 
+    
     Args: 
-        csv_folder_path (String) : A string file path to the folder containing the inflation CSV's 
-
+        path (String) : A string file path to the folder containing the inflation CSV's 
+        name (String) : The name of the of the CSV file containin the inflation info
     """
     inflation_df = pd.read_csv(path + name, delimiter=',', sep=r', ')
     # create index multiplier
@@ -78,29 +78,28 @@ def calculate_inflation_rates(path, name):
 
     # Rename column names to lowercase to keep consistency
     col_names = [i.lower() for i in inflation_df.columns]
-
     inflation_df.columns = col_names
 
     inflation_df.set_index(["date"], inplace = True)
-    # print(inflation_df)
-    print(inflation_df)
-    print(path)
-    print(name)
     create_csv(inflation_df, path, name)
 
     return
 
 
 def get_inflation_price_adjustments(df, inflation_df):
-
+    """ Used to calculate the percentage agreement for each row in the agreement_df 
+    
+    Args: 
+        df (DataFrame) : DataFrame containing the stock data with prices to be adjusted for inflation
+        inflation_df (DataFrame) : DataFrame containing the inflation data
+    """
     date_vals = list(df.index)
     inf_date_vals = list(inflation_df.index)
-    # print(inflation_df)
     df = pd.merge(df, inflation_df, how='left', on='date')
     # df["CPI_ADJ_PRICE"] = df["CLOSE"] * df["CPIAUCNS_MULTIPLIER"]
     df["cpi_adj_price"] = df["close"] * df["cpiaucns_multiplier"]
     df = df.ffill()
-    # print(df)
+
     return df
 
 def calculate_treasury_yield_to_maturity(df):
@@ -113,10 +112,25 @@ def calculate_treasury_yield_to_maturity(df):
 
 
 def calc_volume_and_gain_loss_avgs(df):
+    """ Calculates:
+            The 20 & 100 day  volume averages
+            The daily gain/loss
+            The average gain/loss over 7, 14, 50 & 200 day periods
+    
+    Args: 
+        df (DataFrame) : DataFrame containing the stock data with prices to be adjusted for inflation
+
+    Returns:
+        df (DataFrame) : DataFrame with the new columns added
+    """
     df["20d_vol_avg"] = df['volume'].rolling(20).mean()
     df["100d_vol_avg"] = df['volume'].rolling(100).mean()
 
     df['daily_diff'] = df['close'].diff(1)
+    df['daily_diff_pc_change'] = df['daily_diff'].pct_change()
+
+    df['daily_volume_diff'] = df['volume'].diff(1)
+    df['daily_volume_pc_change'] = df['daily_volume_diff'].pct_change()
 
     # Calculate Avg. Gains/Losses
     df['gain'] = df['daily_diff'].clip(lower=0).round(2)
@@ -125,50 +139,84 @@ def calc_volume_and_gain_loss_avgs(df):
     # Calculate average gain losse for a period of time 
     df = calculate_average_gain_loss(df,7)
     df = calculate_average_gain_loss(df, 14)
+    df = calculate_average_gain_loss(df, 50)
+    df = calculate_average_gain_loss(df, 200)
     
-
+    print(df)
     return df
 
 
-def my_rolling_sharpe(y):
-    
-    return np.sqrt(126) * (y.mean() / y.std()) # 21 days per month X 6 months = 126
-
-
-
-
 def calculate_average_gain_loss(df, window_length):
+    """ Calculates:
+            The 20 & 100 day  volume averages
+            The daily gain/loss
+            The average gain/loss over 7, 14, 50 & 200 day periods
+    
+    Args: 
+        df (DataFrame) : DataFrame containing the stock data with prices to be adjusted for inflation
+        window_length (Integer) : The rolling time period we want to calculate the Shapre ratio for
 
-    df[f'{window_length}d_avg_gain'] = df['gain'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
-    df[f'{window_length}d_avg_loss'] = df['loss'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
+    Returns:
+        df (DataFrame) : DataFrame with the new columns added
+    """
+    df['{}d_avg_gain'.format(window_length)] = df['gain'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
+    df['{}d_avg_loss'.format(window_length)] = df['loss'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
+    df['{}d_avg_gain_pc_change'.format(window_length)] = df['{}d_avg_gain'.format(window_length)].pct_change()
+    df['{}d_avg_loss_pc_change'.format(window_length)] = df['{}d_avg_loss'.format(window_length)].pct_change()
 
-    for i, row in enumerate(df[f'{window_length}d_avg_gain'].iloc[window_length+1:]):
-        df[f'{window_length}d_avg_gain'].iloc[i + window_length + 1] = (df[f'{window_length}d_avg_gain'].iloc[i + window_length] * (window_length - 1) + df['gain'].iloc[i + window_length + 1]) / window_length
+    # Populate average Gains
+    for i, row in enumerate(df['{}d_avg_gain'.format(window_length)].iloc[window_length+1:]):
+        df['{}d_avg_gain'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_gain'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['gain'].iloc[i + window_length + 1]) / window_length
 
-    # Average Losses
-    for i, row in enumerate(df['{window_length}d_avg_loss'].iloc[window_length+1:]):
-        df[f'{window_length}d_avg_loss'].iloc[i + window_length + 1] = (df[f'{window_length}d_avg_loss'].iloc[i + window_length] * (window_length - 1) + df['loss'].iloc[i + window_length + 1]) / window_length
+    # populate average Losses
+    for i, row in enumerate(df['{}d_avg_loss'.format(window_length)].iloc[window_length+1:]):
+        df['{}d_avg_loss'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_loss'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['loss'].iloc[i + window_length + 1]) / window_length
+
+
+    # # Populate average Gains
+    # for i, row in enumerate(df['{}d_avg_gain_pc_change'.format(window_length)].iloc[window_length+1:]):
+    #     df['{}d_avg_gain_pc_change'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_gain_pc_change'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['gain'].iloc[i + window_length + 1]) / window_length
+
+    # # populate average Losses
+    # for i, row in enumerate(df['{}d_avg_loss'.format(window_length)].iloc[window_length+1:]):
+    #     df['{}d_avg_loss'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_loss'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['loss'].iloc[i + window_length + 1]) / window_length
 
     # Calculate RS Values
-    df[f'{window_length}d_rs'] = df[f'{window_length}d_avg_gain'] / df[f'{window_length}d_avg_loss']
+    df['{}d_rs'.format(window_length)] = df['{}d_avg_gain'.format(window_length)] / df['{}d_avg_loss'.format(window_length)]
     # Calculate RSI
-    df[f'{window_length}d_rsi'] = 100 - (100 / (1.0 + df[f'{window_length}d_rs']))
+    df['{}d_rsi'.format(window_length)] = 100 - (100 / (1.0 + df['{}d_rs'.format(window_length)]))
 
     return df
 
 
 def sharpe_ratio(df, time_period):
-    """ Calculates daily Sharpe Ratio. That is, the average return of the investment. And divided by the standard deviation
+    """ Calculates the Sharpe Ratio over a given time period. That is, the average return of the investment ddivided by the standard deviation
 
+    Args:
+        df (DataFrame) : DataFrame containing the stock data with prices to be adjusted for inflation
+        window_length (Integer) : The rolling time period we want to calculate the Shapre ratio for
+    Returns:
+        df (DataFrame) : DataFrame with the Sharpe ratio added for that time period
     """
-    df[f'{time_period}d_sharpe_ratio'] = df['close'].rolling(time_period).apply(my_rolling_sharpe)
+    df['{}d_sharpe_ratio'.format(time_period)] = df['close'].rolling(time_period).apply(my_rolling_sharpe)
 
     return df
 
 
+def my_rolling_sharpe(y):
+
+    # return np.sqrt(126) * (y.mean() / y.std()) # 21 days per month X 6 months = 126
+    rs = np.sqrt(len(list(y))) * (y.mean() / y.std())
+
+    return rs
+
+
 def get_volatility_scores(df):
+
     df = sharpe_ratio(df, 7)
     df = sharpe_ratio(df, 14)
+    df = sharpe_ratio(df, 50)
+    df = sharpe_ratio(df, 200)
 
     return df
 
@@ -184,8 +232,8 @@ def feature_engineering_main():
     for file in json_files:
         csv_path = json_folder_path.replace("json", "csv")
         json_path = json_folder_path + file
+
         # Convert JSON data to DF format
-        
         df = create_df_from_json(json_path)
         # Apply Inflation rates to get objective price 
         df = get_inflation_price_adjustments(df, inflation_df)
@@ -198,7 +246,7 @@ def feature_engineering_main():
         # Next look at volatility scores
         df = get_volatility_scores(df)
         
-        print(df)
+        # print(df)
 
         # display_graph_two(list(df["volume"]), list(df["20d_vol_avg"]))
 
