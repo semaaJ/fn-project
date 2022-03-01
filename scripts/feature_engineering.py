@@ -1,9 +1,17 @@
 import os 
 import numpy as np 
 import pandas as pd
+import datetime
 import numpy_financial as npf
+import pandas_datareader as  web
+import matplotlib.pyplot as pp
 
 from helpers import *
+
+
+def ceate_csv_from_json():
+    for file in os.listdir("data/json/"):
+        data = import_json("data/json/")
 
 def SortinoRatio(df, T):
     """Calculates the Sortino ratio from univariate excess returns.
@@ -127,6 +135,7 @@ def calc_volume_and_gain_loss_avgs(df):
     df["100d_vol_avg"] = df['volume'].rolling(100).mean()
 
     df['daily_diff'] = df['close'].diff(1)
+    df['daily_returns'] = df.close.shift(1) / df.close - 1
     df['daily_diff_pc_change'] = df['daily_diff'].pct_change()
 
     df['daily_volume_diff'] = df['volume'].diff(1)
@@ -142,15 +151,11 @@ def calc_volume_and_gain_loss_avgs(df):
     df = calculate_average_gain_loss(df, 50)
     df = calculate_average_gain_loss(df, 200)
     
-    print(df)
     return df
 
 
 def calculate_average_gain_loss(df, window_length):
-    """ Calculates:
-            The 20 & 100 day  volume averages
-            The daily gain/loss
-            The average gain/loss over 7, 14, 50 & 200 day periods
+    """ Calculates the average gain and loss over a given time period as well as the RS and RSI values
     
     Args: 
         df (DataFrame) : DataFrame containing the stock data with prices to be adjusted for inflation
@@ -159,37 +164,21 @@ def calculate_average_gain_loss(df, window_length):
     Returns:
         df (DataFrame) : DataFrame with the new columns added
     """
-    df['{}d_avg_gain'.format(window_length)] = df['gain'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
-    df['{}d_avg_loss'.format(window_length)] = df['loss'].rolling(window=window_length, min_periods=window_length).mean()[:window_length+1]
-    df['{}d_avg_gain_pc_change'.format(window_length)] = df['{}d_avg_gain'.format(window_length)].pct_change()
-    df['{}d_avg_loss_pc_change'.format(window_length)] = df['{}d_avg_loss'.format(window_length)].pct_change()
+    df['{}d_avg_gain'.format(window_length)] = df['gain'].rolling(window_length).mean()
+    df['{}d_avg_loss'.format(window_length)] = df['loss'].rolling(window_length).mean()
 
-    # Populate average Gains
-    for i, row in enumerate(df['{}d_avg_gain'.format(window_length)].iloc[window_length+1:]):
-        df['{}d_avg_gain'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_gain'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['gain'].iloc[i + window_length + 1]) / window_length
-
-    # populate average Losses
-    for i, row in enumerate(df['{}d_avg_loss'.format(window_length)].iloc[window_length+1:]):
-        df['{}d_avg_loss'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_loss'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['loss'].iloc[i + window_length + 1]) / window_length
-
-
-    # # Populate average Gains
-    # for i, row in enumerate(df['{}d_avg_gain_pc_change'.format(window_length)].iloc[window_length+1:]):
-    #     df['{}d_avg_gain_pc_change'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_gain_pc_change'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['gain'].iloc[i + window_length + 1]) / window_length
-
-    # # populate average Losses
-    # for i, row in enumerate(df['{}d_avg_loss'.format(window_length)].iloc[window_length+1:]):
-    #     df['{}d_avg_loss'.format(window_length)].iloc[i + window_length + 1] = (df['{}d_avg_loss'.format(window_length)].iloc[i + window_length] * (window_length - 1) + df['loss'].iloc[i + window_length + 1]) / window_length
-
-    # Calculate RS Values
+    # Calculate the percentage gain and loss over the specified time period  -- WASNT USEFUL --
+    # df['{}d_avg_gain_pc_change'.format(window_length)] = df['gain'].pct_change(periods=window_length)
+    # df['{}d_avg_loss_pc_change'.format(window_length)] = df['loss'].pct_change(periods=window_length)
+    
+    # Calculate RS & RSI Values
     df['{}d_rs'.format(window_length)] = df['{}d_avg_gain'.format(window_length)] / df['{}d_avg_loss'.format(window_length)]
-    # Calculate RSI
     df['{}d_rsi'.format(window_length)] = 100 - (100 / (1.0 + df['{}d_rs'.format(window_length)]))
 
     return df
 
 
-def sharpe_ratio(df, time_period):
+def sharpe_ratio(df, window_length):
     """ Calculates the Sharpe Ratio over a given time period. That is, the average return of the investment ddivided by the standard deviation
 
     Args:
@@ -198,7 +187,7 @@ def sharpe_ratio(df, time_period):
     Returns:
         df (DataFrame) : DataFrame with the Sharpe ratio added for that time period
     """
-    df['{}d_sharpe_ratio'.format(time_period)] = df['close'].rolling(time_period).apply(my_rolling_sharpe)
+    df['{}d_sharpe_ratio'.format(window_length)] = df['daily_returns'].rolling(window_length).apply(my_rolling_sharpe)
 
     return df
 
@@ -206,17 +195,60 @@ def sharpe_ratio(df, time_period):
 def my_rolling_sharpe(y):
 
     # return np.sqrt(126) * (y.mean() / y.std()) # 21 days per month X 6 months = 126
-    rs = np.sqrt(len(list(y))) * (y.mean() / y.std())
+    # rs = np.sqrt(len(list(y))) * (y.mean() / y.std())
+    # print(y)
+    # print("MEAN", y.mean())
+    # print("STD", y.std())
+    # print("RESULT", (y.mean()  - 0.2 )/ y.std())
+    # print()
+    rs =  (y.mean()  - 0.02 )/ y.std()
 
     return rs
 
+def calculate_maximum_drowdown(df, window_length):
+    """ Calculates the maximum dropdown over a given period of time
+
+    Args:
+        df (DataFrame) : DataFrame containing the stock data with prices to be adjusted for inflation
+        window_length (Integer) : The rolling time period we want to calculate the Shapre ratio for
+    Returns:
+        df (DataFrame) : DataFrame with the Sharpe ratio added for that time period
+    """
+    rolling_max = df['close'].rolling(window_length, min_periods=1).max()
+    daily_dropdown = df['close'] / rolling_max - 1.0
+    Max_Daily_Drawdown = daily_dropdown.rolling(window_length, min_periods=1).min()
+
+    return df
+
 
 def get_volatility_scores(df):
+    """ Main function for calculating various volatility metric scores over a rolling range of time periods
+
+    Args:
+        df (DataFrame) : DataFrame containing the stock data with prices to be adjusted for inflation
+
+    Returns:
+        df (DataFrame) : DataFrame with all newly created columns addded
+    """
+    df = calculate_historic_volatility(df, 7)
+    df = calculate_historic_volatility(df, 14)
+    df = calculate_historic_volatility(df, 252)
 
     df = sharpe_ratio(df, 7)
     df = sharpe_ratio(df, 14)
     df = sharpe_ratio(df, 50)
     df = sharpe_ratio(df, 200)
+
+    return df
+
+def calculate_historic_volatility(df, window_length):
+    """ Calculates the volatility of a stock over aa given time period
+
+    """
+    df['log_ret'] = np.log(df.close) - np.log(df.close.shift(1))
+
+    # Compute Volatility using the pandas rolling standard deviation function
+    df['{}d_historic_volatility_of_risk-adjusted_return'.format(window_length)] = df['log_ret'].rolling(window=window_length).std() * np.sqrt(window_length)
 
     return df
 
@@ -243,10 +275,12 @@ def feature_engineering_main():
         # calculate the volume and 29 avg vol total
         df = calc_volume_and_gain_loss_avgs(df)
 
+        # df = calculate_maximum_drowdown(df, 7)
+
         # Next look at volatility scores
         df = get_volatility_scores(df)
         
-        # print(df)
+        print(df)
 
         # display_graph_two(list(df["volume"]), list(df["20d_vol_avg"]))
 

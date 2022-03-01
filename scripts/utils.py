@@ -118,11 +118,6 @@ def utils_main():
     data = import_json("data/AMD.json")
 
     # historical_data = data["historicalData"]
-    # date_list = []
-    # close_list = []
-    # for day in historical_data:
-    #     date_list.append(day["date"])
-    #     close_list.append(day["close"])
 
     # # display_graph(close_list)
     # stock_df = pd.DataFrame(columns = ["date", "close_price"])
