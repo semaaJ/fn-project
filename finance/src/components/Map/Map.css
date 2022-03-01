@@ -1,11 +1,11 @@
 .mapContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
     height: 100%;
     text-align: center;
-    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .mapDataContainer {
@@ -69,47 +69,27 @@
     width: 30%;
 }
 
-svg {
-    width: 800px;
-}
-
-path {
+.mapPath {
     fill: white;
     cursor: pointer;
 }
 
-path:hover {
-    fill: #0099ff;
+.mapPath:hover {
+    transition: 0.15s;
+    fill: var(--main-color)
 }
 
 .mapSelected {
-    fill: #0099ff;
+    fill: var(--main-color)
 }
 
-.mapHighlight {
-        fill: #0099ff;
-}
-
-.hightlight {        
-    fill: #0099ff;
-}
-
-.highlight2 {
-    fill: #57bbfd;
-}
-
-.highlight3 {
-    fill: #95d5ff;
-}
-
-
-.exportContainer {
-    text-align: left;
+.trendContainer {
     display: flex;
-    width: 100%;
-    align-items: center;
+    flex-direction: column;
+}
+.trend {
+    display: flex;
     justify-content: center;
-    margin-bottom: 4px;
 }
 
 .exportTitle {

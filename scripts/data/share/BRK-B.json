@@ -1,13 +1,1146 @@
 {
+    "googleTrends": {
+        "historicalTrendData": [
+            [
+                "2004-01-01",
+                10
+            ],
+            [
+                "2004-02-01",
+                0
+            ],
+            [
+                "2004-03-01",
+                0
+            ],
+            [
+                "2004-04-01",
+                9
+            ],
+            [
+                "2004-05-01",
+                8
+            ],
+            [
+                "2004-06-01",
+                0
+            ],
+            [
+                "2004-07-01",
+                0
+            ],
+            [
+                "2004-08-01",
+                0
+            ],
+            [
+                "2004-09-01",
+                0
+            ],
+            [
+                "2004-10-01",
+                0
+            ],
+            [
+                "2004-11-01",
+                0
+            ],
+            [
+                "2004-12-01",
+                7
+            ],
+            [
+                "2005-01-01",
+                6
+            ],
+            [
+                "2005-02-01",
+                0
+            ],
+            [
+                "2005-03-01",
+                16
+            ],
+            [
+                "2005-04-01",
+                24
+            ],
+            [
+                "2005-05-01",
+                21
+            ],
+            [
+                "2005-06-01",
+                0
+            ],
+            [
+                "2005-07-01",
+                11
+            ],
+            [
+                "2005-08-01",
+                16
+            ],
+            [
+                "2005-09-01",
+                9
+            ],
+            [
+                "2005-10-01",
+                4
+            ],
+            [
+                "2005-11-01",
+                17
+            ],
+            [
+                "2005-12-01",
+                26
+            ],
+            [
+                "2006-01-01",
+                7
+            ],
+            [
+                "2006-02-01",
+                19
+            ],
+            [
+                "2006-03-01",
+                17
+            ],
+            [
+                "2006-04-01",
+                14
+            ],
+            [
+                "2006-05-01",
+                26
+            ],
+            [
+                "2006-06-01",
+                17
+            ],
+            [
+                "2006-07-01",
+                24
+            ],
+            [
+                "2006-08-01",
+                9
+            ],
+            [
+                "2006-09-01",
+                6
+            ],
+            [
+                "2006-10-01",
+                11
+            ],
+            [
+                "2006-11-01",
+                5
+            ],
+            [
+                "2006-12-01",
+                20
+            ],
+            [
+                "2007-01-01",
+                26
+            ],
+            [
+                "2007-02-01",
+                18
+            ],
+            [
+                "2007-03-01",
+                18
+            ],
+            [
+                "2007-04-01",
+                14
+            ],
+            [
+                "2007-05-01",
+                26
+            ],
+            [
+                "2007-06-01",
+                12
+            ],
+            [
+                "2007-07-01",
+                20
+            ],
+            [
+                "2007-08-01",
+                39
+            ],
+            [
+                "2007-09-01",
+                25
+            ],
+            [
+                "2007-10-01",
+                29
+            ],
+            [
+                "2007-11-01",
+                20
+            ],
+            [
+                "2007-12-01",
+                46
+            ],
+            [
+                "2008-01-01",
+                51
+            ],
+            [
+                "2008-02-01",
+                21
+            ],
+            [
+                "2008-03-01",
+                37
+            ],
+            [
+                "2008-04-01",
+                45
+            ],
+            [
+                "2008-05-01",
+                42
+            ],
+            [
+                "2008-06-01",
+                31
+            ],
+            [
+                "2008-07-01",
+                38
+            ],
+            [
+                "2008-08-01",
+                19
+            ],
+            [
+                "2008-09-01",
+                32
+            ],
+            [
+                "2008-10-01",
+                78
+            ],
+            [
+                "2008-11-01",
+                31
+            ],
+            [
+                "2008-12-01",
+                20
+            ],
+            [
+                "2009-01-01",
+                34
+            ],
+            [
+                "2009-02-01",
+                17
+            ],
+            [
+                "2009-03-01",
+                23
+            ],
+            [
+                "2009-04-01",
+                19
+            ],
+            [
+                "2009-05-01",
+                27
+            ],
+            [
+                "2009-06-01",
+                19
+            ],
+            [
+                "2009-07-01",
+                21
+            ],
+            [
+                "2009-08-01",
+                23
+            ],
+            [
+                "2009-09-01",
+                23
+            ],
+            [
+                "2009-10-01",
+                15
+            ],
+            [
+                "2009-11-01",
+                54
+            ],
+            [
+                "2009-12-01",
+                23
+            ],
+            [
+                "2010-01-01",
+                88
+            ],
+            [
+                "2010-02-01",
+                100
+            ],
+            [
+                "2010-03-01",
+                62
+            ],
+            [
+                "2010-04-01",
+                39
+            ],
+            [
+                "2010-05-01",
+                36
+            ],
+            [
+                "2010-06-01",
+                28
+            ],
+            [
+                "2010-07-01",
+                29
+            ],
+            [
+                "2010-08-01",
+                23
+            ],
+            [
+                "2010-09-01",
+                26
+            ],
+            [
+                "2010-10-01",
+                28
+            ],
+            [
+                "2010-11-01",
+                31
+            ],
+            [
+                "2010-12-01",
+                15
+            ],
+            [
+                "2011-01-01",
+                13
+            ],
+            [
+                "2011-02-01",
+                17
+            ],
+            [
+                "2011-03-01",
+                29
+            ],
+            [
+                "2011-04-01",
+                21
+            ],
+            [
+                "2011-05-01",
+                16
+            ],
+            [
+                "2011-06-01",
+                16
+            ],
+            [
+                "2011-07-01",
+                15
+            ],
+            [
+                "2011-08-01",
+                29
+            ],
+            [
+                "2011-09-01",
+                22
+            ],
+            [
+                "2011-10-01",
+                19
+            ],
+            [
+                "2011-11-01",
+                21
+            ],
+            [
+                "2011-12-01",
+                11
+            ],
+            [
+                "2012-01-01",
+                17
+            ],
+            [
+                "2012-02-01",
+                33
+            ],
+            [
+                "2012-03-01",
+                20
+            ],
+            [
+                "2012-04-01",
+                20
+            ],
+            [
+                "2012-05-01",
+                24
+            ],
+            [
+                "2012-06-01",
+                20
+            ],
+            [
+                "2012-07-01",
+                14
+            ],
+            [
+                "2012-08-01",
+                15
+            ],
+            [
+                "2012-09-01",
+                15
+            ],
+            [
+                "2012-10-01",
+                17
+            ],
+            [
+                "2012-11-01",
+                13
+            ],
+            [
+                "2012-12-01",
+                18
+            ],
+            [
+                "2013-01-01",
+                16
+            ],
+            [
+                "2013-02-01",
+                22
+            ],
+            [
+                "2013-03-01",
+                18
+            ],
+            [
+                "2013-04-01",
+                17
+            ],
+            [
+                "2013-05-01",
+                19
+            ],
+            [
+                "2013-06-01",
+                19
+            ],
+            [
+                "2013-07-01",
+                20
+            ],
+            [
+                "2013-08-01",
+                19
+            ],
+            [
+                "2013-09-01",
+                19
+            ],
+            [
+                "2013-10-01",
+                18
+            ],
+            [
+                "2013-11-01",
+                14
+            ],
+            [
+                "2013-12-01",
+                16
+            ],
+            [
+                "2014-01-01",
+                18
+            ],
+            [
+                "2014-02-01",
+                14
+            ],
+            [
+                "2014-03-01",
+                21
+            ],
+            [
+                "2014-04-01",
+                19
+            ],
+            [
+                "2014-05-01",
+                19
+            ],
+            [
+                "2014-06-01",
+                15
+            ],
+            [
+                "2014-07-01",
+                15
+            ],
+            [
+                "2014-08-01",
+                27
+            ],
+            [
+                "2014-09-01",
+                16
+            ],
+            [
+                "2014-10-01",
+                24
+            ],
+            [
+                "2014-11-01",
+                22
+            ],
+            [
+                "2014-12-01",
+                27
+            ],
+            [
+                "2015-01-01",
+                27
+            ],
+            [
+                "2015-02-01",
+                22
+            ],
+            [
+                "2015-03-01",
+                29
+            ],
+            [
+                "2015-04-01",
+                14
+            ],
+            [
+                "2015-05-01",
+                24
+            ],
+            [
+                "2015-06-01",
+                15
+            ],
+            [
+                "2015-07-01",
+                13
+            ],
+            [
+                "2015-08-01",
+                29
+            ],
+            [
+                "2015-09-01",
+                18
+            ],
+            [
+                "2015-10-01",
+                16
+            ],
+            [
+                "2015-11-01",
+                15
+            ],
+            [
+                "2015-12-01",
+                21
+            ],
+            [
+                "2016-01-01",
+                20
+            ],
+            [
+                "2016-02-01",
+                27
+            ],
+            [
+                "2016-03-01",
+                19
+            ],
+            [
+                "2016-04-01",
+                23
+            ],
+            [
+                "2016-05-01",
+                20
+            ],
+            [
+                "2016-06-01",
+                23
+            ],
+            [
+                "2016-07-01",
+                29
+            ],
+            [
+                "2016-08-01",
+                19
+            ],
+            [
+                "2016-09-01",
+                20
+            ],
+            [
+                "2016-10-01",
+                14
+            ],
+            [
+                "2016-11-01",
+                24
+            ],
+            [
+                "2016-12-01",
+                24
+            ],
+            [
+                "2017-01-01",
+                21
+            ],
+            [
+                "2017-02-01",
+                33
+            ],
+            [
+                "2017-03-01",
+                37
+            ],
+            [
+                "2017-04-01",
+                24
+            ],
+            [
+                "2017-05-01",
+                27
+            ],
+            [
+                "2017-06-01",
+                28
+            ],
+            [
+                "2017-07-01",
+                20
+            ],
+            [
+                "2017-08-01",
+                28
+            ],
+            [
+                "2017-09-01",
+                23
+            ],
+            [
+                "2017-10-01",
+                31
+            ],
+            [
+                "2017-11-01",
+                29
+            ],
+            [
+                "2017-12-01",
+                30
+            ],
+            [
+                "2018-01-01",
+                43
+            ],
+            [
+                "2018-02-01",
+                44
+            ],
+            [
+                "2018-03-01",
+                38
+            ],
+            [
+                "2018-04-01",
+                28
+            ],
+            [
+                "2018-05-01",
+                32
+            ],
+            [
+                "2018-06-01",
+                27
+            ],
+            [
+                "2018-07-01",
+                28
+            ],
+            [
+                "2018-08-01",
+                31
+            ],
+            [
+                "2018-09-01",
+                26
+            ],
+            [
+                "2018-10-01",
+                34
+            ],
+            [
+                "2018-11-01",
+                30
+            ],
+            [
+                "2018-12-01",
+                41
+            ],
+            [
+                "2019-01-01",
+                35
+            ],
+            [
+                "2019-02-01",
+                32
+            ],
+            [
+                "2019-03-01",
+                23
+            ],
+            [
+                "2019-04-01",
+                32
+            ],
+            [
+                "2019-05-01",
+                28
+            ],
+            [
+                "2019-06-01",
+                23
+            ],
+            [
+                "2019-07-01",
+                23
+            ],
+            [
+                "2019-08-01",
+                25
+            ],
+            [
+                "2019-09-01",
+                24
+            ],
+            [
+                "2019-10-01",
+                18
+            ],
+            [
+                "2019-11-01",
+                25
+            ],
+            [
+                "2019-12-01",
+                21
+            ],
+            [
+                "2020-01-01",
+                30
+            ],
+            [
+                "2020-02-01",
+                32
+            ],
+            [
+                "2020-03-01",
+                71
+            ],
+            [
+                "2020-04-01",
+                61
+            ],
+            [
+                "2020-05-01",
+                66
+            ],
+            [
+                "2020-06-01",
+                53
+            ],
+            [
+                "2020-07-01",
+                41
+            ],
+            [
+                "2020-08-01",
+                44
+            ],
+            [
+                "2020-09-01",
+                33
+            ],
+            [
+                "2020-10-01",
+                29
+            ],
+            [
+                "2020-11-01",
+                34
+            ],
+            [
+                "2020-12-01",
+                35
+            ],
+            [
+                "2021-01-01",
+                39
+            ],
+            [
+                "2021-02-01",
+                37
+            ],
+            [
+                "2021-03-01",
+                46
+            ],
+            [
+                "2021-04-01",
+                33
+            ],
+            [
+                "2021-05-01",
+                38
+            ],
+            [
+                "2021-06-01",
+                23
+            ],
+            [
+                "2021-07-01",
+                24
+            ],
+            [
+                "2021-08-01",
+                28
+            ],
+            [
+                "2021-09-01",
+                27
+            ],
+            [
+                "2021-10-01",
+                22
+            ],
+            [
+                "2021-11-01",
+                24
+            ],
+            [
+                "2021-12-01",
+                26
+            ],
+            [
+                "2022-01-01",
+                40
+            ],
+            [
+                "2022-02-01",
+                32
+            ]
+        ],
+        "relatedTopics": [
+            "NYSE:BRK.B",
+            "Berkshire Hathaway",
+            "Stock",
+            "Price",
+            "Share price",
+            "NYSE:BRK.A",
+            "NASDAQ:AAPL",
+            "Dow Jones Industrial Average",
+            "NASDAQ:AMZN",
+            "Tesla, Inc.",
+            "NASDAQ:MSFT",
+            "S&P 500",
+            "NASDAQ:TSLA",
+            "Yahoo! Finance",
+            "Dividend",
+            "NASDAQ:FB",
+            "NYSE:BABA",
+            "Warren Buffett",
+            "NASDAQ:GOOG",
+            "Holding company",
+            "Standard & Poor's",
+            "S&P Global Ratings",
+            "NYSE:WFC",
+            "NYSE:BAC",
+            "New York Stock Exchange"
+        ],
+        "relatedQueries": [
+            "brk-b stock",
+            "brk-b price",
+            "brk-b stock price",
+            "brk-a",
+            "aapl",
+            "berkshire",
+            "berkshire hathaway",
+            "berkshire stock",
+            "aapl stock",
+            "dow",
+            "berkshire hathaway stock",
+            "brk-b stock price today",
+            "amzn",
+            "brk",
+            "apple stock",
+            "brk-a stock",
+            "dow jones",
+            "finance",
+            "brk-b stocks",
+            "brk-b stock quote",
+            "brk-b share price",
+            "msft",
+            "tsla",
+            "berkshire hathaway b",
+            "bac"
+        ],
+        "trendByCountry": {
+            "AF": 0,
+            "AL": 0,
+            "DZ": 0,
+            "AS": 0,
+            "AD": 0,
+            "AO": 0,
+            "AI": 0,
+            "AQ": 0,
+            "AR": 0,
+            "AM": 0,
+            "AW": 0,
+            "AU": 23,
+            "AT": 0,
+            "AZ": 0,
+            "BS": 0,
+            "BH": 0,
+            "BD": 0,
+            "BB": 0,
+            "BY": 0,
+            "BE": 0,
+            "BZ": 0,
+            "BJ": 0,
+            "BM": 0,
+            "BT": 0,
+            "BO": 0,
+            "BW": 0,
+            "BV": 0,
+            "BR": 2,
+            "IO": 0,
+            "BG": 0,
+            "BF": 0,
+            "BI": 0,
+            "KH": 0,
+            "CM": 0,
+            "CA": 62,
+            "CV": 0,
+            "KY": 0,
+            "CF": 0,
+            "TD": 0,
+            "CL": 0,
+            "CN": 0,
+            "CX": 0,
+            "CC": 0,
+            "CO": 0,
+            "KM": 0,
+            "CK": 0,
+            "CR": 0,
+            "HR": 0,
+            "CU": 0,
+            "CY": 0,
+            "DK": 0,
+            "DJ": 0,
+            "DM": 0,
+            "DO": 0,
+            "EC": 0,
+            "EG": 0,
+            "SV": 0,
+            "GQ": 0,
+            "ER": 0,
+            "EE": 0,
+            "ET": 0,
+            "FO": 0,
+            "FJ": 0,
+            "FI": 0,
+            "FR": 0,
+            "GF": 0,
+            "PF": 0,
+            "TF": 0,
+            "GA": 0,
+            "GM": 0,
+            "GE": 0,
+            "DE": 2,
+            "GH": 0,
+            "GI": 0,
+            "GR": 0,
+            "GL": 0,
+            "GD": 0,
+            "GP": 0,
+            "GU": 0,
+            "GT": 0,
+            "GG": 0,
+            "GN": 0,
+            "GW": 0,
+            "GY": 0,
+            "HT": 0,
+            "HN": 0,
+            "HK": 51,
+            "HU": 0,
+            "IS": 0,
+            "IN": 0,
+            "ID": 0,
+            "IQ": 0,
+            "IE": 0,
+            "IM": 0,
+            "IL": 92,
+            "IT": 8,
+            "JM": 0,
+            "JP": 4,
+            "JE": 0,
+            "JO": 0,
+            "KZ": 0,
+            "KE": 0,
+            "KI": 0,
+            "XK": 0,
+            "KW": 0,
+            "KG": 0,
+            "LV": 0,
+            "LB": 0,
+            "LS": 0,
+            "LR": 0,
+            "LI": 0,
+            "LT": 0,
+            "LU": 0,
+            "MO": 0,
+            "MG": 0,
+            "MW": 0,
+            "MY": 0,
+            "MV": 0,
+            "ML": 0,
+            "MT": 0,
+            "MH": 0,
+            "MQ": 0,
+            "MR": 0,
+            "MU": 0,
+            "YT": 0,
+            "MX": 0,
+            "MC": 0,
+            "MN": 0,
+            "ME": 0,
+            "MS": 0,
+            "MA": 0,
+            "MZ": 0,
+            "NA": 0,
+            "NR": 0,
+            "NP": 0,
+            "NL": 0,
+            "NC": 0,
+            "NZ": 0,
+            "NI": 0,
+            "NE": 0,
+            "NG": 0,
+            "NU": 0,
+            "NF": 0,
+            "MP": 0,
+            "NO": 0,
+            "OM": 0,
+            "PK": 0,
+            "PW": 0,
+            "PA": 0,
+            "PG": 0,
+            "PY": 0,
+            "PE": 0,
+            "PH": 8,
+            "PL": 0,
+            "PT": 0,
+            "PR": 0,
+            "QA": 0,
+            "RO": 0,
+            "RW": 0,
+            "WS": 0,
+            "SM": 0,
+            "SA": 0,
+            "SN": 0,
+            "RS": 0,
+            "SC": 0,
+            "SL": 0,
+            "SG": 67,
+            "SX": 0,
+            "SK": 0,
+            "SI": 0,
+            "SB": 0,
+            "SO": 0,
+            "ZA": 0,
+            "SS": 0,
+            "ES": 9,
+            "LK": 0,
+            "SD": 0,
+            "SR": 0,
+            "SE": 0,
+            "CH": 0,
+            "TJ": 0,
+            "TH": 0,
+            "TL": 0,
+            "TG": 0,
+            "TK": 0,
+            "TO": 0,
+            "TN": 0,
+            "TR": 0,
+            "TM": 0,
+            "TV": 0,
+            "UG": 0,
+            "UA": 0,
+            "AE": 0,
+            "GB": 6,
+            "US": 100,
+            "UY": 0,
+            "UZ": 0,
+            "VU": 0,
+            "VE": 0,
+            "EH": 0,
+            "YE": 0,
+            "ZM": 0,
+            "ZW": 0
+        }
+    },
     "zip": "68131",
     "city": "Omaha",
-    "state": "NE",
     "country": "United States",
     "website": "https://www.berkshirehathaway.com",
     "industry": "Insurance\u2014Diversified",
     "sector": "Financial Services",
     "shortName": "Berkshire Hathaway Inc. New",
-    "fullTimeEmployees": 360000,
     "longBusinessSummary": "Berkshire Hathaway Inc., through its subsidiaries, engages in the insurance, freight rail transportation, and utility businesses worldwide. It provides property, casualty, life, accident, and health insurance and reinsurance; and operates railroad systems in North America. The company also generates, transmits, stores, and distributes electricity from natural gas, coal, wind, solar, hydro, nuclear, and geothermal sources; operates natural gas distribution and storage facilities, interstate pipelines, liquefied natural gas facilities, and compressor and meter stations; and holds interest in coal mining assets. In addition, the company manufactures boxed chocolates and other confectionery products; specialty chemicals, metal cutting tools, and components for aerospace and power generation applications; and flooring, insulation, roofing and engineered, building and engineered components, paints and coatings, and bricks and masonry products, as well as offers manufactured and site-built home construction, and related lending and financial services; and recreational vehicles, apparel products, jewelry, and custom picture framing products, and alkaline batteries. Further, it manufactures castings, forgings, fasteners/fastener systems, and aerostructures; and seamless pipes, fittings, downhole casing and tubing, and various mill forms. Additionally, the company distributes televisions and information; franchises and services quick service restaurants; distributes electronic components; and offers logistics services, grocery and foodservice distribution services, and professional aviation training and shared aircraft ownership programs. It also retails automobiles; furniture, bedding, and accessories; household appliances, electronics, and computers; jewelry, watches, crystal, china, stemware, flatware, gifts, and collectibles; kitchenware; and motorcycle apparel and equipment. The company was incorporated in 1998 and is headquartered in Omaha, Nebraska.",
     "profitMargins": 0.32002997,
     "grossMargins": 0.41395,
@@ -15,23 +1148,23 @@
     "totalDebt": 114964996096,
     "totalCash": 149197996032,
     "grossProfits": 69721000000,
-    "marketCap": 701676322816,
+    "marketCap": 719813345280,
     "revenueGrowth": 0.12,
     "operatingMargins": 0.41395,
     "operatingCashflow": 42171998208,
     "targetLowPrice": 327,
-    "targetMedianPrice": 340.5,
-    "targetMeanPrice": 340.5,
-    "targetHighPrice": 354,
-    "recommendationKey": "hold",
+    "targetMedianPrice": 337,
+    "targetMeanPrice": 337,
+    "targetHighPrice": 347,
+    "recommendationKey": "buy",
     "freeCashflow": 70070501376,
     "returnOnAssets": 0.07941,
     "numberOfAnalystOpinions": 2,
     "totalCashPerShare": 100205.05,
     "revenuePerShare": 175827.33,
     "bookValue": 316350.56,
-    "forwardPE": 24.834784,
-    "currentPrice": 314.1600036621094,
+    "forwardPE": 25.192007,
+    "currentPrice": 321.45001220703125,
     "historicalData": [
         {
             "date": "1996-05-09 00:00:00",
@@ -51964,15 +53097,47 @@
         {
             "date": "2022-02-22 00:00:00",
             "close": 314.1600036621094,
-            "volume": 3984962.0,
+            "volume": 5102000.0,
             "open": 313.44000244140625,
             "low": 310.54998779296875,
             "high": 315.42999267578125
+        },
+        {
+            "date": "2022-02-23 00:00:00",
+            "close": 309.989990234375,
+            "volume": 5030600.0,
+            "open": 316.0799865722656,
+            "low": 309.3800048828125,
+            "high": 316.79998779296875
+        },
+        {
+            "date": "2022-02-24 00:00:00",
+            "close": 308.2799987792969,
+            "volume": 8834700.0,
+            "open": 301.7799987792969,
+            "low": 299.510009765625,
+            "high": 308.80999755859375
+        },
+        {
+            "date": "2022-02-25 00:00:00",
+            "close": 319.239990234375,
+            "volume": 7484400.0,
+            "open": 311.1600036621094,
+            "low": 310.7799987792969,
+            "high": 321.42999267578125
+        },
+        {
+            "date": "2022-02-28 00:00:00",
+            "close": 321.45001220703125,
+            "volume": 7978921.0,
+            "open": 317.3500061035156,
+            "low": 315.19000244140625,
+            "high": 321.94000244140625
         }
     ],
-    "fiftyTwoWeekLow": 240.25,
+    "fiftyTwoWeekLow": 243.23,
     "fiftyTwoWeekHigh": 325.63,
-    "fiftyDayAverage": 308.2144,
-    "twoHundredDayAverage": 289.17175,
-    "fiftyTwoWeekChange": 0.2821244
+    "fiftyDayAverage": 310.092,
+    "twoHundredDayAverage": 289.6711,
+    "fiftyTwoWeekChange": null
 }

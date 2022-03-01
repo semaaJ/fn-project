@@ -1,261 +1,6 @@
 import React, { useState } from 'react';
 import './Map.css';
 
-const countries = {
-    "AF": "Afghanistan",
-    "AX": "Aland Islands",
-    "AL": "Albania",
-    "DZ": "Algeria",
-    "AS": "American Samoa",
-    "AD": "Andorra",
-    "AO": "Angola",
-    "AI": "Anguilla",
-    "AQ": "Antarctica",
-    "AG": "Antigua and Barbuda",
-    "AR": "Argentina",
-    "AM": "Armenia",
-    "AW": "Aruba",
-    "AU": "Australia",
-    "AT": "Austria",
-    "AZ": "Azerbaijan",
-    "BS": "Bahamas",
-    "BH": "Bahrain",
-    "BD": "Bangladesh",
-    "BB": "Barbados",
-    "BY": "Belarus",
-    "BE": "Belgium",
-    "BZ": "Belize",
-    "BJ": "Benin",
-    "BM": "Bermuda",
-    "BT": "Bhutan",
-    "BO": "Bolivia",
-    "BQ": "Bonaire, Sint Eustatius and Saba",
-    "BA": "Bosnia and Herzegovina",
-    "BW": "Botswana",
-    "BV": "Bouvet Island",
-    "BR": "Brazil",
-    "IO": "British Indian Ocean Territory",
-    "BN": "Brunei Darussalam",
-    "BG": "Bulgaria",
-    "BF": "Burkina Faso",
-    "BI": "Burundi",
-    "KH": "Cambodia",
-    "CM": "Cameroon",
-    "CA": "Canada",
-    "CV": "Cape Verde",
-    "KY": "Cayman Islands",
-    "CF": "Central African Republic",
-    "TD": "Chad",
-    "CL": "Chile",
-    "CN": "China",
-    "CX": "Christmas Island",
-    "CC": "Cocos (Keeling) Islands",
-    "CO": "Colombia",
-    "KM": "Comoros",
-    "CG": "Congo",
-    "CD": "Congo, the Democratic Republic of the",
-    "CK": "Cook Islands",
-    "CR": "Costa Rica",
-    "CI": "Cote D'Ivoire",
-    "HR": "Croatia",
-    "CU": "Cuba",
-    "CW": "Curacao",
-    "CY": "Cyprus",
-    "CZ": "Czech Republic",
-    "DK": "Denmark",
-    "DJ": "Djibouti",
-    "DM": "Dominica",
-    "DO": "Dominican Republic",
-    "EC": "Ecuador",
-    "EG": "Egypt",
-    "SV": "El Salvador",
-    "GQ": "Equatorial Guinea",
-    "ER": "Eritrea",
-    "EE": "Estonia",
-    "ET": "Ethiopia",
-    "FK": "Falkland Islands (Malvinas)",
-    "FO": "Faroe Islands",
-    "FJ": "Fiji",
-    "FI": "Finland",
-    "FR": "France",
-    "GF": "French Guiana",
-    "PF": "French Polynesia",
-    "TF": "French Southern Territories",
-    "GA": "Gabon",
-    "GM": "Gambia",
-    "GE": "Georgia",
-    "DE": "Germany",
-    "GH": "Ghana",
-    "GI": "Gibraltar",
-    "GR": "Greece",
-    "GL": "Greenland",
-    "GD": "Grenada",
-    "GP": "Guadeloupe",
-    "GU": "Guam",
-    "GT": "Guatemala",
-    "GG": "Guernsey",
-    "GN": "Guinea",
-    "GW": "Guinea-Bissau",
-    "GY": "Guyana",
-    "HT": "Haiti",
-    "HM": "Heard Island and Mcdonald Islands",
-    "VA": "Holy See (Vatican City State)",
-    "HN": "Honduras",
-    "HK": "Hong Kong",
-    "HU": "Hungary",
-    "IS": "Iceland",
-    "IN": "India",
-    "ID": "Indonesia",
-    "IR": "Iran, Islamic Republic of",
-    "IQ": "Iraq",
-    "IE": "Ireland",
-    "IM": "Isle of Man",
-    "IL": "Israel",
-    "IT": "Italy",
-    "JM": "Jamaica",
-    "JP": "Japan",
-    "JE": "Jersey",
-    "JO": "Jordan",
-    "KZ": "Kazakhstan",
-    "KE": "Kenya",
-    "KI": "Kiribati",
-    "KP": "Korea, Democratic People's Republic of",
-    "KR": "Korea, Republic of",
-    "XK": "Kosovo",
-    "KW": "Kuwait",
-    "KG": "Kyrgyzstan",
-    "LA": "Lao People's Democratic Republic",
-    "LV": "Latvia",
-    "LB": "Lebanon",
-    "LS": "Lesotho",
-    "LR": "Liberia",
-    "LY": "Libyan Arab Jamahiriya",
-    "LI": "Liechtenstein",
-    "LT": "Lithuania",
-    "LU": "Luxembourg",
-    "MO": "Macao",
-    "MK": "Macedonia, the Former Yugoslav Republic of",
-    "MG": "Madagascar",
-    "MW": "Malawi",
-    "MY": "Malaysia",
-    "MV": "Maldives",
-    "ML": "Mali",
-    "MT": "Malta",
-    "MH": "Marshall Islands",
-    "MQ": "Martinique",
-    "MR": "Mauritania",
-    "MU": "Mauritius",
-    "YT": "Mayotte",
-    "MX": "Mexico",
-    "FM": "Micronesia, Federated States of",
-    "MD": "Moldova, Republic of",
-    "MC": "Monaco",
-    "MN": "Mongolia",
-    "ME": "Montenegro",
-    "MS": "Montserrat",
-    "MA": "Morocco",
-    "MZ": "Mozambique",
-    "MM": "Myanmar",
-    "NA": "Namibia",
-    "NR": "Nauru",
-    "NP": "Nepal",
-    "NL": "Netherlands",
-    "AN": "Netherlands Antilles",
-    "NC": "New Caledonia",
-    "NZ": "New Zealand",
-    "NI": "Nicaragua",
-    "NE": "Niger",
-    "NG": "Nigeria",
-    "NU": "Niue",
-    "NF": "Norfolk Island",
-    "MP": "Northern Mariana Islands",
-    "NO": "Norway",
-    "OM": "Oman",
-    "PK": "Pakistan",
-    "PW": "Palau",
-    "PS": "Palestinian Territory, Occupied",
-    "PA": "Panama",
-    "PG": "Papua New Guinea",
-    "PY": "Paraguay",
-    "PE": "Peru",
-    "PH": "Philippines",
-    "PN": "Pitcairn",
-    "PL": "Poland",
-    "PT": "Portugal",
-    "PR": "Puerto Rico",
-    "QA": "Qatar",
-    "RE": "Reunion",
-    "RO": "Romania",
-    "RU": "Russian Federation",
-    "RW": "Rwanda",
-    "BL": "Saint Barthelemy",
-    "SH": "Saint Helena",
-    "KN": "Saint Kitts and Nevis",
-    "LC": "Saint Lucia",
-    "MF": "Saint Martin",
-    "PM": "Saint Pierre and Miquelon",
-    "VC": "Saint Vincent and the Grenadines",
-    "WS": "Samoa",
-    "SM": "San Marino",
-    "ST": "Sao Tome and Principe",
-    "SA": "Saudi Arabia",
-    "SN": "Senegal",
-    "RS": "Serbia",
-    "CS": "Serbia and Montenegro",
-    "SC": "Seychelles",
-    "SL": "Sierra Leone",
-    "SG": "Singapore",
-    "SX": "Sint Maarten",
-    "SK": "Slovakia",
-    "SI": "Slovenia",
-    "SB": "Solomon Islands",
-    "SO": "Somalia",
-    "ZA": "South Africa",
-    "GS": "South Georgia and the South Sandwich Islands",
-    "SS": "South Sudan",
-    "ES": "Spain",
-    "LK": "Sri Lanka",
-    "SD": "Sudan",
-    "SR": "Suriname",
-    "SJ": "Svalbard and Jan Mayen",
-    "SZ": "Swaziland",
-    "SE": "Sweden",
-    "CH": "Switzerland",
-    "SY": "Syrian Arab Republic",
-    "TW": "Taiwan, Province of China",
-    "TJ": "Tajikistan",
-    "TZ": "Tanzania, United Republic of",
-    "TH": "Thailand",
-    "TL": "Timor-Leste",
-    "TG": "Togo",
-    "TK": "Tokelau",
-    "TO": "Tonga",
-    "TT": "Trinidad and Tobago",
-    "TN": "Tunisia",
-    "TR": "Turkey",
-    "TM": "Turkmenistan",
-    "TC": "Turks and Caicos Islands",
-    "TV": "Tuvalu",
-    "UG": "Uganda",
-    "UA": "Ukraine",
-    "AE": "United Arab Emirates",
-    "GB": "United Kingdom",
-    "US": "United States",
-    "UM": "United States Minor Outlying Islands",
-    "UY": "Uruguay",
-    "UZ": "Uzbekistan",
-    "VU": "Vanuatu",
-    "VE": "Venezuela",
-    "VN": "Viet Nam",
-    "VG": "Virgin Islands, British",
-    "VI": "Virgin Islands, U.s.",
-    "WF": "Wallis and Futuna",
-    "EH": "Western Sahara",
-    "YE": "Yemen",
-    "ZM": "Zambia",
-    "ZW": "Zimbabwe"
-};
-
 const paths = {
     "AE": "M619.87,393.72L620.37,393.57L620.48,394.41L622.67,393.93L624.99,394.01L626.68,394.1L628.6,392.03L630.7,390.05L632.47,388.15L633,389.2L633.38,391.64L631.95,391.65L631.72,393.65L632.22,394.07L630.95,394.67L630.94,395.92L630.12,397.18L630.05,398.39L629.48,399.03L621.06,397.51L619.98,394.43z",
     "AU": "M882.93,588.16l2.71,1.28l1.53,-0.51l2.19,-0.71l1.68,0.25l0.2,4.43l-0.96,1.3l-0.29,3.06l-0.98,-1.05l-1.95,2.67l-0.58,-0.21l-1.72,-0.12l-1.73,-3.28l-0.38,-2.5l-1.62,-3.25l0.07,-1.7L882.93,588.16zM877.78,502.1l1.01,2.25l1.8,-1.08l0.93,1.22l1.35,1.13l-0.29,1.28l0.6,2.48l0.43,1.45l0.71,0.35l0.76,2.5l-0.27,1.52l0.91,1.99l3.04,1.54l1.98,1.41l1.88,1.29l-0.37,0.72l1.6,1.87l1.09,3.25l1.12,-0.66l1.14,1.31l0.69,-0.46l0.48,3.21l1.99,1.87l1.3,1.17l2.19,2.49l0.79,2.49l0.07,1.77l-0.19,1.94l1.34,2.68l-0.16,2.81l-0.49,1.48l-0.76,2.87l0.06,1.86l-0.55,2.34l-1.24,3l-2.08,1.63l-1.02,2.59l-0.94,1.67l-0.83,2.93l-1.08,1.71l-0.71,2.58l-0.36,2.4l0.14,1.11l-1.61,1.22l-3.14,0.13l-2.59,1.45l-1.29,1.38l-1.69,1.54l-2.32,-1.58l-1.72,-0.63l0.44,-1.85l-1.53,0.67l-2.46,2.58l-2.42,-0.97l-1.59,-0.56l-1.6,-0.25l-2.71,-1.03l-1.81,-2.18l-0.52,-2.66l-0.65,-1.75l-1.38,-1.4l-2.7,-0.41l0.92,-1.66l-0.68,-2.52l-1.37,2.35l-2.5,0.63l1.47,-1.88l0.42,-1.95l1.08,-1.65l-0.22,-2.47l-2.28,2.85l-1.75,1.15l-1.07,2.69l-2.19,-1.4l0.09,-1.79l-1.75,-2.43l-1.48,-1.25l0.53,-0.77l-3.6,-2l-1.97,-0.09l-2.7,-1.6l-5.02,0.31l-3.63,1.18l-3.19,1.1l-2.68,-0.22l-2.97,1.7l-2.43,0.77l-0.54,1.75l-1.04,1.36l-2.38,0.08l-1.76,0.3l-2.48,-0.61l-2.02,0.37l-1.92,0.15l-1.67,1.8l-0.82,-0.15l-1.41,0.96l-1.35,1.08l-2.05,-0.13l-1.88,0l-2.97,-2.17l-1.51,-0.64l0.06,-1.93l1.39,-0.46l0.48,-0.76l-0.1,-1.2l0.34,-2.3l-0.31,-1.95l-1.48,-3.29l-0.46,-1.85l0.12,-1.83l-1.12,-2.08l-0.07,-0.93l-1.24,-1.26l-0.35,-2.47l-1.6,-2.48l-0.39,-1.33l1.23,1.35l-0.95,-2.88l1.39,0.9l0.83,1.2l-0.05,-1.59l-1.39,-2.43l-0.27,-0.97l-0.65,-0.92l0.3,-1.77l0.57,-0.75l0.38,-1.52l-0.3,-1.77l1.16,-2.17l0.21,2.29l1.18,-2.07l2.28,-1l1.37,-1.28l2.14,-1.1l1.27,-0.23l0.77,0.37l2.21,-1.11l1.7,-0.33l0.42,-0.65l0.74,-0.27l1.55,0.07l2.95,-0.87l1.52,-1.31l0.72,-1.58l1.64,-1.49l0.13,-1.17l0.07,-1.59l1.96,-2.47l1.18,2.51l1.19,-0.58l-1,-1.38l0.88,-1.41l1.24,0.63l0.34,-2.21l1.53,-1.42l0.68,-1.14l1.41,-0.49l0.04,-0.8l1.23,0.34l0.05,-0.72l1.23,-0.41l1.36,-0.39l2.07,1.32l1.56,1.71l1.75,0.02l1.78,0.27l-0.59,-1.58l1.34,-2.3l1.26,-0.75l-0.44,-0.71l1.22,-1.63l1.7,-1.01l1.43,0.34l2.36,-0.54l-0.05,-1.45l-2.05,-0.94l1.49,-0.41l1.86,0.7l1.49,1.17l2.36,0.73l0.8,-0.29l1.74,0.88l1.64,-0.82l1.05,0.25l0.66,-0.55l1.29,1.41l-0.75,1.53l-1.06,1.16l-0.96,0.1l0.33,1.15l-0.82,1.43l-1,1.41l0.2,0.81l2.23,1.6l2.16,0.93l1.44,1l2.03,1.72l0.79,0l1.47,0.75l0.43,0.9l2.68,0.99l1.85,-1l0.55,-1.57l0.57,-1.29l0.35,-1.59l0.85,-2.3l-0.39,-1.39l0.2,-0.84l-0.32,-1.64l0.37,-2.16l0.54,-0.58l-0.44,-0.95l0.68,-1.51l0.53,-1.56l0.07,-0.81l1.04,-1.06l0.79,1.39l0.19,1.78l0.7,0.34l0.12,1.2l1.02,1.45l0.21,1.62L877.78,502.1z",
@@ -435,76 +180,54 @@ const paths = {
     "EG": "M573.17,377.28L572.38,378.57L571.78,380.97L571.02,382.61L570.36,383.17L569.43,382.15L568.16,380.73L566.16,376.16L565.88,376.45L567.04,379.82L568.76,383L570.88,387.88L571.91,389.56L572.81,391.3L575.33,394.7L574.77,395.23L574.86,397.2L578.13,399.91L578.62,400.53L567.5,400.53L556.62,400.53L545.35,400.53L545.35,389.3L545.35,378.12L544.51,375.54L545.23,373.54L544.8,372.15L545.81,370.58L549.54,370.53L552.24,371.39L555.02,372.36L556.32,372.86L558.48,371.83L559.63,370.9L562.11,370.63L564.1,371.04L564.87,372.66L565.52,371.59L567.76,372.36L569.95,372.55L571.33,371.73z",
 }
 
-const statTitles = ['Overview', 'Exports', 'Imports']
+const PATH_FILL = {
+    0: '#ffffff',
+    10: '#ebf7ff',
+    20: '#c4e7ff',
+    30: '#89d0ff',
+    40: '#76c8ff',
+    50: '#62c0ff',
+    60: '#4eb8ff',
+    70: '#3bb1ff',
+    80: '#27a9ff',
+    90: '#0099ff',
+}
 
 const Map = (props) => {
-    const { mapData } = props;
-    const [selected, setSelected] = useState("RU");
-    
-    const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2
-    });
+    const { data, trendByCountry, countries  } = props;
 
-    const swapped = Object.fromEntries(Object.entries(countries).map(a => a.reverse()));
-    const countriesExportedTo = mapData[selected].exportCountries.map(val => val[0]);
-    
+    const allCountries = Object.keys(trendByCountry);
+    const withColour = Object.keys(trendByCountry).reduce((acc, curr) => {
+        let colour = null;
+        Object.keys(PATH_FILL).forEach(rank => {
+            if (trendByCountry[curr] >= rank) {
+                colour = PATH_FILL[rank]
+            } 
+        });
+
+        acc[curr] = colour;
+        return acc;
+    }, {})
+
     return (
         <div className="mapContainer">
             <div className="mapDataContainer">
-                <svg viewBox="0 0 1009 652">
+                <svg width="800px" viewBox="0 0 1009 652">
                     <g>
-                        { Object.keys(paths).map(path => <path onClick={() => setSelected(path)} className={selected === path ? 'mapSelected': countriesExportedTo.includes(countries[path]) ? 'highlight3' : ''} d={paths[path]} />)}
+                        { Object.keys(paths).map(path => <path style={{ fill: withColour[path] }} className={allCountries.includes(path) ? `mapPath` : 'mapPath'} d={paths[path]} />)}
                     </g>
                 </svg>
 
-                <div className="shareTitle pt-20">{ countries[selected] }</div>
-
-                <div className="exportContainer">
-                    <div className="mapTitle exportTitle">Top Exports by Country</div>
+                {/* <div className="bgColour mapFlex al-i-end strip">                    
                     {
-                        mapData[selected].exportCountries.map(val => [val[0], val[1]]).sort((first, second) => second[1] - first[1]).slice(0, 6).map(val => <div className="mapText">{val[0]}: {formatter.format(val[1])}</div>)
-                    }
-                </div>
-                <div className="exportContainer">
-                    <div className="mapTitle exportTitle">Top Exports by Type</div>
-                    {
-                        Object.keys(mapData[selected].exportsByType).map(val => [val, mapData[selected].exportsByType[val]]).slice(0,6).sort((first, second) => second[1] - first[1]).map(val => <div className="mapText">{val[0]}: {formatter.format(val[1])}</div>)
-                    }
-                </div>
-
-                <div className="mapFlex al-i-end strip">                    
-                    {
-                        mapData[selected].titles.map(title => 
+                        data[selected].titles.map(title => 
                             <div className="mapFlexItemFour">
                                 <div className="mapTitle white">{ title.includes("|") ? <div>{ title.split("Exports | Imports")[0]} <br/> Exports | Imports</div> :  title.split(" ").map(val => <div>{val}<br/></div>) }</div>
-                                <div className="mapTitle white">{ mapData[selected][title] }</div>
+                                <div className="mapTitle white">{ data[selected][title] }</div>
                             </div>
                         )
                     }
-                </div>
-                
-                <div className="mapFlex">
-                    {
-                        statTitles.map(title => 
-                            <div className="mapFlexItem">
-                                <div className="mapTitle">{ title }</div>
-                                <div className="mapSubtitle">{ mapData[selected][title] }</div>
-                            </div>
-                        )
-                    }
-                </div>
-                <div className="mapFlex">
-                    {
-                        ['Growth', 'Trade', 'Destinations'].map(title => 
-                            <div className="mapFlexItem">
-                                <div className="mapTitle">{ title }</div>
-                                <div className="mapSubtitle">{ mapData[selected][title] }</div>
-                            </div>
-                        )
-                    }
-                </div>
+                </div> */}
             </div>
         </div>
     )
