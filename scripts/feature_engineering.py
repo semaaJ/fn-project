@@ -108,14 +108,6 @@ def get_inflation_price_adjustments(df, inflation_df):
 
     return df
 
-def calculate_treasury_yield_to_maturity(df):
-    """
-        create row of 6mo, 1year, 2year etc whatever treasury bond lengths are
-
-    """
-
-    return df
-
 
 def calc_volume_and_gain_loss_avgs(df):
     """ Calculates:
@@ -209,7 +201,7 @@ def sharpe_ratio(data, risk_free_rate=0.0):
     return sharpe_ratio
 
 
-def calculate_maximum_drowdown(df, window_length):
+def calculate_maximum_drowdown(df):
     """ Calculates the maximum dropdown over a given period of time
 
     Args:
@@ -217,6 +209,17 @@ def calculate_maximum_drowdown(df, window_length):
         window_length (Integer) : The rolling time period we want to calculate the Shapre ratio for
     Returns:
         df (DataFrame) : DataFrame with the Sharpe ratio added for that time period
+    """
+
+
+def maximum_dropdown(df, window_length):
+    """ Main function for calculating various volatility metric scores over a rolling range of time periods
+
+    Args:
+        df (DataFrame) : DataFrame containing the stock data with prices to be adjusted for inflation
+
+    Returns:
+        df (DataFrame) : DataFrame with all newly created columns addded
     """
     rolling_max = df['close'].rolling(window_length, min_periods=1).max()
     daily_dropdown = df['close'] / rolling_max - 1.0
@@ -234,10 +237,12 @@ def get_volatility_scores(df):
     Returns:
         df (DataFrame) : DataFrame with all newly created columns addded
     """
+    # Calculates the historic volatility over a given time period
     df = calculate_historic_volatility(df, 7)
     df = calculate_historic_volatility(df, 14)
     df = calculate_historic_volatility(df, 252)
 
+    # Calculate the Sharpe Ratio over a given time period
     df = calculate_sharpe_ratio(df, 7)
     df = calculate_sharpe_ratio(df, 14)
     df = calculate_sharpe_ratio(df, 50)
@@ -273,13 +278,11 @@ def feature_engineering_main():
         df = create_df_from_json(json_path)
         # Apply Inflation rates to get objective price 
         df = get_inflation_price_adjustments(df, inflation_df)
-
-        # df = calculate_treasury_yield_to_maturity(df)
     
         # calculate the volume and 29 avg vol total
         df = calc_volume_and_gain_loss_avgs(df)
 
-        # df = calculate_maximum_drowdown(df, 7)
+        df = calculate_maximum_drowdown(df)
 
         # Next look at volatility scores
         df = get_volatility_scores(df)
