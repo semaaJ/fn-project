@@ -2,9 +2,7 @@ import os
 import numpy as np 
 import pandas as pd
 import datetime
-import numpy_financial as npf
-import pandas_datareader as  web
-import matplotlib.pyplot as pp
+# import numpy_financial as npf
 
 from helpers import *
 
@@ -135,7 +133,7 @@ def calc_volume_and_gain_loss_avgs(df):
     df["100d_vol_avg"] = df['volume'].rolling(100).mean()
 
     df['daily_diff'] = df['close'].diff(1)
-    df['daily_returns'] = df.close.shift(1) / df.close - 1
+    df['daily_returns'] = df['close'].pct_change()
     df['daily_diff_pc_change'] = df['daily_diff'].pct_change()
 
     df['daily_volume_diff'] = df['volume'].diff(1)
@@ -178,7 +176,7 @@ def calculate_average_gain_loss(df, window_length):
     return df
 
 
-def sharpe_ratio(df, window_length):
+def calculate_sharpe_ratio(df, window_length):
     """ Calculates the Sharpe Ratio over a given time period. That is, the average return of the investment ddivided by the standard deviation
 
     Args:
@@ -187,23 +185,29 @@ def sharpe_ratio(df, window_length):
     Returns:
         df (DataFrame) : DataFrame with the Sharpe ratio added for that time period
     """
-    df['{}d_sharpe_ratio'.format(window_length)] = df['daily_returns'].rolling(window_length).apply(my_rolling_sharpe)
+    df['{}d_sharpe_ratio'.format(window_length)] = df['daily_returns'].rolling(window_length).apply(sharpe_ratio)
 
     return df
 
 
-def my_rolling_sharpe(y):
+def sharpe_ratio(data, risk_free_rate=0.0):
+    """ Sharpe ratio calculation from: https://medium.datadriveninvestor.com/the-sharpe-ratio-with-python-from-scratch-fbb1d5e490b9
+    
+    Args:
+        data (DataFrame) : A rolling window of values over a given timer period
+        risk_free_rate (integer) : Assume no trade is risk free
 
-    # return np.sqrt(126) * (y.mean() / y.std()) # 21 days per month X 6 months = 126
-    # rs = np.sqrt(len(list(y))) * (y.mean() / y.std())
-    # print(y)
-    # print("MEAN", y.mean())
-    # print("STD", y.std())
-    # print("RESULT", (y.mean()  - 0.2 )/ y.std())
-    # print()
-    rs =  (y.mean()  - 0.02 )/ y.std()
+    Returns:
+        Sharpe ratio for that given window of time
+    """
+    mean_daily_return = sum(data) / len(data)
+    std = data.std()
+    daily_sharpe_ratio = (mean_daily_return - risk_free_rate) / std
+    # divide by the length of time we are looking at
+    sharpe_ratio = len(data)**(1/2) * daily_sharpe_ratio
+    
+    return sharpe_ratio
 
-    return rs
 
 def calculate_maximum_drowdown(df, window_length):
     """ Calculates the maximum dropdown over a given period of time
@@ -234,10 +238,10 @@ def get_volatility_scores(df):
     df = calculate_historic_volatility(df, 14)
     df = calculate_historic_volatility(df, 252)
 
-    df = sharpe_ratio(df, 7)
-    df = sharpe_ratio(df, 14)
-    df = sharpe_ratio(df, 50)
-    df = sharpe_ratio(df, 200)
+    df = calculate_sharpe_ratio(df, 7)
+    df = calculate_sharpe_ratio(df, 14)
+    df = calculate_sharpe_ratio(df, 50)
+    df = calculate_sharpe_ratio(df, 200)
 
     return df
 
