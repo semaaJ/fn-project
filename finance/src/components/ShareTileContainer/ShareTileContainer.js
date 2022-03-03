@@ -4,7 +4,8 @@ const ShareTileContainer = (props) => {
     const {
         data,
         name,
-        type
+        type,
+        menu
     } = props;
 
     const {
@@ -61,7 +62,9 @@ const ShareTileContainer = (props) => {
     const renderShareInfo = () => {
         return (
                 <div className="shareInfoTile">
-                    <h1>{ shortName }</h1>
+                    <div className="nameMenuFlex">
+                        <h1 style={{ fontSize: "32px" }}>{ shortName }</h1>
+                    </div>
                     <h2 className="colourWhite">{ industry } | { sector }</h2>
 
                     <div className="shareOuter">
@@ -80,7 +83,7 @@ const ShareTileContainer = (props) => {
                             </div>
                             <div className="shareDivider">
                                 <h2 style={{ width: "200px" }}>Forward PE</h2>
-                                <h2 className="colourWhite">{ formatter.format(forwardPE.toFixed(2)) }</h2>
+                                <h2 className="colourWhite">{ forwardPE.toFixed(2) }</h2>
                             </div>
                         </div>
 

@@ -299,7 +299,7 @@
             ],
             [
                 "2010-03-01",
-                13
+                14
             ],
             [
                 "2010-04-01",
@@ -307,11 +307,11 @@
             ],
             [
                 "2010-05-01",
-                18
+                19
             ],
             [
                 "2010-06-01",
-                21
+                22
             ],
             [
                 "2010-07-01",
@@ -323,7 +323,7 @@
             ],
             [
                 "2010-09-01",
-                28
+                29
             ],
             [
                 "2010-10-01",
@@ -339,7 +339,7 @@
             ],
             [
                 "2011-01-01",
-                36
+                37
             ],
             [
                 "2011-02-01",
@@ -351,7 +351,7 @@
             ],
             [
                 "2011-04-01",
-                35
+                36
             ],
             [
                 "2011-05-01",
@@ -419,11 +419,11 @@
             ],
             [
                 "2012-09-01",
-                57
+                58
             ],
             [
                 "2012-10-01",
-                69
+                70
             ],
             [
                 "2012-11-01",
@@ -431,15 +431,15 @@
             ],
             [
                 "2012-12-01",
-                81
+                82
             ],
             [
                 "2013-01-01",
-                75
+                76
             ],
             [
                 "2013-02-01",
-                77
+                78
             ],
             [
                 "2013-03-01",
@@ -455,7 +455,7 @@
             ],
             [
                 "2013-06-01",
-                85
+                86
             ],
             [
                 "2013-07-01",
@@ -487,7 +487,7 @@
             ],
             [
                 "2014-02-01",
-                86
+                87
             ],
             [
                 "2014-03-01",
@@ -511,15 +511,15 @@
             ],
             [
                 "2014-08-01",
-                98
+                99
             ],
             [
                 "2014-09-01",
-                92
+                93
             ],
             [
                 "2014-10-01",
-                92
+                93
             ],
             [
                 "2014-11-01",
@@ -527,7 +527,7 @@
             ],
             [
                 "2014-12-01",
-                92
+                93
             ],
             [
                 "2015-01-01",
@@ -535,19 +535,19 @@
             ],
             [
                 "2015-02-01",
-                86
-            ],
-            [
-                "2015-03-01",
                 87
             ],
             [
+                "2015-03-01",
+                88
+            ],
+            [
                 "2015-04-01",
-                86
+                87
             ],
             [
                 "2015-05-01",
-                84
+                85
             ],
             [
                 "2015-06-01",
@@ -563,7 +563,7 @@
             ],
             [
                 "2015-09-01",
-                82
+                83
             ],
             [
                 "2015-10-01",
@@ -571,7 +571,7 @@
             ],
             [
                 "2015-11-01",
-                76
+                77
             ],
             [
                 "2015-12-01",
@@ -587,7 +587,7 @@
             ],
             [
                 "2016-03-01",
-                79
+                80
             ],
             [
                 "2016-04-01",
@@ -611,7 +611,7 @@
             ],
             [
                 "2016-09-01",
-                70
+                71
             ],
             [
                 "2016-10-01",
@@ -619,11 +619,11 @@
             ],
             [
                 "2016-11-01",
-                70
+                71
             ],
             [
                 "2016-12-01",
-                71
+                72
             ],
             [
                 "2017-01-01",
@@ -631,7 +631,7 @@
             ],
             [
                 "2017-02-01",
-                68
+                69
             ],
             [
                 "2017-03-01",
@@ -639,15 +639,15 @@
             ],
             [
                 "2017-04-01",
-                69
+                70
             ],
             [
                 "2017-05-01",
-                66
+                67
             ],
             [
                 "2017-06-01",
-                63
+                64
             ],
             [
                 "2017-07-01",
@@ -655,11 +655,11 @@
             ],
             [
                 "2017-08-01",
-                57
+                58
             ],
             [
                 "2017-09-01",
-                56
+                57
             ],
             [
                 "2017-10-01",
@@ -671,7 +671,7 @@
             ],
             [
                 "2017-12-01",
-                55
+                56
             ],
             [
                 "2018-01-01",
@@ -683,7 +683,7 @@
             ],
             [
                 "2018-03-01",
-                51
+                52
             ],
             [
                 "2018-04-01",
@@ -719,7 +719,7 @@
             ],
             [
                 "2018-12-01",
-                34
+                35
             ],
             [
                 "2019-01-01",
@@ -731,7 +731,7 @@
             ],
             [
                 "2019-03-01",
-                32
+                33
             ],
             [
                 "2019-04-01",
@@ -747,7 +747,7 @@
             ],
             [
                 "2019-07-01",
-                28
+                29
             ],
             [
                 "2019-08-01",
@@ -771,7 +771,7 @@
             ],
             [
                 "2020-01-01",
-                24
+                23
             ],
             [
                 "2020-02-01",
@@ -831,7 +831,7 @@
             ],
             [
                 "2021-04-01",
-                19
+                20
             ],
             [
                 "2021-05-01",
@@ -867,7 +867,7 @@
             ],
             [
                 "2022-01-01",
-                15
+                16
             ],
             [
                 "2022-02-01",
@@ -884,9 +884,9 @@
             "fb download",
             "fb log",
             "fb log in",
-            "fb login facebook",
             "fb login facebook login",
             "fb login facebook facebook login",
+            "fb login facebook",
             "fb lite",
             "fb status",
             "fb tv",
@@ -991,7 +991,7 @@
             "HK": 2,
             "HU": 1,
             "IS": 1,
-            "IN": 29,
+            "IN": 30,
             "ID": 78,
             "IQ": 2,
             "IE": 4,
@@ -1077,15 +1077,15 @@
             "ZA": 2,
             "SS": 11,
             "ES": 0,
-            "LK": 33,
+            "LK": 32,
             "SD": 2,
             "SR": 10,
             "SE": 1,
             "CH": 2,
             "TJ": 0,
             "TH": 1,
-            "TL": 56,
-            "TG": 3,
+            "TL": 57,
+            "TG": 4,
             "TK": 0,
             "TO": 6,
             "TN": 8,
@@ -1114,30 +1114,30 @@
     "industry": "Internet Content & Information",
     "sector": "Communication Services",
     "shortName": "Meta Platforms, Inc.",
-    "longBusinessSummary": "Meta Platforms, Inc. develops products that enable people to connect and share with friends and family through mobile devices, personal computers, virtual reality headsets, and in-home devices worldwide. It operates in two segments, Family of Apps and Facebook Reality Labs. The Family of Apps segment's products include Facebook, which enables people to connect, share, discover, and communicate with each other on mobile devices and personal computers; Instagram, a community for sharing photos, videos, and private messages; Messenger, a messaging application for people to connect with friends, family, groups, and businesses across platforms and devices; and WhatsApp, a messaging application that is used by people and businesses to communicate in a private way, as well as other services. The Facebook Reality Labs segment provides augmented and virtual reality related consumer hardware, software, and content that help people feel connected, anytime, and anywhere. The company was formerly known as Facebook, Inc. and changed its name to Meta Platforms, Inc. in October 2021. Meta Platforms, Inc. was founded in 2004 and is headquartered in Menlo Park, California.",
-    "profitMargins": 0.35880002,
-    "grossMargins": 0.8085,
-    "totalRevenue": 112329998336,
-    "totalDebt": 13219000320,
-    "totalCash": 58075000832,
-    "grossProfits": 69273000000,
-    "marketCap": 587034787840,
-    "revenueGrowth": 0.351,
-    "operatingMargins": 0.4179,
-    "operatingCashflow": 53618999296,
-    "targetLowPrice": 250,
-    "targetMedianPrice": 407.5,
-    "targetMeanPrice": 401.01,
+    "longBusinessSummary": "Meta Platforms, Inc. develops products that enable people to connect and share with friends and family through mobile devices, personal computers, virtual reality headsets, wearables, and in-home devices worldwide. It operates in two segments, Family of Apps and Reality Labs. The Family of Apps segment's products include Facebook, which enables people to share, discover, and connect with interests; Instagram, a community for sharing photos, videos, and private messages, as well as feed, stories, reels, video, live, and shops; Messenger, a messaging application for people to connect with friends, family, groups, and businesses across platforms and devices through chat, audio and video calls, and rooms; and WhatsApp, a messaging application that is used by people and businesses to communicate and transact privately. The Reality Labs segment provides augmented and virtual reality related products comprising virtual reality hardware, software, and content that help people feel connected, anytime, and anywhere. The company was formerly known as Facebook, Inc. and changed its name to Meta Platforms, Inc. in October 2021. Meta Platforms, Inc. was incorporated in 2004 and is headquartered in Menlo Park, California.",
+    "profitMargins": 0.33383998,
+    "grossMargins": 0.80794,
+    "totalRevenue": 117929000960,
+    "totalDebt": 14453999616,
+    "totalCash": 47998001152,
+    "grossProfits": 95280000000,
+    "marketCap": 553887596544,
+    "revenueGrowth": 0.199,
+    "operatingMargins": 0.39645,
+    "operatingCashflow": 57683001344,
+    "targetLowPrice": 220,
+    "targetMedianPrice": 350,
+    "targetMeanPrice": 335.24,
     "targetHighPrice": 466,
     "recommendationKey": "buy",
-    "freeCashflow": 26465374208,
-    "returnOnAssets": 0.18568,
-    "numberOfAnalystOpinions": 52,
-    "totalCashPerShare": 20.877,
-    "revenuePerShare": 39.588,
-    "bookValue": 47.748,
-    "forwardPE": 14.829937,
-    "currentPrice": 211.02999877929688,
+    "freeCashflow": 28807624704,
+    "returnOnAssets": 0.17965001,
+    "numberOfAnalystOpinions": 54,
+    "totalCashPerShare": 17.634,
+    "revenuePerShare": 41.893,
+    "bookValue": 44.299,
+    "forwardPE": 13.842857,
+    "currentPrice": 203.49000549316406,
     "historicalData": [
         {
             "date": "2012-05-18 00:00:00",
@@ -20822,15 +20822,23 @@
         {
             "date": "2022-02-28 00:00:00",
             "close": 211.02999877929688,
-            "volume": 34036988.0,
-            "open": 207.6750030517578,
+            "volume": 34179900.0,
+            "open": 207.67999267578125,
             "low": 206.8300018310547,
             "high": 213.14999389648438
+        },
+        {
+            "date": "2022-03-01 00:00:00",
+            "close": 203.49000549316406,
+            "volume": 26403802.0,
+            "open": 209.8699951171875,
+            "low": 202.25,
+            "high": 211.75
         }
     ],
     "fiftyTwoWeekLow": 190.22,
     "fiftyTwoWeekHigh": 384.33,
-    "fiftyDayAverage": 291.3832,
-    "twoHundredDayAverage": 330.26855,
-    "fiftyTwoWeekChange": null
+    "fiftyDayAverage": 288.7706,
+    "twoHundredDayAverage": 329.7974,
+    "fiftyTwoWeekChange": -0.18521237
 }

@@ -4,10 +4,12 @@ import { Chart } from "react-google-charts";
 import Map from '../components/Map/Map';
 import Loading from '../components/Loading/Loading';
 import ShareTileContainer from '../components/ShareTileContainer/ShareTileContainer';
+import Table from '../components/Table/Table';
 import { linearRegression } from './helpers';
 import './Main.css';
 
 const API_URL = 'http://127.0.0.1:5000/';
+const LIVE_CRYPTO_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d';
 const COUNTRIES = {
     "AF": "Afghanistan",
     "AX": "Aland Islands",
@@ -269,36 +271,51 @@ const Main  = () => {
         selectedType: "equities", 
         dateRange: "10Y",
         data: { crypto: {}, equities: {} },
-        trends: null,
         loading: true,
         selectedCountry: 'RU',
+        cryptoTable: null,
     });
 
     useEffect(() => {
         const fetchData = async () => {
-            if (state.selected === null) {
-                await fetch(`${API_URL}cache`)
-                    .then(resp => resp.json())
-                    .then(vals =>
-                        setState({
-                            ...state,
-                            selected: Object.keys(vals.equities)[0],
-                            data: {
-                                crypto: vals.crypto,
-                                equities: vals.equities
-                            },
-                            trends: vals.trends,
-                            loading: false
-                        })
-                ); 
-            }
+            if (state.selected === null) return await fetch(`${API_URL}cache`).then(resp => resp.json());
         }
-        fetchData();
+
+        const fetchLiveCrypto = async () => {
+            if (state.selected == null) return await fetch(LIVE_CRYPTO_URL)
+                .then(resp => resp.json())
+                .then(res => res.map(r => { return { 
+                    name: r.id,
+                    symbol: r.symbol,
+                    // ath: r.ath,
+                    // athChangePercentage: r.ath_change_percentage,
+                    // atl: r.atl,
+                    // atlChangePercentage: r.atl_change_percentage,
+                    "Current Price": r.current_price,
+                    "24h Low": r.low_24h,
+                    "24h High": r.high_24h,
+                    "Market cap": r.market_cap,
+                    // marketCap24hChange: r.market_cap_change_percentage_24h,
+                    "24h Change": r.price_change_24h.toFixed(2),
+                    "7D %": r.price_change_percentage_7d_in_currency.toFixed(2)
+                }})
+            )
+        }
+
+        Promise.all([fetchData(), fetchLiveCrypto()]).then(results => setState({ 
+            ...state,
+            selected: Object.keys(results[0].equities)[0],
+            data: {
+                crypto: results[0].crypto,
+                equities: results[0].equities
+            },
+            cryptoTable: results[1],
+            loading: false
+        }));
     });
 
     const setSelected = (val, type) => setState({ ...state, selectedType: type, selected: val});
     const setDateRange = (val) => setState({ ...state, dateRange: val });
-    const setSelectedCountry = (val) => setState({ ...state, countrySelected: val});
 
     const renderHistoricalTrendData = () => {
         const data = [...state.data[state.selectedType][state.selected].googleTrends.historicalTrendData]
@@ -306,8 +323,8 @@ const Main  = () => {
             <Chart
                 chartType="LineChart"
                 data={[["Date", state.selected,], ...data]}
+                height="230px"
                 width="100%"
-                height="350px"
                 options={{
                     colors: ['#0099ff', '#ffc107', '#ff0099'],
                     backgroundColor: {
@@ -315,7 +332,6 @@ const Main  = () => {
                     },
                     legend: "none",
                     hAxis: {
-                        title: "Date",
                         titleTextStyle: { color: '#FFF' },
                         textStyle: { color: '#FFFFFF' },
                     },
@@ -345,6 +361,7 @@ const Main  = () => {
                     data={[["Date", "Close", "LOBF", "S&P"], ...mainChart]}
                     width="100%"
                     height="350px"
+                    loading={<Loading />}
                     options={{
                         colors: ['#0099ff', '#ffc107', '#ff0099'],
                         backgroundColor: {
@@ -455,43 +472,48 @@ const Main  = () => {
         historicalPrice = selected.map(val => val.price);
     }
 
-    console.log("state", state)
+    console.log(state);
     return (
         <>
             <div className="section">
-                <div className="navBar">
-                    <Menu 
-                        symbol={state.selected}
-                        todaysData={state.data[state.selectedType][state.selected].historicalData[state.data[state.selectedType][state.selected].historicalData.length - 1]}
-                        data={state.data[state.selectedType][state.selected]} 
-                    />
-                </div>
+                <Menu 
+                    symbol={state.selected}
+                    todaysData={state.data[state.selectedType][state.selected].historicalData[state.data[state.selectedType][state.selected].historicalData.length - 1]}
+                    data={state.data[state.selectedType][state.selected]} 
+                />
 
                 <ShareTileContainer
                     name={state.selected}
                     type={state.selectedType}
                     data={state.data[state.selectedType][state.selected]}
+                    menu={ <Menu 
+                        symbol={state.selected}
+                        todaysData={state.data[state.selectedType][state.selected].historicalData[state.data[state.selectedType][state.selected].historicalData.length - 1]}
+                        data={state.data[state.selectedType][state.selected]} 
+                    />}
                 />
 
                 <div className="chartSelector">
                     { ["1D", "1W", "2W", "1M", "3M", "6M", "1Y", "5Y", "10Y", "All"].map(date => <div style={{ width: "25px" }} onClick={() => setDateRange(date)} className={`tabItem ${state.dateRange === date ? 'selected' : ''}`}>{ date }</div>) }
                 </div>
-
+                
                 { 
                     state.selectedType === "equities" ?
                         renderEquityChart(selected, historicalPrice, spyData) : 
                         renderCryptoChart(selected, historicalPrice) 
                 }
 
+
+
                 <div className="tabContainer">
                     <div className="tabItemContainer">
-                        <h2 style={{ width: "70px", marginRight: "8px" }}>Equities</h2>
+                        <h2 style={{ width: "85px" }}>Equities</h2>
                         {
                             Object.keys(state.data.equities).map(name => <div style={{ width: "50px "}} onClick={() => setSelected(name, 'equities')} className={`tabItem ${state.selected === name ? 'selected' : ''}`}>{ name }</div>)
                         }
                     </div>
                     <div className="tabItemContainer">
-                        <h2 style={{ width: "70px", marginRight: "8px" }}>Crypto</h2>
+                        <h2 style={{ width: "85px" }}>Crypto</h2>
                         {
                             Object.keys(state.data.crypto).map(name => <div style={{ width: "50px "}} onClick={() => setSelected(name, 'crypto')} className={`tabItem ${state.selected === name ? 'selected' : ''}`}>{ name }</div>)
                         }
@@ -499,29 +521,36 @@ const Main  = () => {
                 </div>                 
             </div>
            
-           <div className="section">
-                <Map 
-                    data={state.data[state.selectedType][state.selected]}
-                    selectedCountry={state.selectedCountry}
-                    setSelectedCountry={setSelectedCountry}
-                    countries={COUNTRIES}
-                    trendByCountry={state.data[state.selectedType][state.selected].googleTrends.trendByCountry}
-                />
-                
-                <h1 className="pt-20">{ COUNTRIES[state.selectedCountry] }</h1>
-                
-                <div className="tabContainer">
-                    <div className="tabItemContainer">
-                        <h2>Related Queries</h2>
-                        { state.data[state.selectedType][state.selected].googleTrends.relatedQueries.slice(0, 8).map(val => <div className="tabItem">{ val }</div>) }
-                    </div>
-                    <div className="tabItemContainer">
-                        <h2 style={{ marginRight: "20px" }}>Related Topics</h2>
-                        { state.data[state.selectedType][state.selected].googleTrends.relatedTopics.slice(0, 8).map(val => <div className="tabItem">{ val }</div>) }
-                    </div>
-                </div>        
+           <div className="section" stlye={{ "justify-content": 'center' }}>
+               <div className="mapContainer">
+                    <Map trendByCountry={state.data[state.selectedType][state.selected].googleTrends.trendByCountry} />
 
-                { renderHistoricalTrendData() }
+                    <div>
+                        <h1 className="pt-20">Trends</h1>
+                        <div className="tabCntainer">
+                            <div className="related">
+                                <h2 style={{ width: "150px" }}>Related Queries</h2>
+                                <h2 className="colourWhite">{ state.data[state.selectedType][state.selected].googleTrends.relatedQueries.map(val => `${val}, `) }</h2>
+                            </div>
+                            <div className="related">
+                                <h2 style={{ width: "150px" }}>Related Topics</h2>
+                                <h2 className="colourWhite">{ state.data[state.selectedType][state.selected].googleTrends.relatedTopics.map(val => `${val}, `) }</h2>
+                            </div>
+                        </div>       
+                    </div>
+               </div>
+
+               
+                { renderHistoricalTrendData() }                     
+           </div>
+
+           <div className="section">
+               <div className="tableContainer">
+                    <Table 
+                        columnNames={Object.keys(state.cryptoTable[0])}
+                        rowData={state.cryptoTable}
+                    />
+               </div>
            </div>
         </>
     )

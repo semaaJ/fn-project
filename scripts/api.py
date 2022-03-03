@@ -9,7 +9,7 @@ app = Flask(__name__)
 cors = CORS(app)
 
 CRYPTOS = ['bitcoin', 'cardano', 'chainlink', 'cosmos', 'ethereum', 'litecoin', 'stellar', 'vechain', 'algorand', 'ripple']
-EQUITIES = ['AMD', 'BRK-A', 'BRK-B', 'FB', 'GE', 'GOOG', 'JPM', 'PYPL', 'SPY', 'TSM'] 
+EQUITIES = ['AMD', 'BRK-A', 'BRK-B', 'FB', 'GE', 'GOOG', 'JPM', 'PYPL', 'SPY', 'TSM', 'NVDA', 'XOM', 'MSFT', 'BAC', 'TGT', 'TSLA', 'TWTR'] 
 
 def create_json(path):
     with open(f"{path}", "w+") as f:
@@ -23,17 +23,12 @@ def return_all_files_in_dir(dir):
 
 @app.route('/cache', methods=['GET'])
 def get_cached_data():
-    data = {"equities": {}, "crypto": {}, "trends": {}}
+    data = {"equities": {}, "crypto": {}}
     for f in return_all_files_in_dir("share"):
         with open(f"data/share/{f}", "r") as fil:
             data["equities"][f.split(".")[0]] = json.load(fil)
 
-    for f in return_all_files_in_dir("trends"):
-        with open(f'data/trends/{f}', "r") as fil:
-            data["trends"][f.split(".")[0]] = json.load(fil)
-
     for f in return_all_files_in_dir("crypto"):
-        print("filename", f)
         with open(f"data/crypto/{f}", "r") as fil:
             data["crypto"][f.split(".")[0]] = json.load(fil)
 
@@ -41,7 +36,7 @@ def get_cached_data():
     
 @app.route('/update', methods=['GET'])
 def update_data():
-    data = { "crypto": {}, "equities": {}, "trends": {}}
+    data = { "crypto": {}, "equities": {}}
     
     for crypto in CRYPTOS:
         print("CRYPTO", crypto)

@@ -2,8 +2,8 @@
     "shortName": "SPDR S&P 500",
     "fiftyTwoWeekLow": 371.88,
     "fiftyTwoWeekHigh": 479.98,
-    "fiftyDayAverage": 454.4928,
-    "twoHundredDayAverage": 444.98795,
+    "fiftyDayAverage": 453.8134,
+    "twoHundredDayAverage": 445.1197,
     "historicalData": [
         {
             "date": "1993-01-29 00:00:00",
@@ -58528,7 +58528,7 @@
         {
             "date": "2022-02-15 00:00:00",
             "close": 446.1000061035156,
-            "volume": 88659500.0,
+            "volume": 88482700.0,
             "open": 443.7300109863281,
             "low": 443.17999267578125,
             "high": 446.2799987792969
@@ -58552,7 +58552,7 @@
         {
             "date": "2022-02-18 00:00:00",
             "close": 434.2300109863281,
-            "volume": 132454300.0,
+            "volume": 132642900.0,
             "open": 437.3299865722656,
             "low": 431.82000732421875,
             "high": 438.6600036621094
@@ -58584,7 +58584,7 @@
         {
             "date": "2022-02-25 00:00:00",
             "close": 437.75,
-            "volume": 121715600.0,
+            "volume": 121804500.0,
             "open": 429.6099853515625,
             "low": 427.8599853515625,
             "high": 437.8399963378906
@@ -58592,10 +58592,18 @@
         {
             "date": "2022-02-28 00:00:00",
             "close": 436.6300048828125,
-            "volume": 144743679.0,
+            "volume": 145347600.0,
             "open": 432.0299987792969,
             "low": 430.70001220703125,
             "high": 438.20001220703125
+        },
+        {
+            "date": "2022-03-01 00:00:00",
+            "close": 429.9800109863281,
+            "volume": 129800019.0,
+            "open": 435.0400085449219,
+            "low": 427.1600036621094,
+            "high": 437.1600036621094
         }
     ],
     "shareInfo": {
@@ -58656,20 +58664,20 @@
         "phone": "866-732-8673",
         "longBusinessSummary": "The investment seeks to provide investment results that, before expenses, correspond generally to the price and yield performance of the S&P 500\u00c2\u00ae Index.\n The Trust seeks to achieve its investment objective by holding a portfolio of the common stocks that are included in the index (the \u00e2\u0080\u009cPortfolio\u00e2\u0080\u009d), with the weight of each stock in the Portfolio substantially corresponding to the weight of such stock in the index.",
         "companyOfficers": [],
-        "previousClose": 437.75,
-        "regularMarketOpen": 432.03,
-        "twoHundredDayAverage": 444.98795,
-        "trailingAnnualDividendYield": 0.012708168,
+        "previousClose": 436.63,
+        "regularMarketOpen": 435.04,
+        "twoHundredDayAverage": 445.1197,
+        "trailingAnnualDividendYield": 0.012740765,
         "payoutRatio": null,
         "volume24Hr": null,
-        "regularMarketDayHigh": 438.2,
+        "regularMarketDayHigh": 437.16,
         "navPrice": 467.48,
-        "averageDailyVolume10Day": 127693520,
-        "regularMarketPreviousClose": 437.75,
-        "fiftyDayAverage": 454.4928,
+        "averageDailyVolume10Day": 126921870,
+        "regularMarketPreviousClose": 436.63,
+        "fiftyDayAverage": 453.8134,
         "trailingAnnualDividendRate": 5.563,
-        "open": 432.03,
-        "averageVolume10days": 127693520,
+        "open": 435.04,
+        "averageVolume10days": 126921870,
         "expireDate": null,
         "algorithm": null,
         "dividendRate": null,
@@ -58677,30 +58685,30 @@
         "beta": null,
         "circulatingSupply": null,
         "startDate": null,
-        "regularMarketDayLow": 430.7,
+        "regularMarketDayLow": 427.16,
         "currency": "USD",
-        "trailingPE": 3.0298803,
-        "regularMarketVolume": 144743679,
+        "trailingPE": 2.9837344,
+        "regularMarketVolume": 129800019,
         "lastMarket": null,
         "maxSupply": null,
         "openInterest": null,
         "marketCap": null,
         "volumeAllCurrencies": null,
         "strikePrice": null,
-        "averageVolume": 109660609,
-        "dayLow": 430.7,
-        "ask": 436.63,
+        "averageVolume": 109625630,
+        "dayLow": 427.16,
+        "ask": 430.82,
         "askSize": 1300,
-        "volume": 144743679,
+        "volume": 129800019,
         "fiftyTwoWeekHigh": 479.98,
         "fromCurrency": null,
         "fiveYearAvgDividendYield": null,
         "fiftyTwoWeekLow": 371.88,
-        "bid": 436.44,
+        "bid": 430.76,
         "tradeable": false,
         "dividendYield": null,
-        "bidSize": 1100,
-        "dayHigh": 438.2,
+        "bidSize": 1400,
+        "dayHigh": 437.16,
         "preferredPosition": null,
         "bondPosition": 0,
         "convertiblePosition": null,
@@ -58845,8 +58853,8 @@
         "otherPosition": null,
         "cashPosition": null,
         "stockPosition": 0.9971,
-        "regularMarketPrice": 436.63,
-        "preMarketPrice": 432.04,
+        "regularMarketPrice": 429.98,
+        "preMarketPrice": 435.07,
         "logo_url": ""
     },
     "googleTrends": {
@@ -58869,7 +58877,7 @@
             ],
             [
                 "2004-05-01",
-                81
+                82
             ],
             [
                 "2004-06-01",
@@ -58897,7 +58905,7 @@
             ],
             [
                 "2004-12-01",
-                91
+                92
             ],
             [
                 "2005-01-01",
@@ -58909,7 +58917,7 @@
             ],
             [
                 "2005-03-01",
-                86
+                87
             ],
             [
                 "2005-04-01",
@@ -58921,7 +58929,7 @@
             ],
             [
                 "2005-06-01",
-                82
+                81
             ],
             [
                 "2005-07-01",
@@ -58929,11 +58937,11 @@
             ],
             [
                 "2005-08-01",
-                86
+                87
             ],
             [
                 "2005-09-01",
-                77
+                78
             ],
             [
                 "2005-10-01",
@@ -58941,7 +58949,7 @@
             ],
             [
                 "2005-11-01",
-                83
+                84
             ],
             [
                 "2005-12-01",
@@ -58949,7 +58957,7 @@
             ],
             [
                 "2006-01-01",
-                90
+                91
             ],
             [
                 "2006-02-01",
@@ -58969,7 +58977,7 @@
             ],
             [
                 "2006-06-01",
-                73
+                74
             ],
             [
                 "2006-07-01",
@@ -58977,7 +58985,7 @@
             ],
             [
                 "2006-08-01",
-                74
+                75
             ],
             [
                 "2006-09-01",
@@ -59013,7 +59021,7 @@
             ],
             [
                 "2007-05-01",
-                63
+                64
             ],
             [
                 "2007-06-01",
@@ -59025,7 +59033,7 @@
             ],
             [
                 "2007-08-01",
-                63
+                64
             ],
             [
                 "2007-09-01",
@@ -59057,7 +59065,7 @@
             ],
             [
                 "2008-04-01",
-                48
+                49
             ],
             [
                 "2008-05-01",
@@ -59065,7 +59073,7 @@
             ],
             [
                 "2008-06-01",
-                48
+                49
             ],
             [
                 "2008-07-01",
@@ -59081,7 +59089,7 @@
             ],
             [
                 "2008-10-01",
-                44
+                45
             ],
             [
                 "2008-11-01",
@@ -59097,7 +59105,7 @@
             ],
             [
                 "2009-02-01",
-                45
+                46
             ],
             [
                 "2009-03-01",
@@ -59109,11 +59117,11 @@
             ],
             [
                 "2009-05-01",
-                45
+                46
             ],
             [
                 "2009-06-01",
-                44
+                45
             ],
             [
                 "2009-07-01",
@@ -59129,7 +59137,7 @@
             ],
             [
                 "2009-10-01",
-                42
+                43
             ],
             [
                 "2009-11-01",
@@ -59153,11 +59161,11 @@
             ],
             [
                 "2010-04-01",
-                45
+                44
             ],
             [
                 "2010-05-01",
-                44
+                45
             ],
             [
                 "2010-06-01",
@@ -59169,7 +59177,7 @@
             ],
             [
                 "2010-08-01",
-                48
+                49
             ],
             [
                 "2010-09-01",
@@ -59217,7 +59225,7 @@
             ],
             [
                 "2011-08-01",
-                53
+                54
             ],
             [
                 "2011-09-01",
@@ -59229,7 +59237,7 @@
             ],
             [
                 "2011-11-01",
-                45
+                46
             ],
             [
                 "2011-12-01",
@@ -59253,7 +59261,7 @@
             ],
             [
                 "2012-05-01",
-                49
+                50
             ],
             [
                 "2012-06-01",
@@ -59281,7 +59289,7 @@
             ],
             [
                 "2012-12-01",
-                49
+                50
             ],
             [
                 "2013-01-01",
@@ -59297,11 +59305,11 @@
             ],
             [
                 "2013-04-01",
-                41
+                42
             ],
             [
                 "2013-05-01",
-                40
+                41
             ],
             [
                 "2013-06-01",
@@ -59337,7 +59345,7 @@
             ],
             [
                 "2014-02-01",
-                38
+                39
             ],
             [
                 "2014-03-01",
@@ -59401,7 +59409,7 @@
             ],
             [
                 "2015-06-01",
-                65
+                66
             ],
             [
                 "2015-07-01",
@@ -59429,7 +59437,7 @@
             ],
             [
                 "2016-01-01",
-                39
+                38
             ],
             [
                 "2016-02-01",
@@ -59485,7 +59493,7 @@
             ],
             [
                 "2017-03-01",
-                33
+                34
             ],
             [
                 "2017-04-01",
@@ -59521,7 +59529,7 @@
             ],
             [
                 "2017-12-01",
-                31
+                32
             ],
             [
                 "2018-01-01",
@@ -59529,7 +59537,7 @@
             ],
             [
                 "2018-02-01",
-                31
+                30
             ],
             [
                 "2018-03-01",
@@ -59669,7 +59677,7 @@
             ],
             [
                 "2021-01-01",
-                30
+                31
             ],
             [
                 "2021-02-01",
@@ -59736,16 +59744,16 @@
             "Tinker Tailor Soldier Spy",
             "Toilet",
             "The Spy Who Dumped Me",
-            "TorrentSpy",
             "SPY",
+            "TorrentSpy",
             "The Spy",
             "The Spy Next Door",
             "Team Fortress 2",
             "My Spy",
             "Windows Phone",
             "Spy x Family",
-            "Social media",
             "CDMA2000",
+            "Social media",
             "London Spy",
             "Spy Myung-wol",
             "NASDAQ:AAPL",
@@ -59756,11 +59764,11 @@
             "the spy",
             "spy kids",
             "spy camera",
-            "spy movie",
             "phone spy",
+            "spy movie",
             "spy stock",
             "my spy",
-            "spy mobile",
+            "mobile spy",
             "spy movies",
             "spy game",
             "spy app",
@@ -59769,20 +59777,20 @@
             "tinker tailor soldier spy",
             "spy news",
             "whatsapp spy",
-            "spy price",
+            "price spy",
             "spy cast",
             "mobile phone spy",
             "spy watch",
-            "spy games",
             "spy who dumped me",
-            "spy tube",
-            "spy film"
+            "spy games",
+            "spy vs spy",
+            "spy tube"
         ],
         "trendByCountry": {
             "AF": 13,
             "AL": 15,
             "DZ": 10,
-            "AS": 28,
+            "AS": 27,
             "AD": 10,
             "AO": 5,
             "AI": 0,
@@ -59799,10 +59807,10 @@
             "BB": 22,
             "BY": 2,
             "BE": 17,
-            "BZ": 17,
+            "BZ": 18,
             "BJ": 5,
             "BM": 25,
-            "BT": 19,
+            "BT": 18,
             "BO": 8,
             "BW": 19,
             "BV": 0,
@@ -59814,8 +59822,8 @@
             "KH": 13,
             "CM": 7,
             "CA": 26,
-            "CV": 6,
-            "KY": 25,
+            "CV": 7,
+            "KY": 24,
             "CF": 0,
             "TD": 0,
             "CL": 8,
@@ -59840,7 +59848,7 @@
             "ER": 0,
             "EE": 14,
             "ET": 14,
-            "FO": 28,
+            "FO": 27,
             "FJ": 28,
             "FI": 12,
             "FR": 9,
@@ -59858,11 +59866,11 @@
             "GD": 21,
             "GP": 9,
             "GU": 25,
-            "GT": 7,
+            "GT": 8,
             "GG": 38,
             "GN": 3,
             "GW": 0,
-            "GY": 24,
+            "GY": 25,
             "HT": 8,
             "HN": 7,
             "HK": 12,
@@ -59911,7 +59919,7 @@
             "MS": 0,
             "MA": 12,
             "MZ": 6,
-            "NA": 21,
+            "NA": 22,
             "NR": 0,
             "NP": 13,
             "NL": 13,
@@ -59938,21 +59946,21 @@
             "QA": 18,
             "RO": 28,
             "RW": 13,
-            "WS": 21,
+            "WS": 20,
             "SM": 16,
             "SA": 10,
             "SN": 5,
-            "RS": 15,
+            "RS": 14,
             "SC": 30,
             "SL": 9,
             "SG": 25,
-            "SX": 21,
+            "SX": 20,
             "SK": 12,
             "SI": 20,
             "SB": 46,
             "SO": 17,
             "ZA": 24,
-            "SS": 8,
+            "SS": 9,
             "ES": 8,
             "LK": 22,
             "SD": 6,
@@ -59976,7 +59984,7 @@
             "US": 28,
             "UY": 8,
             "UZ": 4,
-            "VU": 33,
+            "VU": 34,
             "VE": 6,
             "EH": 10,
             "YE": 8,

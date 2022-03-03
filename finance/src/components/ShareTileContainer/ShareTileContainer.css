@@ -40,3 +40,9 @@
 .mt-8 {
     margin-top: 8px;
 }
+
+.nameMenuFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

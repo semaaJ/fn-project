@@ -47,7 +47,7 @@
             ],
             [
                 "2004-12-01",
-                14
+                15
             ],
             [
                 "2005-01-01",
@@ -99,7 +99,7 @@
             ],
             [
                 "2006-01-01",
-                52
+                53
             ],
             [
                 "2006-02-01",
@@ -107,7 +107,7 @@
             ],
             [
                 "2006-03-01",
-                43
+                44
             ],
             [
                 "2006-04-01",
@@ -195,7 +195,7 @@
             ],
             [
                 "2008-01-01",
-                34
+                35
             ],
             [
                 "2008-02-01",
@@ -231,11 +231,11 @@
             ],
             [
                 "2008-10-01",
-                44
+                43
             ],
             [
                 "2008-11-01",
-                34
+                33
             ],
             [
                 "2008-12-01",
@@ -279,7 +279,7 @@
             ],
             [
                 "2009-10-01",
-                41
+                42
             ],
             [
                 "2009-11-01",
@@ -335,11 +335,11 @@
             ],
             [
                 "2010-12-01",
-                67
+                68
             ],
             [
                 "2011-01-01",
-                71
+                70
             ],
             [
                 "2011-02-01",
@@ -391,7 +391,7 @@
             ],
             [
                 "2012-02-01",
-                87
+                86
             ],
             [
                 "2012-03-01",
@@ -399,11 +399,11 @@
             ],
             [
                 "2012-04-01",
-                91
+                90
             ],
             [
                 "2012-05-01",
-                92
+                91
             ],
             [
                 "2012-06-01",
@@ -427,7 +427,7 @@
             ],
             [
                 "2012-11-01",
-                83
+                84
             ],
             [
                 "2012-12-01",
@@ -439,7 +439,7 @@
             ],
             [
                 "2013-02-01",
-                89
+                88
             ],
             [
                 "2013-03-01",
@@ -507,23 +507,23 @@
             ],
             [
                 "2014-07-01",
-                80
+                81
             ],
             [
                 "2014-08-01",
-                77
+                78
             ],
             [
                 "2014-09-01",
-                72
+                73
             ],
             [
                 "2014-10-01",
-                71
+                70
             ],
             [
                 "2014-11-01",
-                68
+                67
             ],
             [
                 "2014-12-01",
@@ -555,11 +555,11 @@
             ],
             [
                 "2015-07-01",
-                62
+                61
             ],
             [
                 "2015-08-01",
-                60
+                61
             ],
             [
                 "2015-09-01",
@@ -579,7 +579,7 @@
             ],
             [
                 "2016-01-01",
-                54
+                53
             ],
             [
                 "2016-02-01",
@@ -587,7 +587,7 @@
             ],
             [
                 "2016-03-01",
-                52
+                51
             ],
             [
                 "2016-04-01",
@@ -611,7 +611,7 @@
             ],
             [
                 "2016-09-01",
-                47
+                48
             ],
             [
                 "2016-10-01",
@@ -675,7 +675,7 @@
             ],
             [
                 "2018-01-01",
-                34
+                33
             ],
             [
                 "2018-02-01",
@@ -731,7 +731,7 @@
             ],
             [
                 "2019-03-01",
-                28
+                27
             ],
             [
                 "2019-04-01",
@@ -803,7 +803,7 @@
             ],
             [
                 "2020-09-01",
-                23
+                24
             ],
             [
                 "2020-10-01",
@@ -871,7 +871,7 @@
             ],
             [
                 "2022-02-01",
-                32
+                31
             ]
         ],
         "relatedTopics": [
@@ -895,7 +895,7 @@
             "aapl",
             "good",
             "goog maps",
-            "translate goog",
+            "goog translate",
             "googl",
             "goog price",
             "amzn",
@@ -904,8 +904,8 @@
             "goog stock price",
             "google.com",
             "goog map",
-            "amzn stock",
             "msft",
+            "amzn stock",
             "goog news",
             "aapl stock",
             "fb stock",
@@ -927,19 +927,19 @@
             "AQ": 0,
             "AR": 13,
             "AM": 21,
-            "AW": 33,
-            "AU": 32,
+            "AW": 32,
+            "AU": 31,
             "AT": 21,
             "AZ": 51,
             "BS": 23,
             "BH": 27,
             "BD": 11,
-            "BB": 18,
+            "BB": 17,
             "BY": 4,
             "BE": 29,
             "BZ": 23,
-            "BJ": 21,
-            "BM": 22,
+            "BJ": 20,
+            "BM": 21,
             "BT": 22,
             "BO": 7,
             "BW": 28,
@@ -947,7 +947,7 @@
             "BR": 13,
             "IO": 0,
             "BG": 22,
-            "BF": 10,
+            "BF": 11,
             "BI": 15,
             "KH": 22,
             "CM": 19,
@@ -956,7 +956,7 @@
             "KY": 28,
             "CF": 0,
             "TD": 0,
-            "CL": 12,
+            "CL": 11,
             "CN": 7,
             "CX": 0,
             "CC": 0,
@@ -968,8 +968,8 @@
             "CU": 16,
             "CY": 22,
             "DK": 37,
-            "DJ": 31,
-            "DM": 27,
+            "DJ": 32,
+            "DM": 26,
             "DO": 19,
             "EC": 17,
             "EG": 30,
@@ -978,26 +978,26 @@
             "ER": 0,
             "EE": 42,
             "ET": 22,
-            "FO": 45,
-            "FJ": 25,
+            "FO": 46,
+            "FJ": 24,
             "FI": 31,
             "FR": 13,
-            "GF": 16,
+            "GF": 15,
             "PF": 19,
             "TF": 0,
-            "GA": 22,
-            "GM": 22,
+            "GA": 23,
+            "GM": 21,
             "GE": 49,
             "DE": 16,
-            "GH": 21,
+            "GH": 22,
             "GI": 0,
             "GR": 12,
-            "GL": 53,
-            "GD": 27,
+            "GL": 52,
+            "GD": 26,
             "GP": 13,
-            "GU": 36,
+            "GU": 35,
             "GT": 12,
-            "GG": 27,
+            "GG": 28,
             "GN": 12,
             "GW": 0,
             "GY": 22,
@@ -1031,7 +1031,7 @@
             "LT": 28,
             "LU": 24,
             "MO": 17,
-            "MG": 25,
+            "MG": 26,
             "MW": 17,
             "MY": 23,
             "MV": 33,
@@ -1043,7 +1043,7 @@
             "MU": 21,
             "YT": 0,
             "MX": 14,
-            "MC": 22,
+            "MC": 23,
             "MN": 100,
             "ME": 17,
             "MS": 0,
@@ -1061,15 +1061,15 @@
             "NU": 0,
             "NF": 0,
             "MP": 0,
-            "NO": 45,
+            "NO": 44,
             "OM": 23,
-            "PK": 44,
+            "PK": 43,
             "PW": 0,
             "PA": 15,
             "PG": 19,
             "PY": 9,
             "PE": 13,
-            "PH": 81,
+            "PH": 82,
             "PL": 18,
             "PT": 15,
             "PR": 15,
@@ -1109,7 +1109,7 @@
             "TV": 0,
             "UG": 18,
             "UA": 6,
-            "AE": 38,
+            "AE": 39,
             "GB": 26,
             "US": 31,
             "UY": 18,
@@ -1129,30 +1129,30 @@
     "industry": "Internet Content & Information",
     "sector": "Communication Services",
     "shortName": "Alphabet Inc.",
-    "longBusinessSummary": "Larry Page and Sergey Brin founded Google in September 1998. Since then, the company has grown to more than 130,000 employees worldwide, with a wide range of popular products and platforms like Search, Maps, Ads, Gmail, Android, Chrome, Google Cloud and YouTube. In October 2015, Alphabet became the parent holding company of Google.",
-    "profitMargins": 0.29521,
-    "grossMargins": 0.56511,
-    "totalRevenue": 239210004480,
-    "totalDebt": 28109000704,
-    "totalCash": 142002995200,
-    "grossProfits": 97795000000,
-    "marketCap": 1790605262848,
-    "revenueGrowth": 0.41,
-    "operatingMargins": 0.303,
-    "operatingCashflow": 89395003392,
-    "targetLowPrice": 3140,
-    "targetMedianPrice": 3360,
-    "targetMeanPrice": 3366.67,
-    "targetHighPrice": 3925,
-    "recommendationKey": "buy",
-    "freeCashflow": 52658749440,
-    "returnOnAssets": 0.14011,
+    "longBusinessSummary": "Alphabet Inc. provides online advertising services in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. The company offers performance and brand advertising services. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides products and services, such as ads, Android, Chrome, Google Maps, Google Play, Search, and YouTube; subscription-based products; and Fitbit wearable devices, Google Nest home products, Pixel phones, and other devices, as well as in-app purchases and digital content. The Google Cloud segment offers infrastructure, platform, and other services; Google Workspace that include cloud-based collaboration tools for enterprises, such as Gmail, Docs, Drive, Calendar and Meet; and other services for enterprise customers. The Other Bets segment sells health technology and internet services, as well as licensing and research and development services. The company was incorporated in 1998 and is headquartered in Mountain View, California.",
+    "profitMargins": 0.29512,
+    "grossMargins": 0.5694,
+    "totalRevenue": 257637007360,
+    "totalDebt": 28508000256,
+    "totalCash": 139649007616,
+    "grossProfits": 146698000000,
+    "marketCap": 1773210042368,
+    "revenueGrowth": 0.324,
+    "operatingMargins": 0.30552,
+    "operatingCashflow": 91651997696,
+    "targetLowPrice": 3150,
+    "targetMedianPrice": 3560,
+    "targetMeanPrice": 3506.11,
+    "targetHighPrice": 3900,
+    "recommendationKey": "strong_buy",
+    "freeCashflow": 49490001920,
+    "returnOnAssets": 0.14493,
     "numberOfAnalystOpinions": 9,
-    "totalCashPerShare": 213.936,
-    "revenuePerShare": 356.562,
-    "bookValue": 367.946,
-    "forwardPE": 24.02333,
-    "currentPrice": 2697.820068359375,
+    "totalCashPerShare": 211.278,
+    "revenuePerShare": 385.886,
+    "bookValue": 380.044,
+    "forwardPE": 19.749468,
+    "currentPrice": 2683.360107421875,
     "historicalData": [
         {
             "date": "2004-08-19 00:00:00",
@@ -36453,15 +36453,23 @@
         {
             "date": "2022-02-28 00:00:00",
             "close": 2697.820068359375,
-            "volume": 1436964.0,
+            "volume": 1482800.0,
             "open": 2665.68994140625,
             "low": 2656.5048828125,
-            "high": 2711.929931640625
+            "high": 2712.81005859375
+        },
+        {
+            "date": "2022-03-01 00:00:00",
+            "close": 2683.360107421875,
+            "volume": 1229129.0,
+            "open": 2689.60009765625,
+            "low": 2667.570068359375,
+            "high": 2722.219970703125
         }
     ],
     "fiftyTwoWeekLow": 2010,
     "fiftyTwoWeekHigh": 3042,
-    "fiftyDayAverage": 2771.3457,
-    "twoHundredDayAverage": 2741.9832,
-    "fiftyTwoWeekChange": null
+    "fiftyDayAverage": 2766.3545,
+    "twoHundredDayAverage": 2744.1624,
+    "fiftyTwoWeekChange": 0.29962814
 }

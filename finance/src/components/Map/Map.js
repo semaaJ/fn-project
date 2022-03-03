@@ -194,10 +194,10 @@ const PATH_FILL = {
 }
 
 const Map = (props) => {
-    const { data, trendByCountry, countries  } = props;
+    const { trendByCountry  } = props;
 
     const allCountries = Object.keys(trendByCountry);
-    const withColour = Object.keys(trendByCountry).reduce((acc, curr) => {
+    const withColour = allCountries.reduce((acc, curr) => {
         let colour = null;
         Object.keys(PATH_FILL).forEach(rank => {
             if (trendByCountry[curr] >= rank) {
@@ -210,26 +210,11 @@ const Map = (props) => {
     }, {})
 
     return (
-        <div className="mapContainer">
-            <div className="mapDataContainer">
-                <svg width="800px" viewBox="0 0 1009 652">
-                    <g>
-                        { Object.keys(paths).map(path => <path style={{ fill: withColour[path] }} className={allCountries.includes(path) ? `mapPath` : 'mapPath'} d={paths[path]} />)}
-                    </g>
-                </svg>
-
-                {/* <div className="bgColour mapFlex al-i-end strip">                    
-                    {
-                        data[selected].titles.map(title => 
-                            <div className="mapFlexItemFour">
-                                <div className="mapTitle white">{ title.includes("|") ? <div>{ title.split("Exports | Imports")[0]} <br/> Exports | Imports</div> :  title.split(" ").map(val => <div>{val}<br/></div>) }</div>
-                                <div className="mapTitle white">{ data[selected][title] }</div>
-                            </div>
-                        )
-                    }
-                </div> */}
-            </div>
-        </div>
+        <svg width="600px" viewBox="0 0 1009 652">
+            <g>
+                { Object.keys(paths).map(path => <path style={{ fill: withColour[path] }} className={allCountries.includes(path) ? `mapPath` : 'mapPath'} d={paths[path]} />)}
+            </g>
+        </svg>            
     )
 }
 
