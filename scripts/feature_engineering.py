@@ -2,14 +2,11 @@ import os
 import numpy as np 
 import pandas as pd
 import datetime
+import pandas_datareader as web
 # import numpy_financial as npf
 
 from helpers import *
 
-
-def ceate_csv_from_json():
-    for file in os.listdir("data/json/"):
-        data = import_json("data/json/")
 
 def SortinoRatio(df, T):
     """Calculates the Sortino ratio from univariate excess returns.
@@ -28,6 +25,54 @@ def SortinoRatio(df, T):
     sortino_ratio = np.mean(df - T) / downside_dev
 
     return(sortino_ratio)
+
+
+def outer(df, window_length):
+    # Read in visual results and extract all participant ID's
+    spy_df = pd.read_csv("data/csv/SPY.csv", delimiter=',', sep=r', ') 
+    spy_df.set_index(["date"], inplace = True)
+    bench_return = spy_df["daily_returns"]
+    bench_return_prod = np.prod(spy_df["daily_returns"] + 1) - 1
+
+    df['{}d_information_ratio'.format(window_length)] = df['daily_returns'].rolling(window_length).apply(get_information_ratio, args=(bench_return, bench_return_prod, window_length))
+
+    return df
+
+def get_information_ratio(returns, bench_return, bench_return_prod, window_length):
+    """ Information ration = (stock return - benchmark return) / tracking)
+
+    """
+    # print("Window length", window_length)
+    print("SPY_DF", bench_return)
+    # print("HERE", returns)
+
+    df_return_prod = np.prod(returns + 1) - 1
+
+    print("df prod", df_return_prod)
+    print("spy prod",bench_return_prod)
+    print("len df", len(returns))
+    print("len spy_df", len(bench_return))
+
+    tracking_error = (returns - bench_return).std() * np.sqrt(window_length)
+
+    information_ratio = (df_return - bench_return_prod) / tracking_error
+    print("Information Ratio:", information_ratio)
+
+    return information_ratio
+
+    # print("Window length", window_length)
+    # print("SPY_DF", spy_df.head())
+    # print("HERE", df.head())
+    # # print(df["daily_returns"])
+    # df_return = np.prod(df["daily_returns"] + 1) - 1
+    # bench_return = np.prod(spy_df["daily_returns"] + 1) - 1
+
+    # # print(df)
+    # # tracking_error = (df["daily_returns"].sub(spy_df["daily_returns"], fill_value = 0)).std() * np.sqrt(window_length)
+    # tracking_error = (df["daily_returns"] - spy_df["daily_returns"]).std() * np.sqrt(window_length)
+
+    # information_ratio = (df_return - bench_return) / tracking_error
+    # print("Information Ratio:", information_ratio)
 
 
 def create_df_from_json(json_path):
@@ -70,6 +115,7 @@ def create_df_from_json(json_path):
     stock_name = json_path.split("/")[2].replace(".json", ".csv")
 
     return df
+
 
 def calculate_inflation_rates(path, name):
     """ Calculate the CPI multiplier for each row in the CSV 
@@ -126,7 +172,7 @@ def calc_volume_and_gain_loss_avgs(df):
 
     df['daily_diff'] = df['close'].diff(1)
     df['daily_returns'] = df['close'].pct_change()
-    df['daily_diff_pc_change'] = df['daily_diff'].pct_change()
+    # df['daily_diff_pc_change'] = df['daily_diff'].pct_change()
 
     df['daily_volume_diff'] = df['volume'].diff(1)
     df['daily_volume_pc_change'] = df['daily_volume_diff'].pct_change()
@@ -192,9 +238,9 @@ def sharpe_ratio(data, risk_free_rate=0.0):
     Returns:
         Sharpe ratio for that given window of time
     """
-    mean_daily_return = sum(data) / len(data)
+    mean_daily_returns = sum(data) / len(data)
     std = data.std()
-    daily_sharpe_ratio = (mean_daily_return - risk_free_rate) / std
+    daily_sharpe_ratio = (mean_daily_returns - risk_free_rate) / std
     # divide by the length of time we are looking at
     sharpe_ratio = len(data)**(1/2) * daily_sharpe_ratio
     
@@ -210,6 +256,8 @@ def calculate_maximum_drowdown(df):
     Returns:
         df (DataFrame) : DataFrame with the Sharpe ratio added for that time period
     """
+    # df = maximum_dropdown(df, 7)
+    return df
 
 
 def maximum_dropdown(df, window_length):
@@ -255,7 +303,6 @@ def calculate_historic_volatility(df, window_length):
 
     """
     df['log_ret'] = np.log(df.close) - np.log(df.close.shift(1))
-
     # Compute Volatility using the pandas rolling standard deviation function
     df['{}d_historic_volatility_of_risk-adjusted_return'.format(window_length)] = df['log_ret'].rolling(window=window_length).std() * np.sqrt(window_length)
 
@@ -276,6 +323,7 @@ def feature_engineering_main():
 
         # Convert JSON data to DF format
         df = create_df_from_json(json_path)
+
         # Apply Inflation rates to get objective price 
         df = get_inflation_price_adjustments(df, inflation_df)
     
@@ -286,6 +334,8 @@ def feature_engineering_main():
 
         # Next look at volatility scores
         df = get_volatility_scores(df)
+
+        df = outer(df, 7)
         
         print(df)
 
