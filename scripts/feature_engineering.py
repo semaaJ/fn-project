@@ -1,11 +1,16 @@
-import os 
+import os
+import ta 
 import numpy as np 
 import pandas as pd
+# import pandas_ta as ta
 import datetime
-import pandas_datareader as web
-# import numpy_financial as npf
+import time
 
+from ta import add_all_ta_features
+from pyfinance import TSeries
 from helpers import *
+
+import investpy as investpy
 
 
 def SortinoRatio(df, T):
@@ -28,12 +33,12 @@ def SortinoRatio(df, T):
 
 
 def outer(df, window_length):
+    # https://www.youtube.com/watch?v=E6M89IHpmzc
     # Read in visual results and extract all participant ID's
     spy_df = pd.read_csv("data/csv/SPY.csv", delimiter=',', sep=r', ') 
     spy_df.set_index(["date"], inplace = True)
     bench_return = spy_df["daily_returns"]
     bench_return_prod = np.prod(spy_df["daily_returns"] + 1) - 1
-
     df['{}d_information_ratio'.format(window_length)] = df['daily_returns'].rolling(window_length).apply(get_information_ratio, args=(bench_return, bench_return_prod, window_length))
 
     return df
@@ -42,37 +47,28 @@ def get_information_ratio(returns, bench_return, bench_return_prod, window_lengt
     """ Information ration = (stock return - benchmark return) / tracking)
 
     """
-    # print("Window length", window_length)
-    print("SPY_DF", bench_return)
-    # print("HERE", returns)
-
+    # print("SPY_DF", bench_return)
+    dates = returns.index
+    print(dates)
+    print(max(dates))
+    print(min(dates))
+    bench_return = bench_return.loc[min(dates) : max(dates)]
     df_return_prod = np.prod(returns + 1) - 1
 
-    print("df prod", df_return_prod)
-    print("spy prod",bench_return_prod)
-    print("len df", len(returns))
-    print("len spy_df", len(bench_return))
+    print("BENCH RETURN", bench_return)
+    print()
+    print("RETURNS",returns)
+    # print("df prod", df_return_prod)
+    # print("spy prod",bench_return_prod)
+    # print("len df", len(returns))
+    # print("len spy_df", len(bench_return))
 
     tracking_error = (returns - bench_return).std() * np.sqrt(window_length)
 
-    information_ratio = (df_return - bench_return_prod) / tracking_error
+    information_ratio = (returns - bench_return_prod) / tracking_error
     print("Information Ratio:", information_ratio)
 
     return information_ratio
-
-    # print("Window length", window_length)
-    # print("SPY_DF", spy_df.head())
-    # print("HERE", df.head())
-    # # print(df["daily_returns"])
-    # df_return = np.prod(df["daily_returns"] + 1) - 1
-    # bench_return = np.prod(spy_df["daily_returns"] + 1) - 1
-
-    # # print(df)
-    # # tracking_error = (df["daily_returns"].sub(spy_df["daily_returns"], fill_value = 0)).std() * np.sqrt(window_length)
-    # tracking_error = (df["daily_returns"] - spy_df["daily_returns"]).std() * np.sqrt(window_length)
-
-    # information_ratio = (df_return - bench_return) / tracking_error
-    # print("Information Ratio:", information_ratio)
 
 
 def create_df_from_json(json_path):
@@ -238,12 +234,11 @@ def sharpe_ratio(data, risk_free_rate=0.0):
     Returns:
         Sharpe ratio for that given window of time
     """
-    mean_daily_returns = sum(data) / len(data)
-    std = data.std()
-    daily_sharpe_ratio = (mean_daily_returns - risk_free_rate) / std
-    # divide by the length of time we are looking at
-    sharpe_ratio = len(data)**(1/2) * daily_sharpe_ratio
-    
+    arr = np.array(data.values)
+    idx = pd.date_range(start = min(data.index), periods = len(data.values))  # default daily freq.
+    ts = TSeries(arr, index=idx)
+    sharpe_ratio = ts.sharpe_ratio(ddof=1)
+
     return sharpe_ratio
 
 
@@ -309,39 +304,76 @@ def calculate_historic_volatility(df, window_length):
     return df
 
 
+def get_crypto_data():
+
+    crypto_df = pd.read_csv("crypto.csv", delimiter=',', sep=r', ')
+    crypto_df.set_index("name", inplace = True)
+    time.sleep(10)
+    for coin_name in crypto_df.index:
+        (start_date, end_date) = get_dates(coin_name)
+        print(start_date, end_date)
+        sd = start_date.split("-")
+        ed = end_date.split("-")
+        e = ed[2] + "/" + ed[1] + "/" + ed[0]
+        s = sd[2] + "/" + sd[1] + "/" + sd[0]
+        print("HERE", s, e)
+        df = investpy.get_crypto_historical_data(crypto = coin_name,  from_date = s, to_date=e)
+        print(df.head())
+        create_csv(df, "data/csv/", coin_name + ".csv")
+        time.sleep(10)
+
+
+def get_dates(coin_name):
+    path = "data/other/csv/" + coin_name.lower() + ".csv"
+    df = pd.read_csv(path, delimiter=',', sep=r', ')
+
+    return(min(df["date"]), max(df["date"]))
+
 def feature_engineering_main():
+
+    # https://github.com/alvarobartt/investpy/issues/467 BLocked by investing.com for multiple calls, use sleep to avoid in future
+    # get_crypto_data()
+
     # Only needs to be ran if new Inflation CSV is added 
     # calculate_inflation_rates("data/us_inflation_rates/", "CPIAUCNS.csv")
-    inflation_df = pd.read_csv("data/us_inflation_rates/CPIAUCNS.csv", delimiter=',', sep=r', ')
-    inflation_df.set_index(["date"], inplace = True)
+    # inflation_df = pd.read_csv("data/us_inflation_rates/CPIAUCNS.csv", delimiter=',', sep=r', ')
+    # inflation_df.set_index(["date"], inplace = True)
     # Might move this into non-main function for general feature engineering
-    json_folder_path = "data/json/"
+    json_folder_path = "data/crypto_csv/"
     json_files = os.listdir(json_folder_path)
     for file in json_files:
-        csv_path = json_folder_path.replace("json", "csv")
+        # csv_path = json_folder_path.replace("json", "csv")
         json_path = json_folder_path + file
-
         # Convert JSON data to DF format
-        df = create_df_from_json(json_path)
-
-        # Apply Inflation rates to get objective price 
-        df = get_inflation_price_adjustments(df, inflation_df)
+        # df = create_df_from_json(json_path)
+        df = pd.read_csv(json_path, delimiter=',', sep=r', ')
+        cols = [i.lower() for i in df.columns]
+        df.columns = cols
+        df.set_index("date", inplace = True)
+        df = add_all_ta_features(df, open="open", high="high", low="low", close="close", volume="volume")
+        csv_path = "data/csv/" 
+        # # Apply Inflation rates to get objective price 
+        # df = get_inflation_price_adjustments(df, inflation_df)
     
-        # calculate the volume and 29 avg vol total
-        df = calc_volume_and_gain_loss_avgs(df)
+        # # calculate the volume and 29 avg vol total
+        # df = calc_volume_and_gain_loss_avgs(df)
 
-        df = calculate_maximum_drowdown(df)
+        # df = calculate_maximum_drowdown(df)
 
-        # Next look at volatility scores
-        df = get_volatility_scores(df)
+        # # Next look at volatility scores
+        # df = get_volatility_scores(df)
 
-        df = outer(df, 7)
+        # df = outer(df, 7)
         
-        print(df)
+        # print(df)
+        a = [i for i in df.columns]
+
+        for i in a:
+            print(i)
 
         # display_graph_two(list(df["volume"]), list(df["20d_vol_avg"]))
 
-        create_csv(df, csv_path, file.replace(".json", ".csv"))
+        create_csv(df, csv_path, file)
 
 if __name__ == "__main__":
     feature_engineering_main()
