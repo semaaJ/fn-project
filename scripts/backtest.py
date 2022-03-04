@@ -68,6 +68,20 @@ class BackTest():
         """
         return math.floor((investment_return / investment_value) * 100)
 
+    def rsi_all_combinations_by_signal_values(self, window=14):
+        rsi_signal_values = np.array(np.meshgrid(np.array([_ for _ in range(100)]), np.array([_ for _ in range(100)]))).T.reshape(-1, 2)
+
+        results = []
+        for rsi_signal in rsi_signal_values:
+            rsi = RSI(self._close, window, rsi_signal[0], rsi_signal[1])
+            rsi_total = rsi.base_rsi_strategy(self._equity)
+
+            results.append({"rsi_sell_signal": rsi_signal[0], "rsi_buy_signal": rsi_signal[1], "rsi_total": rsi_total})
+            
+        sorted(results, key=lambda x: x["rsi_total"])
+        return results
+
+
     def relative_strength_index(self, window, rsi_sell_signal=70, rsi_buy_signal=30) -> tuple:
         """ Calculates the Relative Strength Index (RSI) of a df
         Args: 
@@ -216,8 +230,6 @@ class RSI():
         axs[1].plot([_ for _ in range(len(self._rsi_df))], list(self._rsi_df))
         plt.show()
 
-
-
 if __name__ == "__main__":
     # df = add_all_ta_features(df, open="open", high="high", low="low", close="close", volume="volume")
     # df = df.filter(['open', 'high', 'low', 'close', 'volume'])
@@ -229,12 +241,17 @@ if __name__ == "__main__":
     # print(rsi_total, rsi_profit_percentage)
 
     bah_total, bah_profit_percentage = bt.buy_and_hold()
-
-    for interval in [1, 7, 14, 30, 60, 120, 240, 365]:
-            dca_total, dca_profit_percentage = bt.dollar_cost_average(interval=interval)
-            rsi_total, rsi_total_percentage = bt.relative_strength_index(window=interval)
-            print(f"Relative String Index Total, Profit Percentage", rsi_total, rsi_total_percentage)
-            print(f"Dollar Cost Average {interval}D Total, Profit Percentage:", dca_total, dca_profit_percentage)
-
-
     print("Buy & Hold Total, Profit Percentage:", bah_total, bah_profit_percentage)
+
+    print("Signal Arr")
+    print(bt.rsi_all_combinations_by_signal_values())
+
+    # for interval in [1, 7, 14, 30, 60, 120, 240, 365]:
+    #         dca_total, dca_profit_percentage = bt.dollar_cost_average(interval=interval)
+    #         rsi_total, rsi_total_percentage = bt.relative_strength_index(window=interval)
+    #         print(f"Relative String Index Total, Profit Percentage", rsi_total, rsi_total_percentage)
+    #         print(f"Dollar Cost Average {interval}D Total, Profit Percentage:", dca_total, dca_profit_percentage)
+
+    
+
+
