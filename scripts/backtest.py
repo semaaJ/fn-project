@@ -81,7 +81,6 @@ class BackTest():
         sorted(results, key=lambda x: x["rsi_total"])
         return results
 
-
     def relative_strength_index(self, window, rsi_sell_signal=70, rsi_buy_signal=30) -> tuple:
         """ Calculates the Relative Strength Index (RSI) of a df
         Args: 
