@@ -7,95 +7,66 @@
     --main-highlight-color:#14b4c3;
 }
 
-.chartSelector {
-  display: flex;
-  z-index: 1;
-}
-
-.selected {
-  background: var(--main-highlight-color) !important;
-}
-
-.colourMain {
-    color: var(--main-color) !important;
-}
-
-.navBar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .App {
   background: var(--background-color);
   font-family: 'Roboto', sans-serif;
-  height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
 }
 
-
-.tabContainer {
+.section {
+  height: 100vh;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  color: white;
-  font-size: 14px;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 48px;
   font-weight: 600;
-}
-
-.tabItem {
-  padding: 4px;
-  width: 50px;
-  margin: 4px;
-  text-align: center;
-  box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.6);
-  border: 1px solid var(--main-highlight-color);
-  border-radius: 4px;
-  cursor: pointer;
-  background: var(--main-color);
-  font-size: 10px;
-  color: white;
-  text-transform: capitalize;
-}
-
-.tabItem:hover {
-  transition: 0.4s;
-  background: var(--main-highlight-color);
-  border: 1px solid var(--main-color);
-}
-
-.shareSymbol {
-  font-size: 72px;
-  font-weight: 200;
-  color: white;
-}
-
-.shareName {
-  font-size: 24px;
-  font-weight: 600;
+  letter-spacing: -3px;
   color: var(--main-color);
+  z-index: 1;
+  margin: 0;
 }
 
-.shareInfoSubContainer {
-  display: flex;
-  color: white;
-  font-weight: 60
+h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--main-color);
+  font-size: 10px;
 }
 
-.shareInfo {
-  padding: 4px;
+.selected {
+  background: var(--main-highlight-color) !important;
 }
 
-.pos {
-  color: #48eb12;
-  font-weight: 600;
-  font-size: 16px;
+.colourWhite {
+  color: #fff;
 }
 
-.neg {
-  color: #ff3b28;
+.colourMain {
+    color: var(--main-color) !important;
 }
+
+.colourBackground {
+  color: var(--background-color) !important;
+}
+
+.bgMain {
+  background: var(--background-color) !important;
+}
+
+.bgColour {
+  background: var(--main-color) !important;
+}
+
+.bgWhite {
+  background: white;
+}
+
 
