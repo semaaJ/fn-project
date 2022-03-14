@@ -2,196 +2,179 @@ import React from 'react';
 import './Menu.css';
 
 const Menu = (props) => {
-    const {
-        symbol, 
-        todaysData,
-        data
-    } = props;
-
-    const { 
-        currentPrice,
-        fiftyDayAverage,
-        fiftyTwoWeekHigh,
-        fiftyTwoWeekLow,
-        fiftyTwoWeekChange,
-        twoHundredDayAverage,
-        grossProfits,
-        industry,
-        shortName,
-        totalCash,
-        totalDebt,
-        totalRevenue,
-        marketCap,
-    } = data;
-
-    const { open, close, low, high } = todaysData;
-
     return (
         <nav id="menu">
-            <div className="menu-item">
-                <div className="menu-text">
-                    <a href="#">Back Test</a>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="#">Products</a>
+            </div>
+            <div class="sub-menu">
+                <div class="icon-box">
+                    <div class="icon"><i class="fal fa-wind-turbine"></i></div>
+                    <div class="text">
+                        <div class="title">Turbo Editor <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">Edit your code while slowing down time.</div>
+                    </div>
                 </div>
-                <div className="sub-menu">
-                    <div className="icon-box">
-                    <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
+                <div class="icon-box">
+                    <div class="icon"><i class="fal fa-lightbulb-on"></i></div>
+                    <div class="text">
+                        <div class="title">Idea Creator <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">Think of an idea, and have an AI create it.</div>
                     </div>
-                    <div className="icon-box">
-                    <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
+                </div>
+                <div class="icon-box">
+                    <div class="icon"><i class="fal fa-bomb"></i></div>
+                    <div class="text">
+                        <div class="title">Super Collider <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">Remove mass from any object.</div>
                     </div>
-                    <div className="icon-box">
-                    <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
+                </div>
+                <div class="sub-menu-holder"></div>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="#">Services</a>
+            </div>
+            <div class="sub-menu double">
+                <div class="icon-box gb a">
+                    <div class="icon"><i class="far fa-question-circle"></i></div>
+                    <div class="text">
+                        <div class="title">Consult <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">From Professionals</div>
                     </div>
-                    <div className="sub-menu-holder"></div>
+                </div>
+                <div class="icon-box gb b">
+                    <div class="icon"><i class="far fa-users-class"></i></div>
+                    <div class="text">
+                        <div class="title">Teach <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">In Classroom</div>
+                    </div>
+                </div>
+                <div class="icon-box gb c">
+                    <div class="icon"><i class="far fa-school"></i></div>
+                    <div class="text">
+                        <div class="title">Learn <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">By Video</div>
+                    </div>
+                </div>
+                <div class="icon-box gb d">
+                    <div class="icon"><i class="far fa-chess-rook"></i></div>
+                    <div class="text">
+                        <div class="title">Keep <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">The Castle</div>
+                    </div>
+                </div>
+                <div class="icon-box gb e">
+                    <div class="icon"><i class="far fa-video-plus"></i></div>
+                    <div class="text">
+                        <div class="title">Become <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">A Creator</div>
+                    </div>
+                </div>
+                <div class="icon-box gb f">
+                    <div class="icon"><i class="far fa-cat"></i></div>
+                    <div class="text">
+                        <div class="title">Understand <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">Our Journey</div>
+                    </div>
+                </div>
+                <div class="bottom-container">
+                    Ready to dive in? <a href="#">Get Started</a>
+                </div>
+                <div class="sub-menu-holder"></div>
+            </div>
+        </div>
+        <div class="menu-item highlight">
+            <div class="menu-text">
+                <a href="#">Support</a>
+            </div>
+            <div class="sub-menu triple">
+                <div class="top-container gb c icon-box">
+                    <div class="icon big"><i class="far fa-book"></i></div>
+                    <div class="text">
+                        <div class="title">Where to start</div>
+                        <div class="sub-text">Find out where to begin below</div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3>Your Journey</h3>
+                    <a href="#">Get Started</a>
+                    <a href="#">Learn the Basics</a>
+                    <a href="#">Get Advanced</a>
+                    <a href="#">Start Teaching</a>
+                </div>
+                <div class="box">
+                    <h3>Your Tools</h3>
+                    <a href="#">Turbo Editor</a>
+                    <a href="#">Time Stopper</a>
+                    <a href="#">Brain Enhancer</a>
+                    <a href="#">Network Maker</a>
+                </div>
+                <div class="icon-box flat">
+                    <div class="icon"><i class="fal fa-plug"></i></div>
+                    <div class="text">
+                        <div class="title">API Guide <i class="far fa-arrow-right"></i></div>
+                    </div>
+                </div>
+                <div class="icon-box flat">
+                    <div class="icon"><i class="fal fa-comments"></i></div>
+                    <div class="text">
+                        <div class="title">Support Line <i class="far fa-arrow-right"></i></div>
+                    </div>
+                </div>
+                <div class="icon-box flat">
+                    <div class="icon"><i class="fal fa-phone-volume"></i></div>
+                    <div class="text">
+                        <div class="title">Live Chat <i class="far fa-arrow-right"></i></div>
+                    </div>
+                </div>
+                <div class="icon-box flat">
+                    <div class="icon"><i class="fal fa-book-spells"></i></div>
+                    <div class="text">
+                        <div class="title">Documentation <i class="far fa-arrow-right"></i></div>
+                    </div>
                 </div>
             </div>
-            <div className="menu-item highlight">
-                <div className="menu-text">
-                    <a href="#">Models</a>
-                </div>
-                <div className="sub-menu double">
-                    <div className="icon-box gb a">
-                        <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
-                    </div>
-                    <div className="icon-box gb b">
-                      <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
-                    </div>
-                    <div className="icon-box gb c">
-                      <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
-                    </div>
-                    <div className="icon-box gb d">
-                        <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
-                    </div>
-                    <div className="icon-box gb e">
-                      <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
-                    </div>
-                    <div className="icon-box gb f">
-                      <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
-                    </div>
-                    <div className="bottom-container">
-                        Model Code <a href="#">View</a>
-                    </div>
-                    <div className="sub-menu-holder"></div>
-                </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <a href="#">Community</a>
             </div>
-            <div className="menu-item highlight">
-                <div className="menu-text">
-                    <a href="#">Info</a>
+            <div class="sub-menu">
+                <div class="icon-box">
+                    <div class="icon"><i class="far fa-satellite"></i></div>
+                    <div class="text">
+                        <div class="title">Forum <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">Join our passionate community.</div>
+                    </div>
                 </div>
-                <div className="sub-menu triple">
-                    <div className="top-container gb c icon-box">
-                        <div className="text">
-                            <div className="title colourMain">{ symbol } | { industry }</div>
-                            <div className="sub-text">{ shortName }</div>
-                            { marketCap && <div className="sub-text ">Market Cap: ${ marketCap.toLocaleString('en-US') }</div> }
-                        </div>
+                <div class="icon-box">
+                    <div class="icon"><i class="fab fa-twitter-square"></i></div>
+                    <div class="text">
+                        <div class="title">Twitter <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">Follow us on twitter.</div>
                     </div>
-                    <div className="box">
-                        <h3 className="colourMain">Today</h3>
-                        <a href="#">Open: { (open || 0).toFixed(2) }</a>
-                        <a href="#">Close: { (close || 0).toFixed(2) }</a>
-                        <a href="#">Low: { (low || 0).toFixed(2) }</a>
-                        <a href="#">High: { (high || 0).toFixed(2) }</a>
-                    </div>
-                    <div className="box">
-                        <h3 className="colourMain">Historical</h3>
-                        <a href="#">50 Day Average: { fiftyDayAverage }</a>
-                        <a href="#">200 Day Average: { twoHundredDayAverage }</a>
-                        <a href="#">52 Week Low: { fiftyTwoWeekLow }</a>
-                        <a href="#">52 Week High: { fiftyTwoWeekHigh }</a>
-                    </div>
-                    
-                    { totalRevenue &&
-                        <div className="icon-box flat">
-                            <div className="text">
-                                <div className="title">Total Revenue: ${ totalRevenue.toLocaleString('en-US') }</div>
-                            </div>
-                        </div>
-                    }
-                    { totalCash && 
-                        <div className="icon-box flat">
-                            <div className="text">
-                                <div className="title">Total Cash: ${ totalCash.toLocaleString('en-US')  } </div>
-                            </div>
-                        </div>
-                    }
-                    { totalDebt &&
-                        <div className="icon-box flat">
-                            <div className="text">
-                                <div className="title">Total Debt: ${ totalDebt.toLocaleString('en-US') }</div>
-                            </div>
-                        </div>
-                    }
-                    {
-                        grossProfits && 
-                            <div className="icon-box flat">
-                                <div className="text">
-                                    <div className="title">Gross Profits: ${ grossProfits.toLocaleString('en-US') }</div>
-                                </div>
-                            </div>
-                    }
                 </div>
+                <div class="icon-box">
+                    <div class="icon"><i class="fab fa-twitch"></i></div>
+                    <div class="text">
+                        <div class="title">Live Stream <i class="far fa-arrow-right"></i></div>
+                        <div class="sub-text">We stream content every day.</div>
+                    </div>
+                </div>
+                <div class="sub-menu-holder"></div>
             </div>
-            <div className="menu-item">
-                <div className="menu-text">
-                    <a href="#">Lorem</a>
-                </div>
-                <div className="sub-menu">
-                    <div className="icon-box">
-                    <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
-                    </div>
-                    <div className="icon-box">
-                    <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
-                    </div>
-                    <div className="icon-box">
-                    <div className="text">
-                            <div className="title">Lorem Ipsum</div>
-                            <div className="sub-text">Lorem ipsum dolor sit amet</div>
-                        </div>
-                    </div>
-                    <div className="sub-menu-holder"></div>
-                </div>
-            </div>
+        </div>
+        <div id="sub-menu-container">
+            <div id="sub-menu-holder">
+                <div id="sub-menu-bottom">
 
-            <div id="sub-menu-container">
-                <div id="sub-menu-holder">
-                    <div id="sub-menu-bottom"></div>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
     )
 }
 
