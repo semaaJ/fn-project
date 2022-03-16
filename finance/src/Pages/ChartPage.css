@@ -1,7 +1,6 @@
 .chartSelector {
   display: flex;
   z-index: 1;
-  transform: translateY(25px);
 }
 
 .tabContainer {
@@ -46,7 +45,7 @@
 }
 
 .chartOuter {
-  width: 600px;
+  width: 650px;
 }
 
 .chartContainer {

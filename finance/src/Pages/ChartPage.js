@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Menu from '../components/Menu/Menu';
+import Menu from '../components/Menu/StripeMenu';
 import Loading from '../components/Loading/Loading';
 import Chart from '../components/Chart/Chart';
 import Input from '../components/Input/Input';
@@ -7,7 +7,9 @@ import './ChartPage.css';
 
 const API_URL = 'http://127.0.0.1:5000/';
 
-const ChartPage  = () => {
+const ChartPage  = (props) => {
+    const { inputData } = props;
+
     const [state, setState] = useState({ 
         loading: true,
         status: 'calculating',
@@ -118,6 +120,7 @@ const ChartPage  = () => {
     return (
         <>
             <div className="section">
+                <Menu />
                 {/* <div className="chartSelector">
                     { ["1D", "1W", "2W", "1M", "3M", "6M", "1Y", "5Y", "10Y", "All"].map(date => <div style={{ width: "25px" }} className="tabItem">{ date }</div>) }
                 </div>  */}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ChartPage from './Pages/ChartPage';
+import Results from './Pages/Results';
 import RSI from './Pages/RSI';
 import './App.css';
 
@@ -10,8 +11,8 @@ function App() {
     <div className="App">
        <BrowserRouter>
         <Routes>
-            <Route path="/" element={<RSI />}>
-          </Route>
+            <Route exact path="/rsi" element={<RSI />} />
+            <Route path='/results' element={<Results />} />
         </Routes>
       </BrowserRouter>
     </div>

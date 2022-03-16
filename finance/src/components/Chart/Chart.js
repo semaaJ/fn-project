@@ -36,8 +36,29 @@ const initialData = [
 
 const initialLines = ['close', 'open']
 
+
+const Signal = (props) => {
+  const { cx, cy, stroke, payload, value } = props;
+
+
+  if (payload.signal === -1) {
+    return (
+      <svg x={cx - 10} y={cy - 10} width={150} height={150} fill="red" viewBox="0 0 1024 1024">
+   <circle cx="50" cy="50" r="40" fill="red" />      </svg>
+    );
+  } 
+  else if (payload.signal == 1) {
+    return (
+      <svg x={cx - 10} y={cy - 10} width={150} height={150} fill="green" viewBox="0 0 1024 1024">
+   <circle cx="50" cy="50" r="40" fill="green" />      </svg>
+    );
+  }
+  return <svg />
+};
+
+
 const Chart = (props) => {
-  const { lines, data, height, width } = props;
+  const { lines, data, height, width, max, min } = props;
 
   const colourData = ["#0099ff", "#e8175d", "#fad30c", "#81ba4b"];
 
@@ -49,11 +70,14 @@ const Chart = (props) => {
           data={data || initialData}
         >
           <XAxis stroke="white" />
-          <YAxis stroke="white" tickFormatter={(value) => new Intl.NumberFormat('en', { notation: "compact", compactDisplay: "short" }).format(value)} />
+          <YAxis 
+            stroke="white" 
+            domain={[min, max]} 
+            tickFormatter={(value) => new Intl.NumberFormat('en', { notation: "compact", compactDisplay: "short" }).format(value)} 
+          />
           <Tooltip />
-          <Legend />
           {
-            lines && lines.map((val, ind) => <Line dot={false} type="monotone" dataKey={val} stroke={colourData[ind]} strokeWidth={2} />)
+            lines && lines.map((val, ind) => <Line dot={<Signal />} type="monotone" dataKey={val} stroke={colourData[ind]} strokeWidth={2} />)
           }
           {
             !lines && initialLines.map((val, ind) => <Line dot={false} type="monotone" dataKey={val} stroke={colourData[ind]} strokeWidth={2} />)

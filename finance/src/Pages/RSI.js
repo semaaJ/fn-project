@@ -8,15 +8,29 @@ import './ChartPage.css';
 
 const API_URL = 'http://127.0.0.1:5000/';
 
+const dayMapping = {
+    "1D": 1,
+    "1W": 7,
+    "2W": 14,
+    "1M": 31,
+    "3M": 93,
+    "6M": 186,
+    "1Y": 365,
+    "5Y": 365 * 5,
+    "10Y": 365 * 10,
+    "20Y": 365 * 20
+}
+
+
 const RSI  = () => {
     const [state, setState] = useState({ 
         loading: true,
         status: 'results',
         inputData: {
-            graphPeriod: 100,
-            rsiWindow: 14,
-            rsiSell: 30,
-            rsiBuy: 70,
+            graphPeriod: 365,
+            rsiWindow: 9,
+            rsiBuy: 30,
+            rsiSell: 70,
         },
     });
 
@@ -50,7 +64,7 @@ const RSI  = () => {
     )
 
     const getResults = () => {
-        const { portfolioValue, profitPercentage, trades } = state;
+        const { portfolioValue, profitPercentage, trades, totalTrades, positiveTrades, negativeTrades } = state;
 
         return (
             <>
@@ -68,11 +82,11 @@ const RSI  = () => {
                 </div>
                 <div className="chartSelectorSection">
                     <h2 className="colourWhite">Total Trades</h2>
-                    <h2>1,348</h2>
+                    <h2>{ totalTrades }</h2>
                 </div>
                 <div className="chartSelectorSection">
                     <h2 className="colourWhite">Trade Win/Loss</h2>
-                    <h2>789/592 (65%)</h2>
+                    <h2>{ positiveTrades }/{ negativeTrades } ({ (positiveTrades / totalTrades).toFixed(2) * 100 }%)</h2>
                 </div>
 
                 <h2 style={{ marginLeft: "25px", marginTop: "15px" }} className="colourWhite">Trades Made</h2>
@@ -86,6 +100,10 @@ const RSI  = () => {
                 </div>
             </>
         )
+    }
+
+    const onDateChange = (graphPeriod) => {
+        setState({ ...state, inputData: { ...state.inputData, graphPeriod: dayMapping[graphPeriod] }})
     }
 
     const onInputChange = (e, target) => {
@@ -108,7 +126,7 @@ const RSI  = () => {
             })
         )
         .then(resp => resp.json())
-        .then(() => setState({ ...state, status: 'results'}))
+        .then(r => setState({ ...state, status: 'results', ...r.data }))
     }
 
     if (state.loading) {
@@ -122,9 +140,12 @@ const RSI  = () => {
         return acc;
     }, [])
 
+    const max = Math.max(...state.close.slice(0, state.inputData.graphPeriod));
+    const min = Math.min(...state.close.slice(0, state.inputData.graphPeriod));
+
     const mainData = state.close.reduce((acc, curr, ind) => {
         if (ind < state.inputData.graphPeriod) {
-            acc.push({ name: ind + 1, close: curr.toFixed(2) })
+            acc.push({ name: ind + 1, close: curr.toFixed(2), signal: state.signals[ind] })
         }
         return acc;
     }, []);
@@ -136,21 +157,15 @@ const RSI  = () => {
         return acc;
     }, []);
 
-
-    console.log(state)
     return (
         <>
             <div className="section">
-                {/* <div className="chartSelector">
-                    { ["1D", "1W", "2W", "1M", "3M", "6M", "1Y", "5Y", "10Y", "All"].map(date => <div style={{ width: "25px" }} className="tabItem">{ date }</div>) }
-                </div>  */}
+                <Menu />
                 <h2>Relative Strength Index (RSI)</h2>  
-                <Input    
-                    label="Graph Period"
-                    inputId="graphPeriod"
-                    onChange={e => onInputChange(e, "graphPeriod")}
-                    value={state.inputData.graphPeriod} 
-                />                            
+                <div className="chartSelector">
+                    { Object.keys(dayMapping).map(date => <div style={{ width: "25px" }} onClick={() => onDateChange(date)} className="tabItem">{ date }</div>) }
+                </div> 
+
                 <div className="mainContainer">
                     <div className="chartOuter">
                         <div className="chartContainer">
@@ -159,7 +174,7 @@ const RSI  = () => {
                         </div>
                         <div className="chartContainer">
                             <h2 style={{ marginLeft: "70px"}}>RSI EMA</h2>
-                            <Chart data={mainData} lines={["close"]} width={800} height={300} />
+                            <Chart max={max} min={min} data={mainData} lines={["close"]} width={800} height={300} />
                         </div>
                         <div className="chartContainer">
                             <h2 style={{ marginLeft: "70px"}}>RSI Value</h2>

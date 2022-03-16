@@ -36,21 +36,29 @@ def rsi():
     args = request.args.to_dict()
     rsi_window, rsi_sell, rsi_buy = int(args['rsiWindow']), int(args['rsiSell']), int(args['rsiBuy'])
 
-    if file_exists(f'{rsi_window}{rsi_buy}{rsi_sell}.json', 'rsi'):
-        with open(f'./data/rsi/{rsi_window}{rsi_buy}{rsi_sell}.json', 'r') as f:
+    if file_exists(f'{rsi_window}-{rsi_buy}-{rsi_sell}.json', 'rsi'):
+        with open(f'./data/rsi/{rsi_window}-{rsi_buy}-{rsi_sell}.json', 'r') as f:
             return json.load(f)
     else:
-        with open(f'./data/rsi/{rsi_window}{rsi_buy}{rsi_sell}.json', 'w') as f:
+        with open(f'./data/rsi/{rsi_window}-{rsi_buy}-{rsi_sell}.json', 'w') as f:
             json.dump({ "data": {} }, f)
 
-        cerebro = bt.Cerebro()
-        feed = bt.feeds.YahooFinanceCSVData(dataname='./data/SPY.csv', fromdate=datetime.datetime(2010, 1, 29), todate=datetime.datetime(2022, 3, 7)) 
-        cerebro.adddata(feed) 
-        cerebro.addstrategy(RSIStrategy, rsi_window=rsi_window, rsi_buy=rsi_buy, rsi_sell=rsi_sell)
-        cerebro.run()
-    
-        with open(f'./data/rsi/{rsi_window}{rsi_buy}{rsi_sell}.json', 'r') as f:
+        try: 
+            cerebro = bt.Cerebro()
+            feed = bt.feeds.YahooFinanceCSVData(dataname='./data/SPY.csv', fromdate=datetime.datetime(1993, 1, 29), todate=datetime.datetime(2022, 2, 18)) 
+            cerebro.adddata(feed) 
+            cerebro.addstrategy(RSIStrategy, rsi_window=rsi_window, rsi_buy=rsi_buy, rsi_sell=rsi_sell)
+            # cerebro.broker.setcash(100000.0)
+            cerebro.broker.addcommissioninfo(CommInfoFractional())
+            cerebro.broker.setcommission(commission=0.001)
+            cerebro.run()
+        
+            with open(f'./data/rsi/{rsi_window}-{rsi_buy}-{rsi_sell}.json', 'r') as f:
                 return json.load(f)
+
+        except Exception as e:
+            print("ERROR: ", e)
+
 
 
 @app.route('/ema/', methods=['GET'])
@@ -72,11 +80,25 @@ def ema():
     cerebro.run()
 
 
-@app.route('/get', methods=['GET'])
-def get_data():
-    with open('./data/SPY.json', 'r') as f:
-        data = json.load(f)
-    return jsonify(data)
+@app.route('/results', methods=['GET'])
+def results():
+    results = []
+    for file in return_all_files_in_dir('rsi'):
+        with open(f'./data/rsi/{file}', 'r') as f:
+            rsi_window, rsi_buy, rsi_sell = (int(_) for _ in file.split(".")[0].split("-")) 
+            f_json = json.load(f)
+            results.append({
+                "rsiWindow": rsi_window,
+                "rsiBuy": rsi_buy,
+                "rsiSell": rsi_sell,
+                "profitPercentage": f_json["data"]["profitPercentage"],
+                "totalTrades": f_json["data"]["totalTrades"],
+                "positiveTrades": f_json["data"]["positiveTrades"],
+                "negativeTrades": f_json["data"]["negativeTrades"]
+            })
+
+    return jsonify(results)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
