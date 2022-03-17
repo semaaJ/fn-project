@@ -22,7 +22,7 @@ const Table = (props) => {
                 {
                     rowData.map(row => 
                         <tr>
-                            { columnNames.map( col => <td>{ row[col] }</td>)}
+                            { columnNames.map(col => <td>{ row[col] }</td>)}
                         </tr>)
                 }
             </tbody>
