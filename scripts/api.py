@@ -41,14 +41,13 @@ def rsi():
             return json.load(f)
     else:
         with open(f'./data/rsi/{rsi_window}-{rsi_buy}-{rsi_sell}.json', 'w') as f:
-            json.dump({ "data": {} }, f)
+            json.dump({}, f)
 
         try: 
             cerebro = bt.Cerebro()
             feed = bt.feeds.YahooFinanceCSVData(dataname='./data/SPY.csv', fromdate=datetime.datetime(1993, 1, 29), todate=datetime.datetime(2022, 2, 18)) 
             cerebro.adddata(feed) 
             cerebro.addstrategy(RSIStrategy, rsi_window=rsi_window, rsi_buy=rsi_buy, rsi_sell=rsi_sell)
-            # cerebro.broker.setcash(100000.0)
             cerebro.broker.addcommissioninfo(CommInfoFractional())
             cerebro.broker.setcommission(commission=0.001)
             cerebro.run()
@@ -64,21 +63,32 @@ def rsi():
 @app.route('/ema/', methods=['GET'])
 def ema():
     args = request.args.to_dict()
-    low_ema, medium_ema, high_ema = args['lowEMA'], args['mediumEMA'], args['highEMA']
+    low_ema, medium_ema, high_ema = int(args['lowEMA']), int(args['mediumEMA']), int(args['highEMA'])
 
-    data = {}
-    with open("./data/SPY.json", "r") as f:
-        data = json.load(f)
+    if file_exists(f'{low_ema}-{medium_ema}-{high_ema}.json', 'ema'):
+        with open(f'./data/ema/{low_ema}-{medium_ema}-{high_ema}.json', 'r') as f:
+            return json.load(f)
+    else:
+        with open(f'./data/ema/{low_ema}-{medium_ema}-{high_ema}.json', 'w') as f:
+            json.dump({}, f)
 
-    cerebro = bt.Cerebro()
-    data = bt.feeds.YahooFinanceCSVData(dataname='./data/SPY.csv', fromdate=datetime.datetime(2010, 1, 29), todate=datetime.datetime(2022, 3, 7)) 
-    cerebro.adddata(data) 
-    cerebro.addstrategy(EMAStrategy, low=low_ema, medium=medium_ema, high=high_ema)
-    cerebro.broker.setcash(100000.0)
-    cerebro.broker.addcommissioninfo(CommInfoFractional())
-    cerebro.broker.setcommission(commission=0.001)
-    cerebro.run()
+        try: 
+            cerebro = bt.Cerebro()
+            data = bt.feeds.YahooFinanceCSVData(dataname='./data/SPY.csv', fromdate=datetime.datetime(1993, 1, 29), todate=datetime.datetime(2022, 2, 18)) 
+            cerebro.adddata(data) 
+            cerebro.addstrategy(EMAStrategy, low=low_ema, medium=medium_ema, high=high_ema)
+            cerebro.broker.setcash(100000.0)
+            cerebro.broker.addcommissioninfo(CommInfoFractional())
+            cerebro.broker.setcommission(commission=0.001)
+            cerebro.run()
+        
+            with open(f'./data/ema/{low_ema}-{medium_ema}-{high_ema}.json', 'r') as f:
+                return json.load(f)
 
+        except Exception as e:
+            print("ERROR: ", e)
+
+    return {}
 
 @app.route('/results', methods=['GET'])
 def results():

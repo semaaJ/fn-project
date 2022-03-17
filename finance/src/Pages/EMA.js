@@ -3,7 +3,6 @@ import Menu from '../components/Menu/Menu';
 import Loading from '../components/Loading/Loading';
 import Chart from '../components/Chart/Chart';
 import Input from '../components/Input/Input';
-import { getProfitPercentage, getPercentageChange } from './helpers';
 import './ChartPage.css';
 
 const API_URL = 'http://127.0.0.1:5000/';
@@ -16,31 +15,32 @@ const dayMapping = {
     "3M": 93,
     "6M": 186,
     "1Y": 365,
+    "3Y": 365 * 3,
     "5Y": 365 * 5,
     "10Y": 365 * 10,
     "20Y": 365 * 20
 }
 
 
-const RSI  = () => {
+const EMA  = () => {
     const [state, setState] = useState({ 
         loading: true,
         status: 'results',
         inputData: {
             graphPeriod: 365,
-            rsiWindow: 9,
-            rsiBuy: 30,
-            rsiSell: 70,
+            lowEMA: 7,
+            mediumEMA: 25,
+            highEMA: 99,
         },
     });
 
     useEffect(() => {
         if (state.loading) {
             const fetchData = async () => {
-                await fetch(`${API_URL}rsi?` + new URLSearchParams({
-                        rsiWindow: state.inputData.rsiWindow,
-                        rsiSell: state.inputData.rsiSell,
-                        rsiBuy: state.inputData.rsiBuy
+                await fetch(`${API_URL}ema?` + new URLSearchParams({
+                        lowEMA: state.inputData.lowEMA,
+                        mediumEMA: state.inputData.mediumEMA,
+                        highEMA: state.inputData.highEMA
                     })
                 )
                 .then(resp => resp.json())
@@ -119,19 +119,21 @@ const RSI  = () => {
     const onSubmit = async () => {
         setState({ ...state, status: 'calculating' })
         await fetch(
-            `${API_URL}rsi?` + new URLSearchParams({
-                rsiWindow: state.inputData.rsiWindow,
-                rsiSell: state.inputData.rsiSell,
-                rsiBuy: state.inputData.rsiBuy
+            `${API_URL}ema?` + new URLSearchParams({
+                lowEMA: state.inputData.lowEMA,
+                mediumEMA: state.inputData.mediumEMA,
+                highEMA: state.inputData.highEMA
             })
         )
         .then(resp => resp.json())
-        .then(r => setState({ ...state, status: 'results', ...r.data }))
+        .then(r => setState({ ...state, status: 'results', ...r }))
     }
 
     if (state.loading) {
         return <Loading loadType={1} />
     };
+
+    console.log(state)
 
     const portfolioData = state.portfolioValue.reduce((acc, curr, ind) => {
         if (ind < state.inputData.graphPeriod) {
@@ -145,14 +147,27 @@ const RSI  = () => {
 
     const mainData = state.close.reduce((acc, curr, ind) => {
         if (ind < state.inputData.graphPeriod) {
-            acc.push({ name: ind + 1, close: curr.toFixed(2), signal: state.signals[ind] })
+            acc.push({ 
+                name: ind + 1,
+                close: curr.toFixed(2),
+                lowEMA: state.lowEMA[ind],
+                mediumEMA: state.mediumEMA[ind],
+                highEMA: state.highEMA[ind],
+                signal: state.signals[ind],
+                crossover: "mediumEMA"          
+            })
         }
         return acc;
     }, []);
 
-    const rsi = state.rsi.reduce((acc, curr, ind) => {
+    const ema = state.lowEMA.reduce((acc, curr, ind) => {
         if (ind < state.inputData.graphPeriod) {
-            acc.push({ name: ind + 1, rsi: curr.toFixed(2), rsiEMA: state.rsiEMA[ind] })
+            acc.push({ 
+                name: ind + 1,
+                lowEMA: curr,
+                mediumEMA: state.mediumEMA[ind],
+                highEMA: state.highEMA[ind],    
+            })
         }
         return acc;
     }, []);
@@ -164,33 +179,33 @@ const RSI  = () => {
             
                 <div style={{ width: "80%", display: "flex" }}>
                     <div className="chartInfo">
-                        <h1 style={{ fontSize: "32px"}}><span className="colourWhite">RSI</span> Relative Strength Index</h1>
-                        <h2 style={{ textTransform: 'inherit'  }} className="colourWhite">Evaluates overbought or oversold conditions in the price of a stock or other asset.</h2>                 
+                        <h1 style={{ fontSize: "32px"}}><span className="colourWhite">EMA</span> Exponential Moving Average</h1>
+                        <h2 style={{ textTransform: 'inherit'  }} className="colourWhite">A moving average that places a greater weight and significance on the most recent data points.</h2>                 
 
-                        <h2>Parameters: { state.inputData.rsiWindow } { state.inputData.rsiBuy } { state.inputData.rsiSell }</h2>
+                        <h2>Parameters: { state.inputData.lowEMA } { state.inputData.mediumEMA } { state.inputData.highEMA }</h2>
                         <h2>Trades: { state.totalTrades } +{ state.positiveTrades } -{ state.negativeTrades } {((state.positiveTrades/ state.totalTrades) * 100).toFixed(2)}%</h2>
                     </div>
 
                     <div className="chartInfo">
-                        <h1 style={{ fontSize: "32px"}}><span className="colourWhite">RSI</span> Parameters</h1>
+                        <h1 style={{ fontSize: "32px"}}><span className="colourWhite">EMA</span> Parameters</h1>
                         <div className="parameters">
                             <Input 
-                                label="RSI Window"
-                                inputId="rsiWindow"
+                                label="Low EMA"
+                                inputId="lowEMA"
                                 onChange={onInputChange}
-                                value={state.inputData.rsiWindow} 
+                                value={state.inputData.lowEMA} 
                             />
                             <Input 
-                                label="RSI Buy Signal"
-                                inputId="rsiBuy"
+                                label="Medium EMA"
+                                inputId="mediumEMA"
                                 onChange={onInputChange}
-                                value={state.inputData.rsiBuy} 
+                                value={state.inputData.mediumEMA} 
                             />
                             <Input 
-                            label="RSI Sell Signal"
-                            inputId="rsiSell"
+                            label="High EMA"
+                            inputId="highEMA"
                             onChange={onInputChange}
-                            value={state.inputData.rsiSell} 
+                            value={state.inputData.highEMA} 
                         />
                         </div>
                         <div style={{ marginLeft: "0px", marginRight: "0px", marginTop: "8px"}} className="tabItem" onClick={() => onSubmit()}>Submit</div>
@@ -208,8 +223,8 @@ const RSI  = () => {
                             <Chart data={portfolioData} lines={["portfolioValue", "portfolioCash"]} width={800} height={100} />
                         </div>
                         <div className="chartContainer">
-                            <h2 style={{ marginLeft: "70px"}}>RSI Value / EMA</h2>
-                            <Chart data={rsi} width={"100%"} height={100} lines={["rsi", "rsiEMA"]} />
+                            <h2 style={{ marginLeft: "70px"}}>EMA 9D / 25D / 99D</h2>
+                            <Chart data={ema} width={"100%"} height={100} lines={["lowEMA", "mediumEMA", "highEMA"]} />
                         </div>
                     </div>
                 </div>
@@ -222,4 +237,4 @@ const RSI  = () => {
     )
 }
 
-export default RSI;
+export default EMA;

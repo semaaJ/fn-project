@@ -44,7 +44,7 @@ const RSI  = () => {
                     })
                 )
                 .then(resp => resp.json())
-                .then(r => setState({ ...state, loading: false, ...r }));
+                .then(r => setState({ ...state, loading: false, ...r.data }));
             }
             fetchData();
         }
@@ -161,63 +161,62 @@ const RSI  = () => {
         <>
             <div className="section">
                 <Menu />
-            
-                <div style={{ width: "80%", display: "flex" }}>
-                    <div className="chartInfo">
-                        <h1 style={{ fontSize: "32px"}}><span className="colourWhite">RSI</span> Relative Strength Index</h1>
-                        <h2 style={{ textTransform: 'inherit'  }} className="colourWhite">Evaluates overbought or oversold conditions in the price of a stock or other asset.</h2>                 
+                <h2>Relative Strength Index (RSI)</h2>  
+                <div className="chartSelector">
+                    { Object.keys(dayMapping).map(date => <div style={{ width: "25px" }} onClick={() => onDateChange(date)} className="tabItem">{ date }</div>) }
+                </div> 
 
-                        <h2>Parameters: { state.inputData.rsiWindow } { state.inputData.rsiBuy } { state.inputData.rsiSell }</h2>
-                        <h2>Trades: { state.totalTrades } +{ state.positiveTrades } -{ state.negativeTrades } {((state.positiveTrades/ state.totalTrades) * 100).toFixed(2)}%</h2>
+                <div className="mainContainer">
+                    <div className="chartOuter">
+                        <div className="chartContainer">
+                            <h2 style={{ marginLeft: "70px"}}>Portfolio / Broker Value</h2>
+                            <Chart data={portfolioData} lines={["portfolioValue", "portfolioCash"]} width={800} height={150} />
+                        </div>
+                        <div className="chartContainer">
+                            <h2 style={{ marginLeft: "70px"}}>RSI EMA</h2>
+                            <Chart max={max} min={min} data={mainData} lines={["close"]} width={800} height={300} />
+                        </div>
+                        <div className="chartContainer">
+                            <h2 style={{ marginLeft: "70px"}}>RSI Value</h2>
+                            <Chart data={rsi} width={800} height={150} lines={["rsi", "rsiEMA"]} />
+                        </div>
                     </div>
 
-                    <div className="chartInfo">
-                        <h1 style={{ fontSize: "32px"}}><span className="colourWhite">RSI</span> Parameters</h1>
-                        <div className="parameters">
-                            <Input 
-                                label="RSI Window"
-                                inputId="rsiWindow"
-                                onChange={onInputChange}
-                                value={state.inputData.rsiWindow} 
-                            />
+                    <div className="chartSelectorContainer">
+                        <div style={{ paddingTop: "25px" }} className="chartSelectorSection">
+                            <h2 className="colourWhite">RSI Parameter</h2>
                             <Input 
                                 label="RSI Buy Signal"
                                 inputId="rsiBuy"
                                 onChange={onInputChange}
                                 value={state.inputData.rsiBuy} 
                             />
+                        </div>
+                        <div style={{ paddingTop: "25px" }} className="chartSelectorSection">
+                            <h2 className="colourWhite">RSI Parameter</h2>
                             <Input 
-                            label="RSI Sell Signal"
-                            inputId="rsiSell"
-                            onChange={onInputChange}
-                            value={state.inputData.rsiSell} 
-                        />
+                                label="RSI Sell Signal"
+                                inputId="rsiSell"
+                                onChange={onInputChange}
+                                value={state.inputData.rsiSell}
+                            />
                         </div>
-                        <div style={{ marginLeft: "0px", marginRight: "0px", marginTop: "8px"}} className="tabItem" onClick={() => onSubmit()}>Submit</div>
-                    </div>
-                </div>
-               
-                <div className="mainContainer">
-                    <div className="chartOuter">
-                        <div className="chartContainer">
-                            <h2 style={{ marginLeft: "70px"}}>SPY Close</h2>
-                            <Chart max={max} min={min} data={mainData} lines={["close"]} width={"100%"} height={320} />
+                        <div style={{ paddingTop: "25px" }} className="chartSelectorSection">
+                            <h2 className="colourWhite">RSI Parameter</h2>
+                            <Input 
+                                label="RSI Window" 
+                                inputId="rsiWindow"
+                                onChange={onInputChange} 
+                                value={state.inputData.rsiWindow}
+                            />
                         </div>
-                        <div className="chartContainer">
-                            <h2 style={{ marginLeft: "70px"}}>Portfolio / Broker Value</h2>
-                            <Chart data={portfolioData} lines={["portfolioValue", "portfolioCash"]} width={800} height={100} />
-                        </div>
-                        <div className="chartContainer">
-                            <h2 style={{ marginLeft: "70px"}}>RSI Value / EMA</h2>
-                            <Chart data={rsi} width={"100%"} height={100} lines={["rsi", "rsiEMA"]} />
-                        </div>
-                    </div>
-                </div>
 
-                <div className="chartSelector">
-                    { Object.keys(dayMapping).map(date => <div style={{ width: "25px" }} onClick={() => onDateChange(date)} className="tabItem">{ date }</div>) }
-                </div>
-            </div>              
+                        <div style={{ margin: "25px" }} onClick={() => onSubmit()} className="tabItem">Submit</div>
+
+                        { state.status === 'submit' ? getSubmit() : state.status === "calculating" ? getCalculating() : getResults() }
+                    </div>
+                </div>              
+            </div>
         </>
     )
 }
