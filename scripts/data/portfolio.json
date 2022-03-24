@@ -1,0 +1,40 @@
+{
+    "equity": 80435.491,
+    "value": 100000,
+    "tradeId": 5,
+    "openTrades": {
+        "3": {
+            "orderType": "sell",
+            "amount": 0.25,
+            "buyPrice": 43356.0
+        },
+        "4": {
+            "orderType": "sell",
+            "amount": 0.2,
+            "buyPrice": 43644.0
+        }
+    },
+    "closedTrades": {
+        "0": {
+            "orderType": "buy",
+            "amount": 0.1,
+            "buyPrice": 42866.5,
+            "sellPrice": 43059.42,
+            "profitLoss": 19.29199999999946
+        },
+        "1": {
+            "orderType": "sell",
+            "amount": 0.1,
+            "buyPrice": 43057.0,
+            "sellPrice": 42977.0,
+            "profitLoss": 8.0
+        },
+        "2": {
+            "orderType": "sell",
+            "amount": 0.1,
+            "buyPrice": 43057.0,
+            "sellPrice": 42976.99,
+            "profitLoss": 8.001000000000204
+        }
+    }
+}

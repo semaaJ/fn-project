@@ -1,186 +1,112 @@
 import React, { useState, useEffect } from 'react';
-import Menu from '../components/Menu/StripeMenu';
+import Menu from '../components/Menu/Menu';
 import Loading from '../components/Loading/Loading';
 import Chart from '../components/Chart/Chart';
-import Input from '../components/Input/Input';
+import Bar from '../components/Chart/Bar';
 import './ChartPage.css';
 
 const API_URL = 'http://127.0.0.1:5000/';
 
-const ChartPage  = (props) => {
-    const { inputData } = props;
-
-    const [state, setState] = useState({ 
-        loading: true,
-        status: 'calculating',
-        inputData: {
-            graphPeriod: 100,
-            lowEMA: 7,
-            mediumEMA: 25,
-            highEMA: 99     
-        }
-    });
+const ChartPage  = () => {
+    const [state, setState] = useState({ loading: true });
 
     useEffect(() => {
-        if (state.loading) {
-            const fetchData = async () => {
-                await fetch(`${API_URL}get`).then(resp => resp.json()).then(r => setState({ ...state, loading: false, ...r.data }));
+        const fetchData = async () => {
+            if (state.loading) {
+                await fetch(`${API_URL}cache`)
+                .then(resp => resp.json())
+                .then(r => setState({ loading: false, ...r }));
+            } else {
+                await fetch(`${API_URL}current`)
+                .then(resp => resp.json())
+                .then(r => setState({ ...state, current: r }));
             }
-            fetchData();
         }
-    });
 
-    const getCalculating = () => (
-        <div className="calculatingResults">
-            <h2 className="colourWhite" style={{ marginTop: "25px" }}>Calculating Results..</h2>
-            <Loading loadType={2} />
-        </div>
-    )
-    
-    const getSubmit = () => (
-        <div className="calculatingResults">
-            <h2 className="colourWhite" style={{ marginTop: "25px" }}>Calculating Results..</h2>
-            <Loading loadType={2} />
-        </div>
-    )
+        const timer = setInterval(() => {
+            fetchData();
+        }, 300);    
+        return () => clearTimeout(timer);
+    }, [state.loading]);
 
-    const getResults = () => {
-        return (
-            <>
-                <div className="chartSelectorSection">
-                    <h2 className="colourWhite">Starting Equity</h2>
-                    <h2>$100,000</h2>
-                </div>
-                <div className="chartSelectorSection">
-                    <h2 className="colourWhite">Ending Equity</h2>
-                    <h2>$388,512.72</h2>
-                </div>
-                <div className="chartSelectorSection">
-                    <h2 className="colourWhite">Profit Percentage</h2>
-                    <h2>388%</h2>
-                </div>
-                <div className="chartSelectorSection">
-                    <h2 className="colourWhite">Total Trades</h2>
-                    <h2>1,348</h2>
-                </div>
-                <div className="chartSelectorSection">
-                    <h2 className="colourWhite">Trade Win/Loss</h2>
-                    <h2>789/592 (65%)</h2>
-                </div>
-            </>
-        )
-    }
 
-    const onInputChange = (e, target) => {
-        setState({ 
-            ...state,
-            inputData: {
-                ...state.inputData,
-                [target]: e.target.value
+    const formatData = (items, len) => {
+        return state.history.date.reduce((acc, curr, ind) => {
+            if (ind < len) {
+                acc.push(Object.assign({ date: curr } , ...items.map(val => ({ [val]: state.history[val][ind] }))))
             }
-        })
-    }
-
-    const onSubmit = async () => {
-        setState({ ...state, status: 'calculating' })
-        await fetch(
-            `${API_URL}ema?` + new URLSearchParams({
-                lowEMA: state.inputData.lowEMA,
-                mediumEMA: state.inputData.mediumEMA,
-                highEMA: state.inputData.highEMA
-            })
-        ).then(resp => resp.json())
-
+            return acc;
+        }, []);
     }
 
     if (state.loading) {
         return <Loading loadType={1} />
     };
 
-    const mainData = state.close.reduce((acc, curr, ind) => {
-        if (ind < state.inputData.graphPeriod) {
-            acc.push({ 
-                name: ind + 1, 
-                close: curr.toFixed(2),
-                lowEMA: state.lowEMA[ind].toFixed(2),
-                mediumEMA: state.mediumEMA[ind].toFixed(2),
-                highEMA: state.highEMA[ind].toFixed(2),
-            })
-        }
-        return acc;
-    }, []);
 
-    const rsi = state.rsi.reduce((acc, curr, ind) => {
-        if (ind < state.inputData.graphPeriod) {
-            acc.push({ name: ind + 1, rsi: curr.toFixed(2) })
-        }
-        return acc;
-    }, []);
+    const len = 100;
+    const min = Math.min(...state.history.close.slice(0, len)) - 25;
+    const max = Math.max(...state.history.close.slice(0, len)) + 25;
+
+    const volMin = Math.min(...state.history.volume.slice(0, len));
+    const volMax = Math.max(...state.history.volume.slice(0, len));
+
+    const history = formatData(['close', 'ema7', 'ema25', 'ema99'], len);
+    const rsi = formatData(['rsi14'], len);
+    const vol = formatData(['volume'], len);
+    const mfi = formatData(['mfi'], len);
 
     return (
         <>
             <div className="section">
-                <Menu />
-                {/* <div className="chartSelector">
-                    { ["1D", "1W", "2W", "1M", "3M", "6M", "1Y", "5Y", "10Y", "All"].map(date => <div style={{ width: "25px" }} className="tabItem">{ date }</div>) }
-                </div>  */}
-                <h2>Exponential Moving Average (EMA)</h2>  
-                <Input    
-                    label="Graph Period"
-                    inputId="graphPeriod"
-                    onChange={onInputChange}
-                    value={state.inputData.graphPeriod} 
-                />                            
-                <div className="mainContainer">
-                    <div className="chartOuter">
-                        <div className="chartContainer">
-                            <h2 style={{ marginLeft: "70px"}}>Portfolio / Broker Value</h2>
-                            <Chart data={rsi} lines={["rsi"]} width={800} height={150} />
-                        </div>
-                        <div className="chartContainer">
-                            <h2 style={{ marginLeft: "70px"}}>Close / 9 Day EMA / 25 Day EMA / 99 Day EMA</h2>
-                            <Chart data={mainData} lines={["close", "lowEMA", "mediumEMA", "highEMA"]} width={800} height={300} />
-                        </div>
-                        <div className="chartContainer">
-                            <h2 style={{ marginLeft: "70px"}}>RSI Value</h2>
-                            <Chart data={rsi} width={800} height={150} lines={["rsi"]} />
-                        </div>
-                    </div>
+                <Menu 
+                    current={state.current ? parseFloat(state.current.price).toFixed(2) : 0}
+                    portfolio={state.portfolio}
+                />
 
-                    <div className="chartSelectorContainer">
-                        <div style={{ paddingTop: "25px" }} className="chartSelectorSection">
-                            <h2 className="colourWhite">EMA Parameter</h2>
-                            <Input 
-                                label="EMA Low Period"
-                                inputId="lowEMA"
-                                onChange={onInputChange}
-                                value={state.inputData.lowEMA} 
-                            />
-                        </div>
-                        <div style={{ paddingTop: "25px" }} className="chartSelectorSection">
-                            <h2 className="colourWhite">EMA Parameter</h2>
-                            <Input 
-                                inputId="mediumEMA"
-                                label="EMA Medium Period"
-                                onChange={onInputChange}
-                                value={state.inputData.mediumEMA}
-                            />
-                        </div>
-                        <div style={{ paddingTop: "25px" }} className="chartSelectorSection">
-                            <h2 className="colourWhite">EMA Parameter</h2>
-                            <Input 
-                                label="EMA High Period" 
-                                inputId="highEMA"
-                                onChange={onInputChange} 
-                                value={state.inputData.highEMA}
-                            />
-                        </div>
 
-                        <div style={{ margin: "25px" }} onClick={() => onSubmit()} className="tabItem">Submit</div>
+                <div className="d-f-c chartContainer">
+                    <h2 className="ml-70">Close / 7D EMA / 25D EMA / 99D EMA</h2>
+                    <Chart 
+                        data={history} 
+                        lines={["close", "ema7", "ema25", "ema99"]} 
+                        width="100%" 
+                        height={400} 
+                        min={min} 
+                        max={max} 
+                    />
+                    
+                    <h2 className="ml-70">Volume</h2>
+                    <Bar 
+                        data={vol} 
+                        width="100%" 
+                        height={115}
+                        min={volMin}
+                        max={volMax}
+                    />
 
-                        { state.status === 'submit' ? getSubmit() : state.status === "calculating" ? getCalculating() : getResults() }
-                    </div>
-                </div>              
+                    <h2 className="ml-70">Relative Strength Index</h2>
+                    <Chart 
+                        data={rsi} 
+                        lines={["rsi14"]} 
+                        width="100%" 
+                        height={115} 
+                        min={0} 
+                        max={100}
+                        referenceLines={[30, 70]} 
+                    />
+
+                    <h2 className="ml-70">Money Flow Index</h2>
+                    <Chart 
+                        data={mfi} 
+                        lines={["mfi"]} 
+                        width="100%" 
+                        height={115} 
+                        min={0} 
+                        max={100}
+                        referenceLines={[20, 80]} 
+                    />
+                </div>
             </div>
         </>
     )

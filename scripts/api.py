@@ -1,16 +1,19 @@
 import os
 import json
 import datetime
+import pandas as pd
 
-import yfinance as yf
-import backtrader as bt
-
-from backtest import EMAStrategy, RSIStrategy, CommInfoFractional, get_profit_percentage
+from binance import Client
+from ta import momentum, trend, volume
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 cors = CORS(app)
+
+API_KEY = ''
+API_SECRET = ''
+client = Client(API_KEY, API_SECRET)
 
 def create_json(path):
     with open(f"{path}", "w+") as f:
@@ -22,90 +25,103 @@ def file_exists(file, dir):
 def return_all_files_in_dir(dir):
     return [f for f in os.listdir(f"{os.path.dirname(os.path.abspath(__file__))}\data\{dir}")]
 
-def execute_strategy():
-    pass
-
-@app.route('/update', methods=['GET'])
-def update():
-    spy = yf.Ticker("SPY")
-    hist = spy.history(period="max").filter(['Open', 'High', 'Low', 'Close', 'Volume'])
-    hist = hist.rename(columns={"Open": "open", "High": "high", "Low": "low", "Close": "close", "Volume": "volume"})
-
-@app.route('/rsi/', methods=['GET'])
-def rsi():
+@app.route('/close', methods=['GET'])
+def close():
     args = request.args.to_dict()
-    rsi_window, rsi_sell, rsi_buy = int(args['rsiWindow']), int(args['rsiSell']), int(args['rsiBuy'])
+    tradeId, sell_price = args["tradeId"], float(args["current"])
 
-    if file_exists(f'{rsi_window}-{rsi_buy}-{rsi_sell}.json', 'rsi'):
-        with open(f'./data/rsi/{rsi_window}-{rsi_buy}-{rsi_sell}.json', 'r') as f:
-            return json.load(f)
-    else:
-        with open(f'./data/rsi/{rsi_window}-{rsi_buy}-{rsi_sell}.json', 'w') as f:
-            json.dump({}, f)
+    with open('./data/portfolio.json', "r+") as f:
+            portfolio = json.load(f)
 
-        try: 
-            cerebro = bt.Cerebro()
-            feed = bt.feeds.YahooFinanceCSVData(dataname='./data/SPY.csv', fromdate=datetime.datetime(1993, 1, 29), todate=datetime.datetime(2022, 2, 18)) 
-            cerebro.adddata(feed) 
-            cerebro.addstrategy(RSIStrategy, rsi_window=rsi_window, rsi_buy=rsi_buy, rsi_sell=rsi_sell)
-            cerebro.broker.addcommissioninfo(CommInfoFractional())
-            cerebro.broker.setcommission(commission=0.001)
-            cerebro.run()
-        
-            with open(f'./data/rsi/{rsi_window}-{rsi_buy}-{rsi_sell}.json', 'r') as f:
-                return json.load(f)
+            trade = portfolio['openTrades'][tradeId] 
+            trade['sellPrice'] = sell_price
+            if trade['orderType'] == 'buy':
+                trade['profitLoss'] = (sell_price * trade["amount"]) - (trade["buyPrice"] * trade["amount"])
+            else:
+                trade['profitLoss'] = (trade["buyPrice"] * trade["amount"]) - (sell_price * trade["amount"])
 
-        except Exception as e:
-            print("ERROR: ", e)
+            del portfolio['openTrades'][tradeId] 
+            portfolio['closedTrades'][tradeId] = trade
+            portfolio['equity'] += (sell_price * trade["amount"])
 
+            f.seek(0)
+            f.truncate()
+            json.dump(portfolio, f, indent=4)
 
+            return {}
 
-@app.route('/ema/', methods=['GET'])
-def ema():
+@app.route('/order', methods=['GET'])
+def order():
     args = request.args.to_dict()
-    low_ema, medium_ema, high_ema = int(args['lowEMA']), int(args['mediumEMA']), int(args['highEMA'])
+    order_type, amount, buy_price = args['orderType'], float(args['amount']), float(args['buyPrice'])
 
-    if file_exists(f'{low_ema}-{medium_ema}-{high_ema}.json', 'ema'):
-        with open(f'./data/ema/{low_ema}-{medium_ema}-{high_ema}.json', 'r') as f:
-            return json.load(f)
-    else:
-        with open(f'./data/ema/{low_ema}-{medium_ema}-{high_ema}.json', 'w') as f:
-            json.dump({}, f)
+    if all([order_type, amount, buy_price]):
+        with open('./data/portfolio.json', "r+") as f:
+            portfolio = json.load(f)
 
-        try: 
-            cerebro = bt.Cerebro()
-            data = bt.feeds.YahooFinanceCSVData(dataname='./data/SPY.csv', fromdate=datetime.datetime(1993, 1, 29), todate=datetime.datetime(2022, 2, 18)) 
-            cerebro.adddata(data) 
-            cerebro.addstrategy(EMAStrategy, low=low_ema, medium=medium_ema, high=high_ema)
-            cerebro.broker.setcash(100000.0)
-            cerebro.broker.addcommissioninfo(CommInfoFractional())
-            cerebro.broker.setcommission(commission=0.001)
-            cerebro.run()
-        
-            with open(f'./data/ema/{low_ema}-{medium_ema}-{high_ema}.json', 'r') as f:
-                return json.load(f)
+            portfolio['openTrades'][portfolio['tradeId']] = { "orderType": order_type, "amount": amount, "buyPrice": buy_price }
+            portfolio['tradeId'] += 1
+            portfolio['equity'] -= amount * buy_price
 
-        except Exception as e:
-            print("ERROR: ", e)
+            f.seek(0)
+            f.truncate()
+            json.dump(portfolio, f, indent=4)
 
+            return {}
+    
     return {}
 
-@app.route('/results', methods=['GET'])
-def results():
-    results = []
-    for file in return_all_files_in_dir('rsi'):
-        with open(f'./data/rsi/{file}', 'r') as f:
-            rsi_window, rsi_buy, rsi_sell = (int(_) for _ in file.split(".")[0].split("-")) 
-            f_json = json.load(f)
-            results.append({
-                "rsiWindow": rsi_window,
-                "rsiBuy": rsi_buy,
-                "rsiSell": rsi_sell,
-                "profitPercentage": f_json["data"]["profitPercentage"],
-                "totalTrades": f_json["data"]["totalTrades"],
-                "positiveTrades": f_json["data"]["positiveTrades"],
-                "negativeTrades": f_json["data"]["negativeTrades"]
-            })
+
+@app.route('/current', methods=['GET'])
+def current():
+    price = client.get_symbol_ticker(symbol="BTCUSDT")
+    return jsonify(price)
+
+@app.route('/cache', methods=['GET'])
+def cache():
+    btc_history = []
+    portfolio = []
+
+    with open('./data/BTC.json', 'r') as f:
+        btc_history = json.load(f)
+
+    with open('./data/portfolio.json', 'r') as f:
+        portfolio = json.load(f)
+
+    return jsonify({ "history": btc_history, "portfolio": portfolio})
+
+
+@app.route('/update', methods=['GET'])
+def update():    
+    # date, open, high, low, close, volume
+    klines = client.get_historical_klines("BTCUSDT", Client.KLINE_INTERVAL_1MINUTE, "23 Mar, 2022", "30 Mar, 2022")
+
+    date, op, high, low, close, vol = [], [], [], [], [], []
+    for item in klines:
+        date.append(item[0])
+        op.append(float(item[1]))
+        high.append(float(item[2]))
+        low.append(float(item[3]))
+        close.append(float(item[4]))
+        vol.append(float(item[5]))
+
+    results = pd.DataFrame({ "date": date, "open": op, "high": high, "low": low, "close": close, "volume": vol })
+    
+    results["date"] = pd.to_datetime(results["date"], unit='ms').apply(lambda x: str(x))
+    results["ema7"] = trend.EMAIndicator(close=results['close'], window=7).ema_indicator()
+    results["ema25"] = trend.EMAIndicator(close=results['close'], window=25).ema_indicator()
+    results["ema99"] = trend.EMAIndicator(close=results['close'], window=99).ema_indicator()
+    results["mfi"] = volume.MFIIndicator(close=results['close'], high=results['high'], low=results['low'], volume=results['volume'], window=14).money_flow_index()
+    results["rsi14"] = momentum.RSIIndicator(close=results['close'], window=14).rsi()
+
+    results = results.dropna()
+    results = results.to_dict()
+    results = { k: list(results[k].values()) for k in results }
+
+    with open('./data/BTC.json', 'w+') as f:
+        f.seek(0)
+        f.truncate()
+        json.dump(results, f)
 
     return jsonify(results)
 
