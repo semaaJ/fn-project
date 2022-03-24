@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import './Chart.css';
-
+import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 const Signal = (props) => {
   const { cx, cy, payload,  } = props;
@@ -12,7 +10,7 @@ const Signal = (props) => {
         <circle cx="50" cy="50" r="40" fill="red" />      
       </svg>
     );
-  } else if (payload.signal == 1) {
+  } else if (payload.signal === 1) {
     return (
       <svg x={cx - 10} y={cy - 10} width={150} height={150} fill="green" viewBox="0 0 1024 1024">
         <circle cx="50" cy="50" r="40" fill="green" /> 
@@ -22,9 +20,14 @@ const Signal = (props) => {
   return <svg />
 };
 
+const formatDate = (date) => {
+  // 2016-02-09
+  const split = date.split("-");
+  return `${ split[1] }/${ split[0].slice(0, 2) }`;
+}
 
 const Chart = (props) => {
-  const { lines, data, height, width, max, min } = props;
+  const { lines, data, height, width, max, min, referenceLines } = props;
 
   const colourData = ["#0099ff", "#e8175d", "#fad30c", "#81ba4b"];
 
@@ -34,15 +37,22 @@ const Chart = (props) => {
           width={width}
           height={height}
           data={data}
+          onClick={e => console.log(e)}
         >
-          <XAxis stroke="white" />
+          <XAxis 
+            stroke="white"
+            dataKey="date" 
+            tick={false}
+            // tickFormatter={(value) => formatDate(data[value].date)}
+          />
           <YAxis 
             stroke="white" 
             domain={[min, max]} 
             tickFormatter={(value) => new Intl.NumberFormat('en', { notation: "compact", compactDisplay: "short" }).format(value)} 
           />
           <Tooltip />
-          { lines.map((val, ind) => <Line dot={<Signal />} type="monotone" dataKey={val} stroke={colourData[ind]} strokeWidth={2} />) }
+          { referenceLines && referenceLines.map(val => <ReferenceLine y={val} stroke="white" strokeDasharray="3 3" />)}
+          { lines.map((val, ind) => <Line dot={<Signal />} type="monotone" dataKey={val} stroke={colourData[ind]} strokeWidth={1} />) }
         </LineChart>
       </ResponsiveContainer>
   );
