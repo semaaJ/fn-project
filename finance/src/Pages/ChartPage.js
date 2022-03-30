@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import Menu from '../components/Menu/Menu';
 import Loading from '../components/Loading/Loading';
 import Chart from '../components/Chart/Chart';
@@ -6,62 +7,73 @@ import Bar from '../components/Chart/Bar';
 import './ChartPage.css';
 
 const API_URL = 'http://127.0.0.1:5000/';
+const len = 250;
+
 
 const ChartPage  = () => {
-    const [state, setState] = useState({ loading: true });
+    const [state, setState] = useState({ loading: true, current: undefined, selectedSymbol: 'BTCUSDT' });
+
+    const setSelectedSymbol = (symbol) => setState({ ...state, selectedSymbol: symbol });
 
     useEffect(() => {
         const fetchData = async () => {
             if (state.loading) {
                 await fetch(`${API_URL}cache`)
                 .then(resp => resp.json())
-                .then(r => setState({ loading: false, ...r }));
+                .then(r => setState({ ...state, loading: false, ...r }));
             } else {
                 await fetch(`${API_URL}current`)
                 .then(resp => resp.json())
-                .then(r => setState({ ...state, current: r }));
+                .then(r => setState({  ...state, current: r }));
             }
         }
 
         const timer = setInterval(() => {
             fetchData();
-        }, 300);    
+        }, 600);
         return () => clearTimeout(timer);
-    }, [state.loading]);
+    }, [state.loading, state.selectedSymbol]);
 
 
     const formatData = (items, len) => {
-        return state.history.date.reduce((acc, curr, ind) => {
+        const date = state.history[state.selectedSymbol].date.slice(state.history[state.selectedSymbol].date.length - len);
+
+        return date.reduce((acc, curr, ind) => {
             if (ind < len) {
-                acc.push(Object.assign({ date: curr } , ...items.map(val => ({ [val]: state.history[val][ind] }))))
+                acc.push(Object.assign({ date: curr } , ...items.map(val => ({ [val]: state.history[state.selectedSymbol][val][len + ind] }))))
             }
             return acc;
         }, []);
     }
 
-    if (state.loading) {
+    if (state.loading || state.current === undefined) {
         return <Loading loadType={1} />
     };
 
+    const min = Math.min(...state.history[state.selectedSymbol].close.slice(0, len));
+    const max = Math.max(...state.history[state.selectedSymbol].close.slice(0, len));
 
-    const len = 100;
-    const min = Math.min(...state.history.close.slice(0, len)) - 25;
-    const max = Math.max(...state.history.close.slice(0, len)) + 25;
-
-    const volMin = Math.min(...state.history.volume.slice(0, len));
-    const volMax = Math.max(...state.history.volume.slice(0, len));
+    const volMin = Math.min(...state.history[state.selectedSymbol].volume.slice(0, len));
+    const volMax = Math.max(...state.history[state.selectedSymbol].volume.slice(0, len));
 
     const history = formatData(['close', 'ema7', 'ema25', 'ema99'], len);
-    const rsi = formatData(['rsi14'], len);
     const vol = formatData(['volume'], len);
-    const mfi = formatData(['mfi'], len);
+
+    const rsi = formatData(['rsi14', 'rsiSignal'], len).map(val => { return { date: val.date, rsi14: val.rsi14, signal: val.rsiSignal }});
+    const mfi = formatData(['mfi', 'mfiSignal'], len).map(val => { return { date: val.date, mfi: val.mfi, signal: val.mfiSignal }});
 
     return (
         <>
+            <Helmet>
+                <title>{state.current ? `${state.selectedSymbol} - $${ parseFloat(state.current[state.selectedSymbol]).toFixed(2) }` : 'PaperTrader - Loading..'}</title>
+            </Helmet>
+            
             <div className="section">
                 <Menu 
-                    current={state.current ? parseFloat(state.current.price).toFixed(2) : 0}
-                    portfolio={state.portfolio}
+                    symbol={state.selectedSymbol}
+                    currentPrices={state.current || {}}
+                    setSelectedSymbol={setSelectedSymbol}
+                    results={state.results}
                 />
 
 

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, ResponsiveContainer, CartesianGrid } from 'recharts';
+import React from 'react';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts';
 
 const Signal = (props) => {
   const { cx, cy, payload,  } = props;
@@ -7,27 +7,29 @@ const Signal = (props) => {
   if (payload.signal === -1) {
     return (
       <svg x={cx - 10} y={cy - 10} width={150} height={150} fill="red" viewBox="0 0 1024 1024">
-        <circle cx="50" cy="50" r="40" fill="red" />      
+        <circle cx="50" cy="50" r="20" fill="red" />      
       </svg>
     );
   } else if (payload.signal === 1) {
     return (
       <svg x={cx - 10} y={cy - 10} width={150} height={150} fill="green" viewBox="0 0 1024 1024">
-        <circle cx="50" cy="50" r="40" fill="green" /> 
+        <circle cx="50" cy="50" r="20" fill="green" /> 
       </svg>
     );
   }
   return <svg />
 };
 
-const formatDate = (date) => {
-  // 2016-02-09
-  const split = date.split("-");
-  return `${ split[1] }/${ split[0].slice(0, 2) }`;
-}
-
 const Chart = (props) => {
-  const { lines, data, height, width, max, min, referenceLines } = props;
+  const { 
+    lines,
+    data, 
+    height, 
+    width, 
+    max, 
+    min, 
+    referenceLines 
+  } = props;
 
   const colourData = ["#0099ff", "#e8175d", "#fad30c", "#81ba4b"];
 
@@ -52,7 +54,7 @@ const Chart = (props) => {
           />
           <Tooltip />
           { referenceLines && referenceLines.map(val => <ReferenceLine y={val} stroke="white" strokeDasharray="3 3" />)}
-          { lines.map((val, ind) => <Line dot={<Signal />} type="monotone" dataKey={val} stroke={colourData[ind]} strokeWidth={1} />) }
+          { lines.map((val, ind) => <Line isAnimationActive={false} dot={<Signal />} type="monotone" dataKey={val} stroke={colourData[ind]} strokeWidth={1} />) }
         </LineChart>
       </ResponsiveContainer>
   );
