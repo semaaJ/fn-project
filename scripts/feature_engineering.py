@@ -47,7 +47,6 @@ def get_information_ratio(returns, bench_return, bench_return_prod, window_lengt
     """ Information ration = (stock return - benchmark return) / tracking)
 
     """
-    # print("SPY_DF", bench_return)
     dates = returns.index
     print(dates)
     print(max(dates))
@@ -304,6 +303,42 @@ def calculate_historic_volatility(df, window_length):
     return df
 
 
+def calc_volume_fi(df):
+
+    calc_force_index(df, 7)
+    calc_force_index(df, 14)
+
+    calc_comodity_chanel_index(df, 7)
+    calc_comodity_chanel_index(df, 14)
+
+    print(df)
+    print(df.columns)
+    a-b
+    return df
+
+
+def calc_force_index(df, window_length):
+    """ Calculate the force index over a given period of time
+    """ 
+    df["{}d_force_index".format(window_length)] = df['close'].diff(window_length) * df['volume'] 
+    
+    return df
+
+
+# Commodity Channel Index 
+def calc_comodity_chanel_index(df, window_length): 
+    df['TP'] = (data['high'] + data['low'] + data['close']) / 3 
+    df['sma'] = df['TP'].rolling(ndays).mean()
+    df['mad'] = df['TP'].rolling(ndays).apply(lambda x: pd.Series(x).mad())
+    df['{}d_cci'.format(window_length)] = (df['TP'] - df['sma']) / (0.015 * df['mad']) 
+
+    del df["TP"]
+    del df["sma"]
+    del df["mad"]
+    
+    return df
+
+
 def get_crypto_data():
 
     crypto_df = pd.read_csv("crypto.csv", delimiter=',', sep=r', ')
@@ -359,6 +394,8 @@ def feature_engineering_main():
         # df = calc_volume_and_gain_loss_avgs(df)
 
         # df = calculate_maximum_drowdown(df)
+
+        df = calc_volume_fi(df)
 
         # # Next look at volatility scores
         # df = get_volatility_scores(df)
